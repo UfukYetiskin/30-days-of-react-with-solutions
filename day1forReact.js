@@ -23,7 +23,7 @@ const emptyArr = [];
 
 const numbersArr = [0, 3.14, 9.81, 37, 98.6, 100]
 const fruitsArr = ['banana', 'orange', 'mango', 'lemon']
-const vegetablesArr =['tomato',  'potato', 'Cabbage', 'Onion']
+const vegetablesArr = ['tomato', 'potato', 'Cabbage', 'Onion']
 
 console.log(numbersArr);
 console.log(fruitsArr)
@@ -33,8 +33,8 @@ const ummuhanArr = [
     'Ümmühan',
     'Yetişkin',
     true,
-    {country : 'Turkey', city: 'Aydın'},
-    {skills : ['marketing', 'sales'] }
+    { country: 'Turkey', city: 'Aydın' },
+    { skills: ['marketing', 'sales'] }
 ]
 console.log(ummuhanArr);
 
@@ -52,8 +52,8 @@ const fruitArr = ['Apple', 'Mandalin', 'Lemon']
 let firstFruitArrValue = fruitArr[0]
 console.log(firstFruitArrValue); //Apple
 
-let lastIndexofFruitValue = fruitArr[fruitArr.length - 1 ]
-let lastIndexofFruitValue2 = fruitArr.length -1 
+let lastIndexofFruitValue = fruitArr[fruitArr.length - 1]
+let lastIndexofFruitValue2 = fruitArr.length - 1
 console.log(lastIndexofFruitValue); //Lemon
 console.log(fruitArr[lastIndexofFruitValue2]); //Lemon
 
@@ -83,7 +83,7 @@ console.log(eightEmptyValuesArr); // (8) [boş × 8]
 // ---- Concatenating  array using concat
 //concat: İki diziyi birleştirmek için.
 
-const firstConcatNumberList =[1, 2, 3]
+const firstConcatNumberList = [1, 2, 3]
 const secondConcarNumberList = [4, 5, 6]
 const concatedNumberLists = firstConcatNumberList.concat(secondConcarNumberList);
 
@@ -92,7 +92,7 @@ console.log(concatedNumberLists); //(6) [1, 2, 3, 4, 5, 6]
 
 //--- Getting array length
 
-const getArrayLength = [1, 3, 5,6, 12,41]
+const getArrayLength = [1, 3, 5, 6, 12, 41]
 console.log(getArrayLength)//[1, 3, 5, 6, 12, 41]
 
 //Getting index of an element 
@@ -110,9 +110,9 @@ console.log(indexOfMethodArr.indexOf('Deniz')) // 2
 const checkFruitsArr = ['Banana', 'Orange', 'Mango', 'Lemon']
 let indexofMango = checkFruitsArr.indexOf('Mango') //2
 
-if(indexofMango != -1){
+if (indexofMango != -1) {
     console.log('This fruit does exits in the array')
-}else{
+} else {
     console.log('This fruit does not exits in the array');
 }
 //This fruit does exits in the array
@@ -183,7 +183,7 @@ const spliceNumbers = [1, 2, 3, 4, 5]
 console.log(spliceNumbers.splice()) // bütün elemanları siler
 
 const spliceNumbers2 = [1, 2, 3, 4, 5]
-console.log(spliceNumbers2.splice(0,1)) //birinci elemanı siler
+console.log(spliceNumbers2.splice(0, 1)) //birinci elemanı siler
 
 const spliceNumbers3 = [1, 2, 3, 4, 5, 6]
 console.log(spliceNumbers3.splice(3, 3, 7, 8, 9)) // [1, 2, 3, 7, 8, 9] it removes three item and replace three items
@@ -227,10 +227,10 @@ console.log(reverseArr.reverse()) //0:5 1:4 2:3 3:2
 //sort: dizi öğelerini artan sırada düzenleyin. Sort bir geri arama fonksiyonu alır, sort geri arama fonksiyonu ile nasıl kullandığımızı ilerleyen bölümlerde göreceğiz.
 
 const sortArr = ['Ufuk', 'Ümmühan', 'Deniz', 'Artemis']
-console.log(sortArr.sort(function(b,a) {return b - a}))
+console.log(sortArr.sort(function (b, a) { return b - a }))
 
 const sortNumbers = [22, 12, 2, 3, 5]
-console.log(sortNumbers.sort(function(a,b){return b-a}))
+console.log(sortNumbers.sort(function (a, b) { return b - a }))
 
 //Array of arrays 
 // Dizi, bir dizinin kendisi de dahil olmak üzere farklı veri türlerini depolayabilir. Bir dizi dizi oluşturalım
@@ -243,25 +243,25 @@ console.log(arrayofArray.length) // 2
 
 //Execises 
 console.log("--- Exercises Level 1")
-const firstExercisesCountriesArr = [  'Albania',
-'Bolivia',
-'Canada',
-'Denmark',
-'Ethiopia',
-'Finland',
-'Germany',
-'Hungary',
-'Ireland',
-'Japan',
-'Kenya',]
-const firstExercisesWebTechsArr = [  
-'HTML',
-'CSS',
-'JavaScript',
-'React',
-'Redux',
-'Node',
-'MongoDB',]
+const firstExercisesCountriesArr = ['Albania',
+    'Bolivia',
+    'Canada',
+    'Denmark',
+    'Ethiopia',
+    'Finland',
+    'Germany',
+    'Hungary',
+    'Ireland',
+    'Japan',
+    'Kenya',]
+const firstExercisesWebTechsArr = [
+    'HTML',
+    'CSS',
+    'JavaScript',
+    'React',
+    'Redux',
+    'Node',
+    'MongoDB',]
 // 1. Declare an empty array
 const exerciseEmptyArr = Array();
 
@@ -277,7 +277,7 @@ console.log('Middle item of the Countries: ', firstExercisesCountriesArr[Math.ro
 console.log('Last item of the Countries: ', firstExercisesCountriesArr[firstExercisesCountriesArr.length - 1])
 
 //5. Declare an array called mixedDataTypes, put different data types in the array and find the length of the array. The array size should be greater than 5
-const mixedDataTypes = ["Ümmühan", {name:"Ümmühan", surname: "Gümüş" }, 23, ['Marketing', 'Digitale Marketing', 'Sales'], true]
+const mixedDataTypes = ["Ümmühan", { name: "Ümmühan", surname: "Gümüş" }, 23, ['Marketing', 'Digitale Marketing', 'Sales'], true]
 //6. Declare an array variable name itCompanies and assign initial values Facebook, Google, Microsoft, Apple, IBM, Oracle and Amazon
 const itCompanies = ['Facebook', 'Google', 'Microsoft', 'Apple', 'IBM', 'Oracle', 'Amazon']
 //7. Print the array using console.log()
@@ -287,8 +287,8 @@ console.log(itCompanies)
 console.log(itCompanies.length)
 //9. Print the first company, middle and last company
 console.log('First Company: ', itCompanies[0])
-console.log('Middle Company: ',itCompanies[Math.round(itCompanies.length / 2)])
-console.log('Last Company: ', itCompanies[itCompanies.length -1])
+console.log('Middle Company: ', itCompanies[Math.round(itCompanies.length / 2)])
+console.log('Last Company: ', itCompanies[itCompanies.length - 1])
 //10. Print out each company
 itCompanies.map(company => console.log(company))
 //11. Change each company name to uppercase one by one and print them out
@@ -303,19 +303,19 @@ const indexOfOracle = itCompanies.indexOf('Oracle');
 const indexOfAmazon = itCompanies.indexOf('Amazon');
 console.log(`${itCompanies[indexOfFB]}, ${itCompanies[indexOfGoogle]}, ${itCompanies[indexOfMicrosoft]}, ${itCompanies[indexOfApple]}, ${itCompanies[indexOfIBM]}, ${itCompanies[indexOfOracle]} and ${itCompanies[indexOfAmazon]} are big IT companies.`)
 //13. Check if a certain company exists in the itCompanies array. If it exist return the company else return a company is not found
-if(itCompanies.indexOf('Getir') == -1){
-    itCompanies.push('Getir') 
-}else{
+if (itCompanies.indexOf('Getir') == -1) {
+    itCompanies.push('Getir')
+} else {
     console.log('Getir, dizide mevcut')
 }
 //14. Filter out companies which have more than one 'o' without the filter method
 itCompanies.map(company => {
-    if(company.split("o").length - 1 >= 2){
+    if (company.split("o").length - 1 >= 2) {
         console.log(company)
     }
 })
-for(let i = 0 ; i < itCompanies.length; i++){
-    if(itCompanies[i].split("o").length - 1 >= 2){
+for (let i = 0; i < itCompanies.length; i++) {
+    if (itCompanies[i].split("o").length - 1 >= 2) {
         console.log(itCompanies[i])
     }
 }
@@ -324,7 +324,7 @@ itCompanies.sort();
 //16.Reverse the array using reverse() method
 itCompanies.reverse()
 //17. Slice out the first 3 companies from the array
-console.log(itCompanies.slice(0,3))
+console.log(itCompanies.slice(0, 3))
 
 //18. Slice out the last 3 companies from the array
 console.log(itCompanies.slice(itCompanies.length - 4, itCompanies.length - 1))
@@ -339,4 +339,130 @@ itCompanies.shift();
 console.log(itCompanies.splice(0, itCompanies.length))
 console.log(itCompanies)
 
-//Exercises Level : 2
+//4. Conditionals(Koşullar)
+
+console.log(' --------- Conditionals (Koşullar) ------')
+
+//if
+let num = 3;
+if (num > 0) {
+    console.log(`${num} is positive number`)
+}
+
+let isRaining = true
+if (isRaining) {
+    console.log('Remember to take your rain coat.')
+}
+
+//Switch
+
+let todayIsSunday = 'Sunday'
+switch (todayIsSunday) {
+    case 'Sunday':
+        console.log('Today is Sunday')
+        break
+    case 'Friday':
+        console.log('Today is Friday')
+        break;
+    default:
+        break;
+}
+
+
+//Ternary Operators
+//Üçlü operatör React'te çok yaygındır . If else ifadesini yazmanın kısa bir yoludur. React'te birçok durumda üçlü operatör kullanırız.
+let isRainingToday = true
+isRainingToday
+    ? console.log('You need a rain coat')
+    : console.log('No need for a rain coat')
+
+//5. Loops (Döngüler)
+console.log('---Loops----')
+/*
+Programlamada, tekrarlayan görevleri gerçekleştirmek için farklı döngüler kullanırız.
+ Bu nedenle döngü, sıkıcı ve tekrarlayan görevleri otomatikleştirmemize yardımcı 
+ olabilir. JavaScript'te ayrıca tekrarlayan görevler üzerinde çalışmak için 
+ kullanabileceğimiz farklı döngü türleri vardır.
+
+Bir döngü olmadan bin kez Merhaba dünya yazdırmanız istendiğini hayal edin, bu sıkıcı 
+görevi yapmak bir veya iki saat sürebilir. Ancak, döngü kullanarak bir saniyeden daha 
+kısa sürede yazdırabiliriz.
+
+Loops:
+    for
+    while
+    do while
+    for of
+    forEach
+    for in
+*/
+
+//for
+for (let i = 0; i < 10; i++) {
+    console.log(i)
+}
+
+let sum = 0;
+for (let i = 0; i < 11; i++) {
+    sum += i
+}
+console.log(sum)
+
+const forLoopsArr = [11, 22, 33, 44]
+for (let i = 0; i < forLoopsArr.length; i++) {
+    console.log(forLoopsArr[i])
+}
+//Diziyi tersine çevirir
+const reverseArrWithFor = ['First Item', 'Second Item', 'Third İtem', 'Fourth Item']
+const lastIndexofFor = reverseArrWithFor.length - 1
+const newArrFor = []
+for (let i = lastIndexofFor; i >= 0; i--) {
+    newArrFor.push(reverseArrWithFor[i])
+}
+console.log(newArrFor)
+
+//while
+let promptCount = 8
+while (promptCount > 0) {
+    console.log(promptCount)
+    promptCount--
+}
+
+//do while
+let doWhileCount = 0
+do {
+    console.log(doWhileCount)
+    doWhileCount++
+} while (doWhileCount < 11)
+
+//for of 
+
+const forOfArr = ['Finland', 'Sweden', 'Norway', 'Denmark', 'Iceland']
+for (const country of forOfArr) {
+    console.log(country.toLocaleLowerCase())
+}
+
+//forEach
+//Dizinin dizini ile ilgileniyorsak, forEach dizisi for of döngüsüne tercih edilir. forEach dizisi yöntemi bir geri arama işlevi alır, geri arama işlevi üç bağımsız değişken alır: öğe, dizin ve dizinin kendisi
+const forEachNumbersArr = [11, 12, 13, 14]
+forEachNumbersArr.forEach((number, index) => {
+    console.log(number, index)
+})
+
+const forEachCountriesArr = ['Finland', 'Sweden', 'Norway', 'Denmark', 'Iceland']
+forEachCountriesArr.forEach((country, index, arr) => {
+    console.log(index, country.toLocaleUpperCase())
+})
+
+//for in
+//for in döngüsü, nesnenin anahtarlarını almak için nesne değişmezleriyle birlikte kullanılabilir.
+const forInLoopsObject = {
+    firstName: 'Asabeneh',
+    lastName: 'Yetayeh',
+    age: 250,
+    country: 'Finland',
+    skills: ['HTML', 'CSS', 'JS', 'React', 'Node', 'Python', 'D3.js'],
+}
+for(const key in forInLoopsObject){
+    console.log(key, forInLoopsObject[key])
+}
