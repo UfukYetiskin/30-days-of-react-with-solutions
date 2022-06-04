@@ -217,3 +217,126 @@ const unshiftArr = ['firstItem', 'secondItem', 'thirdItem']
 unshiftArr.unshift('zero');
 console.log(unshiftArr);//['zero', 'firstItem', 'secondItem', 'thirdItem']
 
+//Reversing array order
+//reverse: dizinin sırasını index değerlerine göre tersine çevirir
+
+const reverseArr = [1, 2, 3, 4, 5]
+console.log(reverseArr.reverse()) //0:5 1:4 2:3 3:2 
+
+//Sorting elements in array
+//sort: dizi öğelerini artan sırada düzenleyin. Sort bir geri arama fonksiyonu alır, sort geri arama fonksiyonu ile nasıl kullandığımızı ilerleyen bölümlerde göreceğiz.
+
+const sortArr = ['Ufuk', 'Ümmühan', 'Deniz', 'Artemis']
+console.log(sortArr.sort(function(b,a) {return b - a}))
+
+const sortNumbers = [22, 12, 2, 3, 5]
+console.log(sortNumbers.sort(function(a,b){return b-a}))
+
+//Array of arrays 
+// Dizi, bir dizinin kendisi de dahil olmak üzere farklı veri türlerini depolayabilir. Bir dizi dizi oluşturalım
+
+const arrayofArray = [[1, 2, 3, 4, 5], ['HTML', 'JS', 'CSS', 'React']]
+console.log(arrayofArray)
+console.log(arrayofArray[0]) //[1, 2, 3, 4, 5]
+console.log(arrayofArray[1]); //['HTML', 'JS', 'CSS', 'React']
+console.log(arrayofArray.length) // 2
+
+//Execises 
+console.log("--- Exercises Level 1")
+const firstExercisesCountriesArr = [  'Albania',
+'Bolivia',
+'Canada',
+'Denmark',
+'Ethiopia',
+'Finland',
+'Germany',
+'Hungary',
+'Ireland',
+'Japan',
+'Kenya',]
+const firstExercisesWebTechsArr = [  
+'HTML',
+'CSS',
+'JavaScript',
+'React',
+'Redux',
+'Node',
+'MongoDB',]
+// 1. Declare an empty array
+const exerciseEmptyArr = Array();
+
+//2. Declare an array with more than 5 number of elements
+const exerciseEmptyArr2 = Array(5)
+
+//3. Find the length of your array
+console.log(exerciseEmptyArr2.length) // 5 
+
+//4. Get the first item, the middle item and the last item of the array
+console.log('First item of the Countries: ', firstExercisesCountriesArr[0])
+console.log('Middle item of the Countries: ', firstExercisesCountriesArr[Math.round(firstExercisesCountriesArr.length / 2)])
+console.log('Last item of the Countries: ', firstExercisesCountriesArr[firstExercisesCountriesArr.length - 1])
+
+//5. Declare an array called mixedDataTypes, put different data types in the array and find the length of the array. The array size should be greater than 5
+const mixedDataTypes = ["Ümmühan", {name:"Ümmühan", surname: "Gümüş" }, 23, ['Marketing', 'Digitale Marketing', 'Sales'], true]
+//6. Declare an array variable name itCompanies and assign initial values Facebook, Google, Microsoft, Apple, IBM, Oracle and Amazon
+const itCompanies = ['Facebook', 'Google', 'Microsoft', 'Apple', 'IBM', 'Oracle', 'Amazon']
+//7. Print the array using console.log()
+console.log(itCompanies)
+
+//8. Print the number of companies in the array
+console.log(itCompanies.length)
+//9. Print the first company, middle and last company
+console.log('First Company: ', itCompanies[0])
+console.log('Middle Company: ',itCompanies[Math.round(itCompanies.length / 2)])
+console.log('Last Company: ', itCompanies[itCompanies.length -1])
+//10. Print out each company
+itCompanies.map(company => console.log(company))
+//11. Change each company name to uppercase one by one and print them out
+itCompanies.map(company => console.log(company.toLocaleUpperCase()))
+//12. Print the array like as a sentence: Facebook, Google, Microsoft, Apple, IBM,Oracle and Amazon are big IT companies.
+const indexOfFB = itCompanies.indexOf('Facebook');
+const indexOfGoogle = itCompanies.indexOf('Google');
+const indexOfMicrosoft = itCompanies.indexOf('Microsoft');
+const indexOfApple = itCompanies.indexOf('Apple');
+const indexOfIBM = itCompanies.indexOf('IBM');
+const indexOfOracle = itCompanies.indexOf('Oracle');
+const indexOfAmazon = itCompanies.indexOf('Amazon');
+console.log(`${itCompanies[indexOfFB]}, ${itCompanies[indexOfGoogle]}, ${itCompanies[indexOfMicrosoft]}, ${itCompanies[indexOfApple]}, ${itCompanies[indexOfIBM]}, ${itCompanies[indexOfOracle]} and ${itCompanies[indexOfAmazon]} are big IT companies.`)
+//13. Check if a certain company exists in the itCompanies array. If it exist return the company else return a company is not found
+if(itCompanies.indexOf('Getir') == -1){
+    itCompanies.push('Getir') 
+}else{
+    console.log('Getir, dizide mevcut')
+}
+//14. Filter out companies which have more than one 'o' without the filter method
+itCompanies.map(company => {
+    if(company.split("o").length - 1 >= 2){
+        console.log(company)
+    }
+})
+for(let i = 0 ; i < itCompanies.length; i++){
+    if(itCompanies[i].split("o").length - 1 >= 2){
+        console.log(itCompanies[i])
+    }
+}
+//15. Sort the array using sort() method
+itCompanies.sort();
+//16.Reverse the array using reverse() method
+itCompanies.reverse()
+//17. Slice out the first 3 companies from the array
+console.log(itCompanies.slice(0,3))
+
+//18. Slice out the last 3 companies from the array
+console.log(itCompanies.slice(itCompanies.length - 4, itCompanies.length - 1))
+//19. Slice out the middle IT company or companies from the array
+console.log(itCompanies.slice(itCompanies.length / 2, itCompanies.length / 2))
+//20. Remove the first IT company from the array
+itCompanies.shift();
+//21. Remove the middle IT company or companies from the array
+
+//22. Remove the last IT company from the array
+//23. Remove all IT companies
+console.log(itCompanies.splice(0, itCompanies.length))
+console.log(itCompanies)
+
+//Exercises Level : 2
