@@ -865,3 +865,152 @@ for(const user in users){
         console.log(user)
     }
 }
+
+console.log("----Functions-----")
+//-------------Functions--------
+/*
+Function, belirli bir görevi gerçekleştirmek için tasarlanmış yeniden kullanılabilir 
+bir kod bloğu veya programlama ifadeleridir. Bir işlev, bir işlev anahtar sözcüğü, 
+ardından bir ad ve ardından parantez () ile bildirilir. Bir parantez bir parametre 
+alabilir. Bir işlev bir parametre alırsa, argümanla çağrılır. Bir işlev ayrıca 
+varsayılan bir parametre alabilir. Bir işleve veri depolamak için, bir işlevin belirli 
+veri türlerini döndürmesi gerekir. Değeri almak için bir işlevi çağırırız veya 
+çağırırız. İşlev kodu yapar:
+
+- temiz ve okunması kolay
+- yeniden kullanılabilir
+- test edilmesi kolay
+
+Bir işlev birkaç yolla bildirilebilir veya oluşturulabilir:
+
+- Declaration function
+- Expression function
+- Anonymous function
+- Arrow function
+*/
+
+//Function Declaration
+
+//without parameters
+function functionDeclaration(){
+    let num = 2 ;
+    let sq = num * num
+    console.log(sq)
+}
+functionDeclaration();
+
+//With parameters
+function functionDeclarationWithParamers(num){
+    return num * num
+}
+console.log(functionDeclarationWithParamers(2))
+
+const arrowFunc = (radius) =>{
+    let area = Math.PI * radius * radius
+    return area;
+}
+console.log(arrowFunc(10))
+//With 2 parameters
+
+function funcDeclarationWithTwoParam(weight, height){
+    return weight * height
+}
+console.log(funcDeclarationWithTwoParam(5,10))
+//Function with many parameters
+function sumArrayValues(arr){
+    let sum = 0;
+    for(let i = 0; i<arr.length; i++){
+        sum+= arr[i]
+    }
+    return sum;
+}
+const manyValuesArr = [1,2,3,4]
+console.log(sumArrayValues(manyValuesArr))
+
+//Function with unlimited number of parameters | Sınırsız sayıda parametre ile fonksiyon
+/*
+Bazen kullanıcının kaç argüman ileteceğini bilemeyiz. Bu nedenle, 
+sınırsız sayıda argüman alabilen bir fonksiyonun nasıl yazılacağını 
+bilmeliyiz. Bunu yapma şeklimiz, bir işlev bildirimi (normal işlev) 
+ile ok işlevi arasında önemli bir farka sahiptir. Hem fonksiyon 
+bildiriminde hem de ok fonksiyonunda örnekler görelim.
+*/
+
+
+// Unlimited number of parameters in regular function|Normal fonksiyonda sınırsız sayıda parametre
+
+//Bir işlev bildirimi, nesne gibi bir işlev kapsamındaki argümanlar 
+// dizisi sağlar. Fonksiyonda argüman olarak ilettiğimiz herhangi 
+// bir şeye, fonksiyonların içindeki argümanlar nesnesinden 
+// erişilebilir. Bir örnek görelim
+
+//Arguments Objects' çıktısını görelim
+function argObjectsFunc(){
+    console.log(arguments)
+}
+argObjectsFunc(1,2,3, 4,5) //Arguments(5) [1, 2, 3, 4, 5, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+
+//Many parameters in Function declaration
+function manyValuesFunc(){
+    let sum = 0 ;
+    for(let i =0; i<arguments.length; i++){
+        sum += arguments[i]
+    }
+    return sum
+}
+console.log(manyValuesFunc(2, 4 ,5, 6, 10)) //27
+console.log(manyValuesFunc(22, 41 ,55, 60, 109, 12, 123 ,1231)) //1653
+
+//Unlimited number of parameters in arrow function |  Arrow fonksiyonda sınırsız sayıda parametre
+/*
+Ok işlevi, işlev kapsamındaki argümanlar nesnesine sahip değil. Bir 
+ok işlevinde sınırsız sayıda argüman alan bir işlevi uygulamak için 
+yayılma operatörünü ve ardından herhangi bir parametre adını 
+kullanırız. Fonksiyonda argüman olarak ilettiğimiz herhangi bir 
+şeye ok fonksiyonunda dizi olarak erişilebilir. Bir örnek görelim
+*/
+const manyValuesArrowFunc = (...args) => {
+    console.log(args)
+}
+manyValuesArrowFunc(1, 2, 3, 4) //(4) [1, 2, 3, 4]
+
+const sumAllParamsArrowFunc = (...args) => {
+    let sum = 0;
+    for(const element of args){
+        sum += element
+    }
+    return sum
+}
+console.log(sumAllParamsArrowFunc(1, 2, 3, 4)) // 10
+console.log(sumAllParamsArrowFunc(10, 20, 13, 40, 10))  // 93
+console.log(sumAllParamsArrowFunc(15, 20, 30, 25, 10, 33, 40))  // 173
+
+//Anonymous Function
+//Anonim işlev veya adsız
+
+const anonymousFunc = function(){
+    console.log( 'I am an anonymous function and my value is stored in anonymousFun')
+}
+anonymousFunc()
+
+//Expression Function
+
+//fonksiyonlar bir değişkene veya özelliğe atanarak ya da parametre 
+// olarak gönderilirken de tanımlanabilirler. Bu şekilde tanımlamaya 
+// ise Fonksiyon İfadeler (Function Expressions) denir.
+
+const expressionFunc = function (n) {
+    return n * n
+}
+console.log(expressionFunc(2))
+
+//Self Invoking Functions | Kendi Kendini Çağıran İşlevler
+//Kendi kendini çağıran işlevler, bir değer döndürmek için çağrılması gerekmeyen anonim işlevlerdir.
+;(function (n) {
+    console.log(n*n)
+})(2)
+
+let squaredNum = (function (n){
+    return n*n
+})(5)
+console.log(squaredNum)
