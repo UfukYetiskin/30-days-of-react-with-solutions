@@ -834,12 +834,34 @@ const users = {
 }
 
 //1. Find the person who has many skills in the users object.
-const userWithMaxSkills = function () {
-    let enBuyuk = 0;
-    let enKucuk = 0;
 
-    for(const user in users){
-        
+//Burada eğer 0 verirsek değerlere en küçük değer her zaman 0 kalacaktır. Bu yüzden herhangi property'nin uzunluğunu atarız
+let enBuyuk = users.Alex.skills.length;
+let enKucuk = users.Alex.skills.length;
+for (const user in users) {
+
+    let count = Object.keys(users[user].skills).length // Property'lere ait skills propertylerinin uzunluğunu verir
+    console.log(count)
+
+    console.log(user, users[user].skills.length) // user propertysini verir ve yanında skills dizisinin uzunluğunu verir
+
+    if(enBuyuk > count){
+        enBuyuk = count
+    }
+    if(enKucuk < count){
+        enKucuk = count
     }
 }
-userWithMaxSkills()
+console.log("En Çok Beceri: "+ enBuyuk + " \n"+ "En az Beceri: " + enKucuk)
+
+//2. Oturum açmış kullanıcıları sayın, aşağıdaki nesneden 50 puana eşit olan kullanıcıları sayın
+
+for(const user in users){
+    let count = Object.keys(users[user].points) //
+    console.log(users[user].points)
+    console.log(user, users[user].points) //user property'si ile points değerini bize döndürür her bir property için
+    console.log("Counts" + count)
+    if(users[user].points == 50) {
+        console.log(user)
+    }
+}
