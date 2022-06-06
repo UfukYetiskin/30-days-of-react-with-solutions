@@ -452,6 +452,9 @@ forEachNumbersArr.forEach((number, index) => {
 const forEachCountriesArr = ['Finland', 'Sweden', 'Norway', 'Denmark', 'Iceland']
 forEachCountriesArr.forEach((country, index, arr) => {
     console.log(index, country.toLocaleUpperCase())
+    if (index % 2 == 0) {
+        console.log(country)
+    }
 })
 
 //for in
@@ -463,6 +466,380 @@ const forInLoopsObject = {
     country: 'Finland',
     skills: ['HTML', 'CSS', 'JS', 'React', 'Node', 'Python', 'D3.js'],
 }
-for(const key in forInLoopsObject){
+for (const key in forInLoopsObject) {
     console.log(key, forInLoopsObject[key])
 }
+
+//Interrupting a loop and skipping an item | Bir döngüyü kesintiye uğratmak ve bir öğeyi atlamak
+
+//break,
+//break, bir döngüyü kesmek için kullanılır
+
+for (let i = 0; i < 5; i++) {
+    if (i == 3) {
+        break
+    }
+    console.log(i) // 0, 1 ,2 
+}
+
+//continue
+//Belirli bir yinelemeyi atlamak için devam anahtar sözcüğünü kullanırız.
+
+for (let i = 0; i < 5; i++) {
+    if (i == 2) {
+        continue
+    }
+    console.log(i)
+}
+
+//For ,  yineleme sayısı bilindiğinde herhangi bir yerde kullanılabilir.
+//While, Yineleme sayısı bilinmediğinde döngü
+//Do while döngüsü ve while döngüsü hemen hemen aynıdır, ancak while döngüsü, koşul yanlış olsa bile en az bir kez çalıştırılır
+// for of, yalnız dizi için kullanılır
+// forEach, index değerlerine ihtiyacımız olduğu diziler için kullanılır
+// for in, object(nesne) için kullanılır
+
+
+console.log("---Scope---")
+//-------Scope
+/*
+Scope, çalışma zamanı sırasında kodunuzun belirli bir bölümündeki değişkenlerin, 
+fonksiyonların ve nesnelerin(objects) erişilebilirliğidir. Başka bir deyişle, 
+Scope, kodunuzun belli kısımlarında değişkenlerin ve benzerlerinin görünürlüğüdür.
+
+Değişken, programlamanın temel parçasıdır. Farklı veri türlerini depolamak için 
+değişken tanımlıyoruz. Bir değişken bildirmek için var , let ve const anahtar 
+sözcüklerini kullanırız . Bir değişken farklı kapsamda bildirilebilir. 
+Bu bölümde var veya let kullandığımızda değişkenlerin kapsamını, kapsamını 
+göreceğiz. Değişken kapsamları şunlar olabilir:
+- Window
+- Global
+- Local
+Değişken, global veya yerel olarak veya pencere kapsamı olarak bildirilebilir. 
+Hem küresel hem de yerel kapsamı göreceğiz. let, var veya const olmadan bildirilen 
+her şey pencere düzeyinde kapsamlandırılır.
+
+Bir Scope.js dosyamız olduğunu hayal edelim.
+*/
+
+//Window Scope
+// Console.log()'u kullanmadan tarayıcınızı açın ve kontrol edin, tarayıcıya a veya b 
+// yazarsanız a ve b'nin değerini göreceksiniz. Bu, a ve b'nin zaten window 
+// mevcut olduğu anlamına gelir.
+
+//window, tüm javascript nesnelerinin temel kapsamıdır ve bildirimden önce "var" 
+//kullanmazsanız, tanımladığınız her değişkene otomatik olarak "eklenir"
+/*
+window.foo = 5;
+şununla aynı:
+
+var foo = 5;
+veya:
+
+function() {
+foo = 5;
+}
+ancak:
+
+function() {
+var foo = 5;
+}
+bu durumda "foo" yereldir (window.foo === tanımsız)
+*/
+/*
+    scope.js
+a = 'JavaScript' // bu her yerde bulunan bir pencere kapsamıdır
+b = 10 // bu bir pencere kapsam değişkenidir
+function letsLearnScope() {
+  console.log(a, b)
+  if (true) {
+    console.log(a, b)
+  }
+}
+console.log(a, b) // erişilebilir
+*/
+
+//Global Scope
+/*
+Program içerisinde fonksiyonların dışında tanımlanan ve her yerden erişilebilen 
+scope tipidir. Global Scope’da tanımlı bir değişkene dosya içerisinde her yerden 
+erişilebilir. Bu değişkenlere de global değişken adı verilir. Uygulama içerisinde 
+çok fazla global değişken kullanımı önerilmez. Çünkü local değişkenler işi bitince 
+bellekten silinir ancak global değişkenler varlığını sürdürmeye devam eder. Bu 
+durum da ileride memory(bellek) sorunlarına yol açabilir. O yüzden olabildiğince 
+global değişken tanımlamaktan kaçınalım.
+*/
+/*
+    scope.js
+let a = 'JavaScript' // is a global scope it will be found anywhere in this file
+let b = 10 // is a global scope it will be found anywhere in this file
+function letsLearnScope() {
+  console.log(a, b) // JavaScript 10, accessible
+  if (true) {
+    let a = 'Python'
+    let b = 100
+    console.log(a, b) // Python 100
+  }
+  console.log(a, b)
+}
+letsLearnScope()
+console.log(a, b) // JavaScript 10, accessible
+*/
+//scope.js
+
+
+//Local Scope
+/*
+Değişken bir fonksiyon içerisinde tanımlanmışsa bunun kapsamına Local Scope adı 
+verilir. Tanımlanan değişken de bir local değişkendir. 
+
+    scope.js
+let a = 'JavaScript' // is a global scope it will be found anywhere in this file
+let b = 10 // is a global scope it will be found anywhere in this file
+function letsLearnScope() {
+  console.log(a, b) // JavaScript 10, accessible
+  let c = 30
+  if (true) {
+     we can access from the function and outside the function but
+     variables declared inside the if will not be accessed outside the if block
+    let a = 'Python'
+    let b = 20
+    let d = 40
+    console.log(a, b, c) // Python 20 30
+  }
+   we can not access c because c's scope is only the if block
+  console.log(a, b) // JavaScript 10
+}
+letsLearnScope()
+console.log(a, b) // JavaScript 10, accessible
+*/
+/*
+Kapsam let ve const aynıdır. Fark sadece yeniden atamadır. const değişkeninin 
+değerini değiştiremez veya yeniden atayamayız. let ve const kullanmanızı şiddetle 
+tavsiye ederim, let ve const kullanarak temiz kod yazacak ve hata ayıklaması zor 
+hatalardan kaçınacaksınız. Genel bir kural olarak, değişen herhangi bir değer 
+için let , herhangi bir sabit değer için const ve dizi, nesne, ok işlevi ve işlev 
+ifadesi için kullanabilirsiniz.
+*/
+
+//Block Scope : Süslü parantezler { } arasında tanımlı olan scopedur. Bu bir if 
+//bloğu, for, while ya da herhangi bir keyword kullanmadan { } da olabilir.
+
+
+console.log("----- Objects -----")
+// ----- Objects -----
+
+/*
+Her şey bir nesne olabilir ve nesnelerin özellikleri vardır ve özelliklerin 
+değerleri vardır, bu nedenle bir nesne bir anahtar değer çiftidir. Anahtarın 
+sırası ayrılmamıştır veya herhangi bir sipariş yoktur. Bir nesne değişmezi 
+oluşturmak için iki küme parantezini kullanırız.
+*/
+
+//creating an empty object
+const emptyObject = {}
+
+//creating an objecting with values
+const objectofUfuk = {
+    firstName: "Ufuk",
+    lastName: 'Yetişkin',
+    age: 26,
+    country: 'Turkey',
+    city: 'Diyarbakır',
+    skills: ['HTML', 'CSS', 'JavaScript', 'Boostrap', 'React'],
+    isMarried: false,
+    isLove: true
+}
+console.log(objectofUfuk)
+
+//Getting Values from an object
+
+const objectofUmmuhan = {
+    firstName: "Ümmühan",
+    lastName: 'Yetişkin',
+    age: 23,
+    country: 'Turkey',
+    city: 'Muğla',
+    skills: ['Sales', 'E-Costumers', 'Marketing', 'Digitale Marketing'],
+    isMarried: false,
+    isLove: true,
+
+    getFullName: function () {
+        return this.firstName + " " + this.lastName
+    },
+    phoneNumber: "+905426589856",
+    'home phone': '0262145896'
+}
+
+console.log(objectofUmmuhan.firstName)
+console.log(objectofUmmuhan.lastName)
+console.log(objectofUmmuhan.getFullName())
+
+// değere köşeli parantez ve anahtar adı kullanılarak erişilebilir
+console.log(objectofUmmuhan['firstName'])
+console.log(objectofUmmuhan['phoneNumber'])
+console.log(objectofUmmuhan['isMarried'])
+
+// örneğin telefon numarasına erişmek için sadece köşeli parantez yöntemini kullanıyoruz
+console.log(objectofUmmuhan['home phone'])
+
+//Creating object methods | Nesne yöntemleri oluşturma
+
+/*
+Şimdi, kişi nesnesinin getFullName özellikleri vardır. getFullName, kişi nesnesinin 
+içindeki işlevdir ve biz ona nesne yöntemi diyoruz. Bu anahtar kelime, nesnenin 
+kendisine atıfta bulunur . Nesnenin farklı özelliklerinin değerlerine erişmek için 
+this kelimesini kullanabiliriz . Bir ok işlevini nesne yöntemi olarak kullanamayız, 
+çünkü bu sözcüğü nesnenin kendisi yerine bir ok işlevinin içindeki pencereye atıfta 
+bulunur. Nesne örneği:
+*/
+const objectofDeniz = {
+    firstName: 'Deniz',
+    lastName: 'Gümüş Yetişkin',
+    getFullName: function () {
+        return `${this.firstName} ${this.lastName}`
+    }
+}
+console.log(objectofDeniz.getFullName())
+
+//Setting new key for an object
+
+objectofDeniz.nationality = 'Kurdish'
+objectofDeniz.country = 'Turkey'
+objectofDeniz.skills = []
+objectofDeniz.skills.push('Swimming')
+objectofDeniz.skills.push('Futbol')
+objectofDeniz.isLove = false
+
+objectofDeniz.getDenizInfo = function () {
+    let getFullName = `${this.firstName} ${this.lastName}`
+    let getSkills = `${this.skills[0]} and ${this.skills[1]}`
+    let location = `${this.country}`
+    let statement = `${getFullName}, is a child of ${objectofUfuk.firstName} and ${objectofUmmuhan.firstName}. She lives in ${location}. She teaches ${getSkills}`
+    return `${statement}`
+}
+console.log(objectofDeniz.getDenizInfo())
+
+//Object Methods
+
+//Bir nesneyi işlemek için farklı yöntemler vardır. Mevcut yöntemlerden bazılarını görelim.
+//Object.assign : Orijinal nesneyi değiştirmeden bir nesneyi kopyalamak için
+
+const copyObjectofDeniz = Object.assign({}, objectofDeniz)
+console.log(copyObjectofDeniz)
+
+//Getting object keys using Object.keys()
+//Object.keys : Bir nesnenin anahtarlarını veya özelliklerini dizi olarak almak için
+
+const keys = Object.keys(copyObjectofDeniz)
+console.log(keys)
+
+//Getting object keys using  Object.values()
+//Object.values ​​: Bir nesnenin değerlerini dizi olarak almak için
+const values = Object.values(copyObjectofDeniz)
+console.log(values)
+
+//Getting object keys and values using Object.entries()
+//Object.entries : Bir dizideki anahtarları ve değerleri almak için
+
+const entries = Object.entries(copyObjectofDeniz)
+console.log(entries)
+
+//Checking properties using hasOwnProperty()
+//hasOwnProperty : Bir nesnede belirli bir anahtarın veya özelliğin olup olmadığını kontrol etmek için
+
+console.log(copyObjectofDeniz.hasOwnProperty('name')) //false
+console.log(copyObjectofDeniz.hasOwnProperty('isLove'))//true
+
+//Exercises Level 1
+console.log("Exercises Level 1")
+//1. Create an empty object called dog
+
+const emptyDogObject = {}
+
+//2. Print the the dog object on the console
+
+console.log(emptyDogObject)
+
+//3. Add name, legs, color, age and bark properties for the dog object. The bark property is a method which return woof woof
+
+emptyDogObject.name = 'Cerberus'
+emptyDogObject.legs = 4
+emptyDogObject.color = 'Black'
+emptyDogObject.Bark = function () {
+    return "Woof Woof"
+}
+
+//4. Get name, legs, color
+console.log(emptyDogObject.name, emptyDogObject.legs)
+
+//5. Set new properties the dog object: breed, getDogInfo
+
+emptyDogObject.breed = "Pitbull"
+emptyDogObject.getDogInfo = function () {
+    return `${this.name} is ${this.breed}. His color is ${this.color}.`
+}
+
+//Exercises: Level 2
+const users = {
+    Alex: {
+        email: 'alex@alex.com',
+        skills: ['HTML', 'CSS', 'JavaScript'],
+        age: 20,
+        isLoggedIn: false,
+        points: 30
+    },
+    Asab: {
+        email: 'asab@asab.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'Redux', 'MongoDB', 'Express', 'React', 'Node'],
+        age: 25,
+        isLoggedIn: false,
+        points: 50
+    },
+    Brook: {
+        email: 'daniel@daniel.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux'],
+        age: 30,
+        isLoggedIn: true,
+        points: 50
+    },
+    Daniel: {
+        email: 'daniel@alex.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'Python'],
+        age: 20,
+        isLoggedIn: false,
+        points: 40
+    },
+    John: {
+        email: 'john@john.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js'],
+        age: 20,
+        isLoggedIn: true,
+        points: 50
+    },
+    Thomas: {
+        email: 'thomas@thomas.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'React'],
+        age: 20,
+        isLoggedIn: false,
+        points: 40
+    },
+    Paul: {
+        email: 'paul@paul.com',
+        skills: ['HTML', 'CSS', 'JavaScript', 'MongoDB', 'Express', 'React', 'Node'],
+        age: 20,
+        isLoggedIn: false,
+        points: 40
+    }
+}
+
+//1. Find the person who has many skills in the users object.
+const userWithMaxSkills = function () {
+    let enBuyuk = 0;
+    let enKucuk = 0;
+
+    for(const user in users){
+        
+    }
+}
+userWithMaxSkills()
