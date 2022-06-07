@@ -1716,3 +1716,298 @@ console.log(sumAllNums(3,5,9,20)) //37
 
 console.log("--- Functional Programming ----")
 // --- Functional Programming ----
+
+/*
+İşlevsel programlama , daha kısa kod yazmanıza, temiz kod yazmanıza ve ayrıca 
+geleneksel bir şekilde çözülmesi zor olabilecek karmaşık sorunları çözmenize olanak 
+tanır.
+
+Bu yazıda tüm JS fonksiyonel programlama yöntemlerini ele alacağız:
+
+- forEach
+- map
+- filter
+- reduce
+- find
+- findIndex
+- some
+- every
+*/
+
+
+/*
+------- forEach ---
+Bir dizi öğeyi yinelemek istediğimizde forEach kullanırız. forEach daha üst düzey 
+bir işlevdir ve parametre olarak geri aramayı alır. forEach yöntemi yalnızca dizi 
+ile kullanılır ve her bir öğe veya dizin veya her ikisi ile ilgileniyorsanız forEach'i 
+kullanırız.
+
+    syntax in a normal or a function declaration
+
+function callback(item, index, arr) {}
+array.forEach(callback)
+
+    or syntax in an arrow function
+
+const callback = (item, i, arr) => {}
+array.forEach(callback)
+*/
+
+const forEachCountries = ['Finland', 'Estonia', 'Sweden', 'Norway']
+forEachCountries.forEach((country, index) => {
+    console.log(index, country.toUpperCase())
+})
+
+//Örneğin her ülkeyi büyük harf yapıp tekrar bir diziye kaydetmek istiyorsak aşağıdaki gibi yazarız.
+const emptyforeacharr =[]
+forEachCountries.forEach((country) => {
+    emptyforeacharr.push(country.toUpperCase())
+})
+console.log(emptyforeacharr) //(4) ['FINLAND', 'ESTONIA', 'SWEDEN', 'NORWAY']
+
+
+// Daha fazla örnek görelim. Örneğin, bir sayı dizisini toplamak istiyorsak, forEach 
+// kullanabilir veya azaltabiliriz. Bir dizideki tüm sayıları toplamak için forEach'i 
+// nasıl kullandığımızı görelim.
+
+const foreactNumsarr = [1, 2, 3, 4, 5]
+let foreachtotal = 0;
+foreactNumsarr.forEach((bumber) => foreachtotal += bumber)
+console.log(foreachtotal) //15
+
+
+/*
+--- map -------
+Bir diziyi değiştirmek istediğimizde map yöntemini kullanırız. Map yöntemini 
+yalnızca dizilerle kullanırız ve her zaman bir dizi döndürür.
+
+syntax in a normal or a function declaration
+
+function callback(item, i) {
+  return // code goes here
+}
+const modifiedArray = array.map(callback)
+
+
+ or syntax in an arrow function
+
+const callback = (item, i) => {
+  return // code goes here
+}
+const modifiedArray = array.map(callback)
+*/
+//Şimdi, map yöntemini kullanarak country dizisini değiştirelim. İndeks isteğe bağlı bir parametredir
+
+const mapCountriesArr = ['Finland', 'Estonia', 'Sweden', 'Norway']
+const mapFuncUpperCase = mapCountriesArr.map((country) => {
+    console.log(country.toUpperCase())
+})
+
+//Gördüğünüz gibi, bu harita bir diziyi değiştirmek ve bir diziyi geri almak için çok 
+//kullanışlıdır. Şimdi, ülkeler dizisinden ülkelerin uzunluklarının bir dizisini 
+//oluşturalım.
+
+const countryLength = mapCountriesArr.map((country)=> {
+    return country.length
+})
+console.log(countryLength) //[7, 7, 6, 6]
+
+//Bir örnek daha görelim
+const mapNumberArr = [3, 6, 9, 12, 15 , 18, 21]
+const mapFuncCarp = mapNumberArr.map((number) => number * 3)
+console.log(mapFuncCarp) //[9, 18, 27, 36, 45, 54, 63]
+
+/*
+----- filter ------ 
+Filtrenin gerçek anlamından da anlayabileceğiniz gibi, bazı kriterlere göre öğeleri 
+filtreler. forEach ve map gibi filtre yöntemi bir diziyle birlikte kullanılır ve 
+filtrelenmiş öğelerin bir dizisini döndürür.
+
+Örneğin, bir dizi ülkeden bir alt dize arazisi içeren ülkeleri filtrelemek istiyorsak. 
+
+Aşağıdaki örneğe bakın:
+
+ syntax in a normal or a function declaration
+function callback(item) {
+  return // boolean
+}
+
+const filteredArray = array.filter(callback)
+
+ or syntax in an arrow function
+
+const callback = (item) => {
+  return // boolean
+}
+const filteredArray = array.filter(callback)
+*/
+
+const filterCountriesArr = ['Finland', 'Estonia', 'Sweden', 'Norway', 'Iceland']
+const filterFunc = filterCountriesArr.filter((country) => {
+    return country.includes('land')
+})
+console.log(filterFunc) //(2) ['Finland', 'Iceland']
+
+//Alt dize arazisini içermeyen ülkeleri filtrelemek istersek nasıl olur? Bunu başarmak için olumsuzlamayı kullanırız.
+
+const filterFunc2 = filterCountriesArr.filter((country) => {
+    return !country.includes('land')
+})
+console.log(filterFunc2) //(3) ['Estonia', 'Sweden', 'Norway']
+
+//Filtreyle ilgili ek bir örnek görelim, bir sayı dizisinden çift veya tek sayıları filtreleyelim.
+
+const filterNumberArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+const filterEvenNums = filterNumberArr.filter((number) => {
+    return number % 2 == 0
+})
+console.log(filterEvenNums) //(6) [0, 2, 4, 6, 8, 10]
+
+const filterOddNums = filterNumberArr.filter((number) => number % 2 !== 0)
+console.log(filterOddNums) //[1, 3, 5, 7, 9]
+
+/*
+------ reduce ----- 
+
+forEach, map ve filter gibi, azaltma da bir diziyle birlikte kullanılır ve tek bir 
+değer döndürür. Azaltmayı bir blender ile ilişkilendirebilirsiniz. Farklı meyveleri 
+bir karışıma koyarsınız ve meyve suyu karışımı elde edersiniz. Meyve suyu, indirgeme 
+işleminin çıktısıdır.
+
+Bir dizideki tüm sayıları toplamak veya bir dizideki öğeleri çarpmak veya bir dizideki
+öğeleri birleştirmek için azaltma yöntemini kullanırız. Bu açıklamayı daha açık hale
+getirmek için aşağıdaki farklı örneği görelim.
+
+ syntax in a normal or a function declaration
+
+function callback(acc, cur) {
+    return // code goes here
+}
+
+const reduced = array.reduce(callback, optionalInitialValue)
+
+ or syntax in an arrow function
+
+const reduced =  callback(acc, cur) => {
+    return // code goes here
+}
+const reduced = array.reduce(callback)
+
+Varsayılan başlangıç ​​değeri 0'dır. Değiştirmek istersek başlangıç ​​değerini değiştirebiliriz.
+
+Örneğin, bir dizideki tüm öğeleri eklemek istiyorsak ve tüm öğeler sayı ise, azaltmayı kullanabiliriz.
+
+*/
+
+const reduceNumberArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const reduceNums = reduceNumberArr.reduce((acc, cur) => acc + cur)
+console.log(reduceNums) //55
+
+//Azaltma, sıfır olan varsayılan bir başlangıç ​​değerine sahiptir. Şimdi, bu durumda 5 olan farklı bir başlangıç ​​değeri kullanalım.
+
+const reduceNumsStartFive = reduceNumberArr.reduce((acc, cur) => acc + cur , 5)
+console.log(reduceNumsStartFive) //60
+
+//Küçültme kullanarak dizeleri birleştirelim
+
+const strs = ['Hello', 'World', '!']
+const reduceStrings = strs.reduce((acc, cur) => acc + " " + cur)
+console.log(reduceStrings) //Hello World !
+
+/*
+Bir dizinin öğelerini azaltma kullanarak çarpabiliriz ve değeri döndürürüz.
+
+const numbers = [1, 2, 3, 4, 5]
+const value = numbers.reduce((acc, cur) => acc * cur)
+console.log(value) // 120
+Bir başlangıç ​​değeri ile deneyelim
+
+const numbers = [1, 2, 3, 4, 5]
+const value = numbers.reduce((acc, cur) => acc * cur, 10)
+console.log(value) // 1200
+*/
+
+
+/*
+ ---- find ---
+Bir dizideki belirli bir öğenin veya öğenin ilk oluşumuyla ilgileniyorsak, find 
+yöntemini kullanabiliriz. Harita ve filtreden farklı olarak, dizi yerine bir öğenin 
+ilk oluşumunu döndürün.
+
+ syntax in a normal or a function declaration
+
+function callback(item) {
+return // code goes here
+}
+
+const item = array.find(callback)
+
+ or syntax in an arrow function
+
+const reduced =  callback(item) => {
+return // code goes here
+}
+const item = array.find(callback)
+
+*/
+
+const findNumbersArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const findEvenNum = findNumbersArr.find((even) => even % 2 === 0)
+const findOddNum = findNumbersArr.find((odd) => odd % 2 !== 0)
+//Dizide koşula uyan ilk elemanı çıktı olarak verir.
+console.log(findEvenNum) // 0
+console.log(findOddNum) // 1
+
+//Tam altı karakterden oluşan dizideki ilk ülkenin indeksini bulalım.
+const findCountriesArr = ['Finland', 'Estonia', 'Sweden', 'Norway', 'Iceland']
+const findLenght = findCountriesArr.find((country) => country.length === 6)
+console.log(findLenght) //Sweden
+
+//Dizide 'o' harfinin olduğu ilk ülkenin indeksini bulalım.
+const findOWord = findCountriesArr.find((country) => country.includes('o'))
+console.log(findOWord) //Estonia
+
+/*
+------ some --------
+
+Some yöntemi diziyle birlikte kullanılır ve bir boole değeri döndürür. Eğer 
+maddelerden biri veya birkaçı kriterleri karşılıyorsa sonuç doğru, aksi halde yanlış 
+olacaktır. Bir örnekle görelim.
+
+Aşağıdaki dizide bazı sayılar çift, bazıları tek, yani size bir soru sorsam dizide 
+çift sayılar var mı o zaman cevabınız evet olacaktır. Bir soru daha sorsam dizide 
+tek sayılar var mı o zaman cevabınız evet olur. Aksine, tüm sayılar çift mi yoksa 
+tek mi diye sorarsam, cevabınız hayır olacaktır çünkü tüm sayılar çift veya tek 
+değildir.
+*/
+
+const someNumbersArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const someEvenNum  = someNumbersArr.some((country) => country % 2 === 0)
+console.log(someEvenNum) //true
+
+const someEvenNum2  = someNumbersArr.some((country) => country % 2 !== 2)
+console.log(someEvenNum2) // true
+
+
+/*
+------ every- -------
+
+Her yöntemi bir şekilde bazılarına benzer, ancak her öğe kriterleri karşılamalıdır. 
+Her like bazı yöntemi bir boole döndürür.
+
+
+const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const allAreEvens = numbers.every((n) => n % 2 === 0)
+const allAreOdd s= numbers.every((n) => n % 2 !== 0)
+
+console.log(allAreEven) // false
+console.log(allAreOdd)  // false
+
+const evens = [0, 2, 4, 6, 8, 10]
+const someAreEvens = evens.some((n) => n % 2 === 0)
+const someAreOdds = evens.some((n) => n % 2 !== 0)
+
+console.log(someAreEvens) // true
+console.log(someAreOdds)  // false
+*/
