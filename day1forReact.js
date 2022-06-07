@@ -1403,3 +1403,11 @@ function sayHello(){
     console.log("Hello")
 }
 setTimeout(sayHello, 3000) //Hello
+
+
+console.log("--- Destructuring and Spreading---")
+// Destructuring and Spreading
+
+//Destructuring Assignment; elimizde var olan nesne veya dizi gibi 
+// yapı(lar)dan(bu yapılar çok büyük olabilir); küçük parça(lar) ayırmak için 
+// kullanılır. Destructuring assignment işlemi değer atama işlemi gibi yapılır.
