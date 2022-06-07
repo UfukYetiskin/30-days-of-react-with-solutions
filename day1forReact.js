@@ -1055,3 +1055,70 @@ const weightofObject = (mass, gravity = 9.81) => {
 }
 console.log(weightofObject(100))
 console.log(weightofObject(100, 1.62))
+
+//Exercises: Level 1
+
+//1. Declare a function fullName and it takes firstName, lastName as a parameter and it returns your full - name.
+
+function returnFullName (firstName, lastName){
+    const fullName = `${firstName} ${lastName}`
+    return fullName;
+}
+console.log(returnFullName('Ümmühan', 'Yetişkin'))
+
+
+//2. Declare a function addNumbers and it takes two two parameters and it returns sum.
+
+const returnTotal = (num1, num2) => {
+    return num1 + num2
+}
+console.log(returnTotal(2,22))
+
+//3. Bir dairenin alanı şu şekilde hesaplanır: alan = π xrxr . _areaOfCircle değerini hesaplayan bir fonksiyon yazın
+
+const _areOfCirlce = (r) => {
+    const area = Math.PI * r * r
+    return area
+}
+console.log(_areOfCirlce(5))
+
+//4. oC cinsinden sıcaklık, şu formül kullanılarak oF'ye dönüştürülebilir: oF = (oC x 9/5) + 32 . oC'yi oF'ye çeviren bir fonksiyon yazın convertCelciusToFahrenheit .
+
+const convertCelciusToFahrenheit = oC => {
+    const oF = (oC * 9 / 5 ) + 32
+    return oF
+}
+console.log(convertCelciusToFahrenheit(50))
+
+//5. BMI 
+
+const calculateBMI = (height, kg) => {
+    const bmi = kg/ (height * height)
+
+    if(bmi < 15.5){
+        console.log('Underweight')
+    }else if(bmi > 18.5 && bmi< 24.9){
+        console.log('Normal weight')
+    }else if(bmi >25 && bmi < 29.9){
+        console.log('Overweight')
+    }else{
+        console.log('Obese')
+    }
+}
+calculateBMI(1.81, 75)
+
+//6. Write a function called checkSeason, it takes a month parameter and returns the season:Autumn, Winter, Spring or Summer.
+
+const checkSeason  = (month) => {
+    if(month == 'January' || month == 'February' || month == 'December'){
+        console.log('Season is Winter')
+    }else if(month == 'March' || month == 'April' || month == 'May'){
+        console.log('Season is Spring')
+    }else if(month == 'June' || month == 'July' || month == 'Agust'){
+        console.log('Season is Summer')
+    }else {
+        console.log('Season is Autumn')
+    }
+}
+checkSeason('March')
+
