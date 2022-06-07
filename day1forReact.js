@@ -1014,3 +1014,44 @@ let squaredNum = (function (n){
     return n*n
 })(5)
 console.log(squaredNum)
+
+//Arrow Function
+/*
+Arrow Function, ES6 ile sunulan özelliklerden biridir. Arrow Function özelliğinin 
+temel amacı JavaScript'te kullanılan fonksiyon tanımlama yöntemini kısaltmak ve 
+prartik bir kullanım sağlamaktır.
+*/
+
+const exampleSum  = (num) => {
+    return num * num
+}
+console.log(exampleSum(5))
+
+const changeToUpperCase = arr => {
+    const newArr = []
+    for(const element of arr){
+        newArr.push(element.toLocaleUpperCase())
+    }
+    return newArr
+}
+const arrowFuncArr =['Findland', 'Sweden', 'Norway', 'Denmark', 'Island']
+console.log(changeToUpperCase(arrowFuncArr))
+
+//Function with default parameters
+//Bazen varsayılan değerleri parametrelere iletiriz, işlevi çağırdığımızda bir 
+// argüman iletemezsek varsayılan değer kullanılır. Hem işlev bildirimi hem de ok 
+// işlevi, varsayılan bir değere veya değerlere sahip olabilir.
+
+function greetings(name ='Ümmühan'){
+    let message = `${name}, welcome to JS`
+    return message
+}
+console.log(greetings())
+console.log(greetings('Ufuk'))
+
+const weightofObject = (mass, gravity = 9.81) => {
+    let weight = mass * gravity 
+    return weight
+}
+console.log(weightofObject(100))
+console.log(weightofObject(100, 1.62))
