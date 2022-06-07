@@ -845,23 +845,23 @@ for (const user in users) {
 
     console.log(user, users[user].skills.length) // user propertysini verir ve yanında skills dizisinin uzunluğunu verir
 
-    if(enBuyuk > count){
+    if (enBuyuk > count) {
         enBuyuk = count
     }
-    if(enKucuk < count){
+    if (enKucuk < count) {
         enKucuk = count
     }
 }
-console.log("En Çok Beceri: "+ enBuyuk + " \n"+ "En az Beceri: " + enKucuk)
+console.log("En Çok Beceri: " + enBuyuk + " \n" + "En az Beceri: " + enKucuk)
 
 //2. Oturum açmış kullanıcıları sayın, aşağıdaki nesneden 50 puana eşit olan kullanıcıları sayın
 
-for(const user in users){
+for (const user in users) {
     let count = Object.keys(users[user].points) //
     console.log(users[user].points)
     console.log(user, users[user].points) //user property'si ile points değerini bize döndürür her bir property için
     console.log("Counts" + count)
-    if(users[user].points == 50) {
+    if (users[user].points == 50) {
         console.log(user)
     }
 }
@@ -892,39 +892,39 @@ Bir işlev birkaç yolla bildirilebilir veya oluşturulabilir:
 //Function Declaration
 
 //without parameters
-function functionDeclaration(){
-    let num = 2 ;
+function functionDeclaration() {
+    let num = 2;
     let sq = num * num
     console.log(sq)
 }
 functionDeclaration();
 
 //With parameters
-function functionDeclarationWithParamers(num){
+function functionDeclarationWithParamers(num) {
     return num * num
 }
 console.log(functionDeclarationWithParamers(2))
 
-const arrowFunc = (radius) =>{
+const arrowFunc = (radius) => {
     let area = Math.PI * radius * radius
     return area;
 }
 console.log(arrowFunc(10))
 //With 2 parameters
 
-function funcDeclarationWithTwoParam(weight, height){
+function funcDeclarationWithTwoParam(weight, height) {
     return weight * height
 }
-console.log(funcDeclarationWithTwoParam(5,10))
+console.log(funcDeclarationWithTwoParam(5, 10))
 //Function with many parameters
-function sumArrayValues(arr){
+function sumArrayValues(arr) {
     let sum = 0;
-    for(let i = 0; i<arr.length; i++){
-        sum+= arr[i]
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i]
     }
     return sum;
 }
-const manyValuesArr = [1,2,3,4]
+const manyValuesArr = [1, 2, 3, 4]
 console.log(sumArrayValues(manyValuesArr))
 
 //Function with unlimited number of parameters | Sınırsız sayıda parametre ile fonksiyon
@@ -945,21 +945,21 @@ bildiriminde hem de ok fonksiyonunda örnekler görelim.
 // erişilebilir. Bir örnek görelim
 
 //Arguments Objects' çıktısını görelim
-function argObjectsFunc(){
+function argObjectsFunc() {
     console.log(arguments)
 }
-argObjectsFunc(1,2,3, 4,5) //Arguments(5) [1, 2, 3, 4, 5, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+argObjectsFunc(1, 2, 3, 4, 5) //Arguments(5) [1, 2, 3, 4, 5, callee: ƒ, Symbol(Symbol.iterator): ƒ]
 
 //Many parameters in Function declaration
-function manyValuesFunc(){
-    let sum = 0 ;
-    for(let i =0; i<arguments.length; i++){
+function manyValuesFunc() {
+    let sum = 0;
+    for (let i = 0; i < arguments.length; i++) {
         sum += arguments[i]
     }
     return sum
 }
-console.log(manyValuesFunc(2, 4 ,5, 6, 10)) //27
-console.log(manyValuesFunc(22, 41 ,55, 60, 109, 12, 123 ,1231)) //1653
+console.log(manyValuesFunc(2, 4, 5, 6, 10)) //27
+console.log(manyValuesFunc(22, 41, 55, 60, 109, 12, 123, 1231)) //1653
 
 //Unlimited number of parameters in arrow function |  Arrow fonksiyonda sınırsız sayıda parametre
 /*
@@ -976,7 +976,7 @@ manyValuesArrowFunc(1, 2, 3, 4) //(4) [1, 2, 3, 4]
 
 const sumAllParamsArrowFunc = (...args) => {
     let sum = 0;
-    for(const element of args){
+    for (const element of args) {
         sum += element
     }
     return sum
@@ -988,8 +988,8 @@ console.log(sumAllParamsArrowFunc(15, 20, 30, 25, 10, 33, 40))  // 173
 //Anonymous Function
 //Anonim işlev veya adsız
 
-const anonymousFunc = function(){
-    console.log( 'I am an anonymous function and my value is stored in anonymousFun')
+const anonymousFunc = function () {
+    console.log('I am an anonymous function and my value is stored in anonymousFun')
 }
 anonymousFunc()
 
@@ -1004,14 +1004,14 @@ const expressionFunc = function (n) {
 }
 console.log(expressionFunc(2))
 
-//Self Invoking Functions | Kendi Kendini Çağıran İşlevler
-//Kendi kendini çağıran işlevler, bir değer döndürmek için çağrılması gerekmeyen anonim işlevlerdir.
-;(function (n) {
-    console.log(n*n)
-})(2)
+    //Self Invoking Functions | Kendi Kendini Çağıran İşlevler
+    //Kendi kendini çağıran işlevler, bir değer döndürmek için çağrılması gerekmeyen anonim işlevlerdir.
+    ; (function (n) {
+        console.log(n * n)
+    })(2)
 
-let squaredNum = (function (n){
-    return n*n
+let squaredNum = (function (n) {
+    return n * n
 })(5)
 console.log(squaredNum)
 
@@ -1022,19 +1022,19 @@ temel amacı JavaScript'te kullanılan fonksiyon tanımlama yöntemini kısaltma
 prartik bir kullanım sağlamaktır.
 */
 
-const exampleSum  = (num) => {
+const exampleSum = (num) => {
     return num * num
 }
 console.log(exampleSum(5))
 
 const changeToUpperCase = arr => {
     const newArr = []
-    for(const element of arr){
+    for (const element of arr) {
         newArr.push(element.toLocaleUpperCase())
     }
     return newArr
 }
-const arrowFuncArr =['Findland', 'Sweden', 'Norway', 'Denmark', 'Island']
+const arrowFuncArr = ['Findland', 'Sweden', 'Norway', 'Denmark', 'Island']
 console.log(changeToUpperCase(arrowFuncArr))
 
 //Function with default parameters
@@ -1042,7 +1042,7 @@ console.log(changeToUpperCase(arrowFuncArr))
 // argüman iletemezsek varsayılan değer kullanılır. Hem işlev bildirimi hem de ok 
 // işlevi, varsayılan bir değere veya değerlere sahip olabilir.
 
-function greetings(name ='Ümmühan'){
+function greetings(name = 'Ümmühan') {
     let message = `${name}, welcome to JS`
     return message
 }
@@ -1050,7 +1050,7 @@ console.log(greetings())
 console.log(greetings('Ufuk'))
 
 const weightofObject = (mass, gravity = 9.81) => {
-    let weight = mass * gravity 
+    let weight = mass * gravity
     return weight
 }
 console.log(weightofObject(100))
@@ -1060,7 +1060,7 @@ console.log(weightofObject(100, 1.62))
 
 //1. Declare a function fullName and it takes firstName, lastName as a parameter and it returns your full - name.
 
-function returnFullName (firstName, lastName){
+function returnFullName(firstName, lastName) {
     const fullName = `${firstName} ${lastName}`
     return fullName;
 }
@@ -1072,7 +1072,7 @@ console.log(returnFullName('Ümmühan', 'Yetişkin'))
 const returnTotal = (num1, num2) => {
     return num1 + num2
 }
-console.log(returnTotal(2,22))
+console.log(returnTotal(2, 22))
 
 //3. Bir dairenin alanı şu şekilde hesaplanır: alan = π xrxr . _areaOfCircle değerini hesaplayan bir fonksiyon yazın
 
@@ -1085,7 +1085,7 @@ console.log(_areOfCirlce(5))
 //4. oC cinsinden sıcaklık, şu formül kullanılarak oF'ye dönüştürülebilir: oF = (oC x 9/5) + 32 . oC'yi oF'ye çeviren bir fonksiyon yazın convertCelciusToFahrenheit .
 
 const convertCelciusToFahrenheit = oC => {
-    const oF = (oC * 9 / 5 ) + 32
+    const oF = (oC * 9 / 5) + 32
     return oF
 }
 console.log(convertCelciusToFahrenheit(50))
@@ -1093,15 +1093,15 @@ console.log(convertCelciusToFahrenheit(50))
 //5. BMI 
 
 const calculateBMI = (height, kg) => {
-    const bmi = kg/ (height * height)
+    const bmi = kg / (height * height)
 
-    if(bmi < 15.5){
+    if (bmi < 15.5) {
         console.log('Underweight')
-    }else if(bmi > 18.5 && bmi< 24.9){
+    } else if (bmi > 18.5 && bmi < 24.9) {
         console.log('Normal weight')
-    }else if(bmi >25 && bmi < 29.9){
+    } else if (bmi > 25 && bmi < 29.9) {
         console.log('Overweight')
-    }else{
+    } else {
         console.log('Obese')
     }
 }
@@ -1109,16 +1109,195 @@ calculateBMI(1.81, 75)
 
 //6. Write a function called checkSeason, it takes a month parameter and returns the season:Autumn, Winter, Spring or Summer.
 
-const checkSeason  = (month) => {
-    if(month == 'January' || month == 'February' || month == 'December'){
+const checkSeason = (month) => {
+    if (month == 'January' || month == 'February' || month == 'December') {
         console.log('Season is Winter')
-    }else if(month == 'March' || month == 'April' || month == 'May'){
+    } else if (month == 'March' || month == 'April' || month == 'May') {
         console.log('Season is Spring')
-    }else if(month == 'June' || month == 'July' || month == 'Agust'){
+    } else if (month == 'June' || month == 'July' || month == 'Agust') {
         console.log('Season is Summer')
-    }else {
+    } else {
         console.log('Season is Autumn')
     }
 }
 checkSeason('March')
 
+//Exercises Level 2
+
+//1. Quadratic equation is calculated as follows: ax2 + bx + c = 0. Write a function which calculates value or values of a quadratic equation, solveQuadEquation.
+
+const solveQuadEquation = (a, b, c) => {
+    let karekok = -1 * ((b * b) - (4 * a * c))
+    console.log(karekok)
+    let sqrt = Math.sqrt(karekok)
+    console.log(sqrt)
+    let root1 = ((- 1 * b) + sqrt) / (2 * a)
+    let root2 = ((- 1 * b) - sqrt) / (2 * a)
+
+    return `Root 1:${root1} \nRoot 2:${root2}`
+
+}
+console.log(solveQuadEquation(1, 1, 2))
+
+//2. printArray bir işlev adı bildirin . Parametre olarak diziyi alır ve dizinin her değerini yazdırır.
+
+const printArray = (...args) => {
+    for (const element of args) {
+        console.log(element)
+    }
+}
+const exercisesLevel2printArr = [1, 'Ümmühan', 'Deniz', true]
+printArray(exercisesLevel2printArr)
+
+//3. Date nesnesini kullanarak zamanı şu biçimde gösteren showDateTime işlev adını yazın : 08/01/2020 04:08.
+
+const showDateTime = () => {
+    const now = new Date()
+    let todayDate = now.toLocaleDateString()
+    let clock = now.toLocaleTimeString()
+
+    return `Date: ${todayDate} Clock: ${clock}`
+}
+console.log(showDateTime())
+
+//4. swapValues ​​işlev adını bildirin . Bu işlev, x'in değerini y'ye değiştirir.
+
+const swapValues = (a, b) => {
+    console.log('First Values: ', a, b)
+    let c = a;
+    a = b;
+    b = c;
+
+    console.log('Second Values: ', a, b)
+}
+swapValues(2, 3)
+
+//5. Bir işlev adı bildirin reverseArray . Parametre olarak diziyi alır ve dizinin tersini döndürür (yöntem kullanmayın).
+
+const reverseArray = function (arguments) {
+
+    arguments.reverse()
+    let argEmptyArr = []
+    for (const element of arguments) {
+        argEmptyArr.push(element)
+    }
+    console.log(argEmptyArr)
+}
+reverseArray([1, 2, 3, 4])
+
+//6. CapitalizeArray işlev adını bildirin . Parametre olarak diziyi alır ve - büyük harfli diziyi döndürür.
+
+const capitalizeArray = function (arguments) {
+    for (const element of arguments) {
+        console.log(element.toLocaleUpperCase())
+    }
+}
+capitalizeArray(['finland', 'turkey'])
+
+//7. addItem bir işlev adı bildirin . Bir item parametresi alır ve itemi ekledikten sonra bir dizi döndürür
+
+const addItem = function (param) {
+    const emptyArr = []
+    emptyArr.push(param)
+    for (const eleman of emptyArr) {
+        console.log(eleman)
+    }
+}
+addItem('First Item')
+addItem('Second Item')
+
+//8. RemoveItem bir işlev adı bildirin . Bir indeks parametresi alır ve bir öğeyi çıkardıktan sonra bir dizi döndürür
+
+const removeItem = function (index) {
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+    let remove = arr.splice(index, 1)
+    console.log(remove) // [3]
+    console.log(arr) //(9) [1, 2, 4, 5, 6, 7, 8, 9, 0]
+}
+removeItem(2);
+
+//9.EvensAndOdds işlev adını bildirin. Parametre olarak pozitif bir tamsayı alır ve sayıdaki çift ve tek sayıları sayar.
+
+const EvensAndOdds = function (param) {
+    let even = 0;
+    let odd = 0;
+    for (let i = 0; i <= param; i++) {
+        if (i % 2 == 0) {
+            even = even + 1;
+        } else {
+            odd = odd + 1;
+        }
+    }
+    console.log(`çiftli sayı: ${even} \ntekli sayı: ${odd} `)
+}
+EvensAndOdds(212)
+
+//10. Herhangi bir sayıda argüman alan ve argümanların toplamını döndüren bir fonksiyon yazın
+
+const sumArguments = function (arguments) {
+    let sum = 0;
+    for (let i = 0; i < arguments.length; i++) {
+        sum = sum + arguments[i]
+    }
+    return sum
+}
+console.log(sumArguments([1, 2, 3, 4]))
+
+//11. userIdGenerator işlev adını bildirin . Bu işlev çağrıldığında yedi karakterli kimlik üretir. İşlev kimliği döndürür.
+
+const userIdGenerator = () => {
+    const txt = '0123456789ABCDEFGHIJKLMNOPRSTUVYZabcdefghijklmnoprstuvyz'
+    const splitTxt = txt.split("")
+    let random;
+    const hexaArr = []
+
+    for (let i = 1; i <= 7; i++) {
+        random = splitTxt[Math.round(Math.random() * splitTxt.length)]
+        emptyArr.push(random)
+    }
+    console.log(`${emptyArr[0]}${emptyArr[1]}${emptyArr[2]}${emptyArr[3]}${emptyArr[4]}${emptyArr[5]}${emptyArr[6]}`)
+    hexaArr.push(emptyArr)
+    for (const color of hexaArr) {
+        console.log(color)
+    }
+
+}
+userIdGenerator()
+userIdGenerator()
+
+//12. Herhangi bir sayıda hexa veya rgb rengi oluşturabilen createColors işlevini yazın .
+
+const createColors = function (type, param) {
+    const txt = '0123456789abcdef'
+    const splitTxt = txt.split("")
+    const emptyArr = []
+    const hexaArr = []
+    let random
+    if (type == 'hexa') {
+        for (let y = 1; y <= param; y++) {
+            for (let i = 1; i <= 6; i++) {
+                random = splitTxt[Math.round(Math.random() * splitTxt.length)]
+                emptyArr.push(random)
+            }
+            console.log(`#${emptyArr[0]}${emptyArr[1]}${emptyArr[2]}${emptyArr[3]}${emptyArr[4]}${emptyArr[5]}`)
+
+        }
+        hexaArr.push(emptyArr)
+        console.log(hexaArr)
+        console.log()
+
+    } else if (type == "rgb") {
+        const rgbArr = []
+        const randomArr = []
+        for (let x = 1; x <= param; x++) {
+            for (let i = 1; i <= 3; i++) {
+                const random = Math.round(Math.random() * 255)
+                randomArr.push(random)
+            }
+            rgbArr.push(randomArr)
+        }
+        console.log(rgbArr)
+    }
+}
+createColors('hexa', 3)
+createColors('rgb', 1)
