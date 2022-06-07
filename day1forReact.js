@@ -1640,3 +1640,76 @@ function getPersonInfo({firstName, lastName, age, country, job, skills, language
     console.log(fullName)
 }
 getPersonInfo();
+
+console.log("---Spread or Rest Operator---")
+//Spread or Rest Operator
+
+// - Rest parametresi isteğe göre argüman girilmesine yardımcı olur.
+// - Spread Operatörü diziyi normalde argüman listesi bekleyen fonksiyona atmaya yarar.
+
+//Bir diziyi yok ettiğimizde, kalan öğeleri dizi olarak almak için yayılma 
+// operatörünü(...) kullanırız. Buna ek olarak, arr öğelerini başka bir diziye 
+// yaymak için spread operatörünü kullanırız.
+
+//Spread operator to get the rest of array elements
+//Dizi öğelerinin geri kalanını elde etmek için Spread operatörü
+
+const spreadOperatorArr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+let [say1, say2, say3, ...restSayi] = spreadOperatorArr
+
+console.log(say1, say2, say3) //1 2 3
+console.log(restSayi) //(6) [4, 5, 6, 7, 8, 9]
+
+//Spread operator to copy array
+
+const evensNums = [ 0, 2, 4, 6, 8]
+const copyEvenNums = [...evensNums]
+
+const oddsNums = [1, 3, 5, 7, 9]
+const copyOddNums = [...oddsNums]
+
+const wholeNumbers = [...copyEvenNums, ...copyOddNums]
+
+console.log(wholeNumbers) //(10) [0, 2, 4, 6, 8, 1, 3, 5, 7, 9]
+console.log(copyOddNums) //[1, 3, 5, 7, 9]
+console.log(copyEvenNums) //[0, 2, 4, 6, 8]
+
+const frontend = ["HTML", "CSS", "JavaScript", "React"]
+const backend = ["C#", "Java", "MongoDB"]
+const fullstack = [...frontend, ...backend]
+
+console.log(fullstack) //(7) ['HTML', 'CSS', 'JavaScript', 'React', 'C#', 'Java', 'MongoDB']
+
+
+//Spread operator to copy object
+
+//Bir yayılma operatörü kullanarak bir nesneyi kopyalayabiliriz
+const meral = {
+    name : 'Meral',
+    title : 'Finance',
+    country : 'Turkey',
+    city : 'Amed'
+}
+const copiedMeral = {...meral}
+console.log(copiedMeral) //{name: 'Meral', title: 'Finance', country: 'Turkey', city: 'Amed'}
+
+//Modifying or changing the object while copying
+
+const copiedMeralAgain = {...meral, city:"İstanbul"}
+console.log(copiedMeralAgain) //{name: 'Meral', title: 'Finance', country: 'Turkey', city: 'İstanbul'}
+
+//Spread operator with arrow function
+
+//Sınırsız sayıda argüman alan bir ok işlevi yazmak istediğimizde bir yayılma 
+//operatörü kullanırız. Parametre olarak bir yayılma operatörü kullanırsak, bir 
+//işlevi çağırdığımızda iletilen argüman bir diziye dönüşecektir.
+
+const sumAllNums = (...args) => {
+    let sum = 0;
+    for(const num of args){
+        sum += num
+    }
+    return sum
+}
+
+console.log(sumAllNums(3,5,9,20)) //37
