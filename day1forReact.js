@@ -1310,7 +1310,7 @@ console.log("----Higher Order Function || Yüksek Dereceli Function---")
 
 console.log("---Callback--")
 //Callback
- //Bir geri çağırma fonksiyonu, başka bir fonksiyona geçirilen bir parametre 
+//Bir geri çağırma fonksiyonu, başka bir fonksiyona geçirilen bir parametre 
 // şeklindeki fonksiyondur. Geri çağırma fonksiyonu, ikinci fonksiyonun içinde 
 // çağrılır ya da icra edilir. Geri çağırma fonksiyonları, asenkron olarak icra 
 // edilirler.
@@ -1321,7 +1321,7 @@ const callBackFunc = (n) => {
     return n * 2
 }
 // Function diğer işlevi geri çağırma olarak alır
-function cubeCallbackFunc(callBackFunc, n){
+function cubeCallbackFunc(callBackFunc, n) {
     return callBackFunc(n) * n
 }
 
@@ -1347,7 +1347,7 @@ console.log(higherOrder(2)(3)(10))
 const orderArrr = [1, 2, 3, 4]
 const sumArray = arr => {
     let sum = 0
-    const callback = function(element) {
+    const callback = function (element) {
         sum += element
     }
     arr.forEach(callback)
@@ -1399,7 +1399,7 @@ dereceli işlevini kullanırız. setTimeout global yöntemi, parametre olarak bi
 arama işlevi ve bir süre alır. Süre milisaniye cinsindendir ve geri arama bu süre 
 kadar bekler.
 */
-function sayHello(){
+function sayHello() {
     console.log("Hello")
 }
 setTimeout(sayHello, 3000) //Hello
@@ -1411,3 +1411,232 @@ console.log("--- Destructuring and Spreading---")
 //Destructuring Assignment; elimizde var olan nesne veya dizi gibi 
 // yapı(lar)dan(bu yapılar çok büyük olabilir); küçük parça(lar) ayırmak için 
 // kullanılır. Destructuring assignment işlemi değer atama işlemi gibi yapılır.
+
+/*
+What is Destructuring?
+
+İmha etme, dizileri ve nesneleri açmanın ve farklı bir değişkene atamanın bir 
+yoludur. İmha etme, temiz ve okunabilir kod yazmamızı sağlar.
+
+What can we destructure?
+
+1. Arrays
+2. Objects
+
+
+Destructuring arrays
+Diziler, dizinlerine göre sıralanmış farklı veri türlerinin bir listesidir. 
+Bir dizi örneği görelim:
+
+*/
+const destNumbers = [1, 2, 3]
+let destNum1 = destNumbers[0]
+let destNum2 = destNumbers[1]
+let destNum3 = destNumbers[2]
+console.log(destNum1, destNum2, destNum3) //1 2 3
+
+const destCountries = ["Finland", 'Sweden', 'Norway']
+let fin = destCountries[0]
+let swe = destCountries[1]
+let now = destCountries[2]
+console.log(fin, swe, now) //Finland Sweden Norway
+
+/*
+Çoğu zaman bir dizinin boyutu büyüktür ve dizilerin her bir öğesini yinelemek için 
+bir döngü kullanırız. Bazen kısa dizilerimiz olabilir. Dizi boyutu çok kısaysa, 
+yukarıda gösterildiği gibi öğelere manuel olarak erişmek sorun değil, ancak bugün 
+yıkıcı olan dizi öğesine erişmenin daha iyi bir yolunu göreceğiz.
+
+Yıkımı kullanarak dizi öğelerine erişme
+*/
+const destNumbers2 = [1, 2, 3, 4, 5, 6]
+const [number1, number2, number3, number4, number5, number6] = destNumbers2
+
+console.log(number1, number2, number3, number4, number5, number6) //1 2 3 4 5 6
+
+const constants = [2.72, 3.14, 9.81, 37, 100]
+const [e, pi, gravity, bodyTemp, boilingTemp] = constants
+
+console.log(e, pi, gravity, bodyTemp, boilingTemp)// 2.72, 3.14, 9.81, 37,100
+
+//Yıkım sırasında her değişken dizideki istenen öğenin indeksi ile eşleşmelidir.
+
+//Destructuring Nested arrays
+
+const fullStack = [
+    ['HTML', 'CSS', 'JS', 'React'],
+    ['Node', 'Express', 'MongoDB']
+]
+
+const [frontEnd, backEnd] = fullStack
+console.log(frontEnd, backEnd)
+// (4) ['HTML', 'CSS', 'JS', 'React'] (3) ['Node', 'Express', 'MongoDB']
+
+// Yıkım sırasında bir Öğeyi Atlamak
+
+// Yıkım sırasında her öğeyle ilgilenmiyorsak, o dizine virgül koyarak belirli bir 
+// öğeyi atlayabiliriz. Diziden sadece Finlandiya, İzlanda ve Danimarka'yı alalım. 
+// Daha fazla netlik için aşağıdaki örneğe bakın:
+
+const ortaDogu = ['Irak', 'Turkey', 'Afganistan', 'Fas', 'Mısır']
+const [irak, , afg, , misir] = ortaDogu
+console.log(irak, afg, misir) //Irak Afganistan Mısır
+
+// Yayılma operatörünü kullanarak dizinin geri kalanını alma Yıkım sırasında bir dizinin 
+// geri kalanını yaymak veya almak için üç nokta(...) kullanırız
+
+const rakamlar = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const [rakam1, rakam2, rakam3, ...rest] = rakamlar
+console.log(rakam1, rakam2, rakam3, rest) //1 2 3 (7) [4, 5, 6, 7, 8, 9, 10]
+
+// Dizi yok etmeyi kullandığımız birçok durum var, şu örneğe bakalım:
+
+// Diziler arasında döngü yaptığımızda yıkım
+
+const europeCountries = [
+    ['England', 'London'],
+    ['Italy', 'Roma'],
+    ['France', 'Paris'],
+    ['Poland', 'Warszawa']
+]
+for (const [country, city] of europeCountries) {
+    console.log(country, city)
+}
+
+
+//Destructuring objects
+console.log("--Destructuring objects--")
+
+//Bir nesne değişmezi, anahtar ve değer çiftlerinden oluşur. Bir nesnenin çok 
+//basit bir örneği:
+
+const rectangle = {
+    witdh: 20,
+    height: 20
+}
+let witdh = rectangle.witdh
+let height = rectangle.height
+
+console.log(witdh, height)
+
+//Nesnede olmayan bir anahtara erişmeye çalıştığımızda değeri ne olacak.
+
+const rectangle2 = {
+    width: 20,
+    heih: 20
+}
+let { width, heih, perimeter } = rectangle2
+console.log(width, heih, perimeter) //20 20 undefined
+
+// Yukarıdaki örnekte çevrenin değeri tanımsızdır.
+
+// Nesne imhası sırasında varsayılan değer
+
+// Diziye benzer şekilde, nesne yok etmede de varsayılan bir değer kullanabiliriz.
+
+const dikdortgen = {
+    genislik: 10,
+    uzunluk: 10
+}
+
+let { genislik, uzunluk, cevre = 20 } = dikdortgen
+console.log(genislik, uzunluk, cevre) //10 10 20
+
+//Değişken adlarını yeniden adlandırma
+
+const dikdortgen2 = {
+    genislik2: 10,
+    uzunluk2: 10
+}
+let { genislik2: g, uzunluk2: h } = dikdortgen2
+console.log(g, h)
+
+// Ayrıca iç içe geçmiş nesneleri de yok edelim. Aşağıdaki örnekte iç içe nesneler 
+//var ve onu iki şekilde yok edebiliyoruz.
+
+// Sadece adım adım yok edebiliriz
+
+const props = {
+    user: {
+        firstName: "Deniz",
+        lastName: "Yetişkin",
+        age: 18
+    },
+    post: {
+        title: 'Student',
+        subtitle: 'Preparation',
+        year: 2045
+    },
+    skills:
+        ['Swimming', 'English']
+}
+
+const { user, post, skills } = props
+const { firstName, lastName, age } = user
+const { title, subtitle, year } = props
+const { firstSkill, secondSkill } = skills
+
+//const {user:{firstName, lastName, age}, post:{title, subtitle, year}, skills:[skillOne, skillTwo, skillThree, skillFour, skillFive]} = props
+
+//Bir dizi boyunca döngü sırasında yıkım
+
+const languages = [
+    { lang: 'English', count: 91 },
+    { lang: 'French', count: 45 },
+    { lang: 'Arabic', count: 25 },
+    { lang: 'Spanish', count: 24 },
+    { lang: 'Russian', count: 9 },
+    { lang: 'Portuguese', count: 9 },
+    { lang: 'Dutch', count: 8 },
+    { lang: 'German', count: 7 },
+    { lang: 'Chinese', count: 5 },
+    { lang: 'Swahili', count: 4 },
+    { lang: 'Serbian', count: 4 },
+]
+
+for (const { lang, count } of languages) {
+    console.log(`The ${lang} is spoken in ${count} countries.`)
+}
+
+//Yıkıcı fonksiyon parametresi
+
+// const dikdort = {genis: 20, uzun:10}
+// const calculateDikdort = ({genis, uzun}) => genis * uzun
+// const calculatePerimeter = ({genis, uzun}) => 2 * (genis + uzun)
+
+// console.log(calculateDikdort())
+// console.log(calculatePerimeter())
+
+// Exercise
+
+
+// getPersonInfo adlı bir işlev oluşturun. getPersonInfo işlevi bir nesne parametresi 
+// alır. Nesnenin yapısı ve fonksiyonun çıktısı aşağıda verilmiştir. Hem düzenli bir 
+// şekilde hem de tahribat yapmaya çalışın ve kodun temizliğini karşılaştırın. 
+// Çözümünüzü benim çözümümle karşılaştırmak istiyorsanız, bu bağlantıyı kontrol edin.
+
+const person = {
+    firstName: 'Asabeneh',
+    lastName: 'Yetayeh',
+    age: 250,
+    country: 'Finland',
+    job: 'Instructor and Developer',
+    skills: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'React',
+      'Redux',
+      'Node',
+      'MongoDB',
+      'Python',
+      'D3.js',
+    ],
+    languages: ['Amharic', 'English', 'Suomi(Finnish)'],
+}
+
+function getPersonInfo({firstName, lastName, age, country, job, skills, languages} = person){
+    const fullName = `${firstName} ${lastName} lives in ${country}. `
+    console.log(fullName)
+}
+getPersonInfo();
