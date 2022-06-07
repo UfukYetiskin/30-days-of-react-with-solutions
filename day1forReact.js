@@ -1301,3 +1301,43 @@ const createColors = function (type, param) {
 }
 createColors('hexa', 3)
 createColors('rgb', 1)
+
+console.log("----Higher Order Function || Yüksek Dereceli Function---")
+//Higher Order Function || Yüksek Dereceli Function
+
+//Bir veya birden fazla fonksiyonu parametre olarak alan ve işlem sonunda bir 
+//fonksiyon dönen fonksiyonlardır.
+
+console.log("---Callback--")
+//Callback
+ //Bir geri çağırma fonksiyonu, başka bir fonksiyona geçirilen bir parametre 
+// şeklindeki fonksiyondur. Geri çağırma fonksiyonu, ikinci fonksiyonun içinde 
+// çağrılır ya da icra edilir. Geri çağırma fonksiyonları, asenkron olarak icra 
+// edilirler.
+
+// bir geri arama function, function herhangi bir ad olabilir
+
+const callBackFunc = (n) => {
+    return n * 2
+}
+// Function diğer işlevi geri çağırma olarak alır
+function cubeCallbackFunc(callBackFunc, n){
+    return callBackFunc(n) * n
+}
+
+console.log(cubeCallbackFunc(callBackFunc, 9))
+
+console.log("Returning function")
+//Returning function
+//Başka bir fonksiyon döndüren yüksek dereceli fonksiyon
+
+const higherOrder = n => {
+    const doSomething = m => {
+        const doWhatEver = t => {
+            return 2 * n + 3 * m + t
+        }
+        return doWhatEver
+    }
+    return doSomething
+}
+console.log(higherOrder(2)(3)(10))
