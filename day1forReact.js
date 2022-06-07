@@ -1713,3 +1713,6 @@ const sumAllNums = (...args) => {
 }
 
 console.log(sumAllNums(3,5,9,20)) //37
+
+console.log("--- Functional Programming ----")
+// --- Functional Programming ----
