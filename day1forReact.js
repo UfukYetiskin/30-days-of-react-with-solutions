@@ -1341,3 +1341,65 @@ const higherOrder = n => {
     return doSomething
 }
 console.log(higherOrder(2)(3)(10))
+
+//Bakalım geri arama fonksiyonlarını kullanıyor muyduk.Örneğin forEach yöntemi geri aramayı kullanıyor.
+
+const orderArrr = [1, 2, 3, 4]
+const sumArray = arr => {
+    let sum = 0
+    const callback = function(element) {
+        sum += element
+    }
+    arr.forEach(callback)
+    return sum
+}
+console.log(sumArray(orderArrr))
+/*
+const numbers = [1, 2, 3, 4]
+​
+const sumArray = arr => {
+  let sum = 0
+  arr.forEach(function(element) {
+    sum += element
+  })
+  return sum
+
+}
+console.log(sumArray(numbers))
+*/
+
+console.log("setting time")
+//setting time
+/*
+JavaScript'te belirli bir zaman aralığında bazı aktiviteleri yürütebiliriz veya bazı 
+aktivitelerin yürütülmesi için bir süre planlayabiliriz (bekleyebiliriz).
+
+setInterval
+setZaman aşımı
+
+setInterval
+
+JavaScript'te, belirli bir zaman aralığında sürekli olarak bazı etkinlikler yapmak
+ için setInterval yüksek dereceli işlevi kullanırız. setInterval global yöntemi, 
+ parametre olarak bir geri arama işlevi ve bir süre alır. Süre milisaniye cinsindendir 
+ ve geri arama her zaman bu zaman aralığında aranacaktır.
+*/
+console.log("setInterval")
+
+
+// function setIntervalFunc(){
+//     console.log("setInterval after 2000ms")
+// }
+// setInterval(setIntervalFunc, 2000) //Many Times Hello
+
+//setTimeout
+/*
+JavaScript'te, gelecekte bir zamanda bazı eylemleri yürütmek için setTimeout yüksek 
+dereceli işlevini kullanırız. setTimeout global yöntemi, parametre olarak bir geri 
+arama işlevi ve bir süre alır. Süre milisaniye cinsindendir ve geri arama bu süre 
+kadar bekler.
+*/
+function sayHello(){
+    console.log("Hello")
+}
+setTimeout(sayHello, 3000) //Hello
