@@ -2020,4 +2020,56 @@ const products = [
     { product: 'avocado', price: 8 },
     { product: 'coffee', price: 10 },
     { product: 'tea', price: '' },
-  ]
+]
+
+//1.forEach kullanarak her ürünün fiyatını yazdırın
+
+const printPrice = products.forEach((price, index)=> console.log(index, price))
+
+//2.ForEach kullanarak ürün öğelerini aşağıdaki gibi yazdırın
+
+const printProductwithPrice = products.forEach((product)=> {
+    console.log(`The price of ${product.product} is ${product.price} euros`)
+})
+
+//3. forEach kullanarak tüm fiyatların toplamını hesaplayın
+let priceSum = 0
+const printPriceSum = products.filter((eleman) => eleman.price > 0)
+    .forEach((eleman) => {
+        priceSum = priceSum + eleman.price
+        console.log(priceSum)
+    })
+
+
+const reducePrice = products.reduce((acc, val) => {
+    return acc + val.price
+}, 0)
+console.log(reducePrice)
+
+const reduceFilterPrice = products.filter((eleman) => eleman.price > 0)
+    .reduce((acc,val) => {
+        return acc + val.price
+    }, 0)
+console.log(reduceFilterPrice)
+
+//4. Haritayı kullanarak bir dizi fiyat oluşturun ve bunu değişken fiyatlarda saklayın
+
+const priceArr = []
+const pushpricetoArr = products.map((eleman) => {
+    priceArr.push(eleman.price)
+})
+console.log(priceArr)
+
+//5. Ürünleri fiyatlara göre filtreleyin
+
+const filterPrice = products.filter((eleman) => eleman.price >5)
+console.log(filterPrice)
+
+//6. Fiyatların toplamını almak için yöntem zincirlemeyi kullanın (harita, filtre, azalt)
+
+const chainFunc = products.filter((eleman) => eleman.price > 0)
+    .map(eleman => eleman.price)
+    .reduce((acc, val) => {
+        return acc + val
+    },0)
+console.log(chainFunc) //27
