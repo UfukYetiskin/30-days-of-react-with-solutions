@@ -1,5 +1,7 @@
 # 30-days-of-react-with-solutions
 
+This project was created with the hope of learning about the React library and in the future as a notebook for myself and other people. Progress will be made daily and exercises will be done with solutions.
+
 ## First Day of React
 
 ### Chapters
