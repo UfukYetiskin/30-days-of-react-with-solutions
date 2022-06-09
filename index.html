@@ -1,17 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div class="root"></div>
 
+    <!-- create-react-app paketini kullanmak yerine CDN ile  canlıya çıkartıyoruz. CDN kullanmak için Babel complier'ını kullanıyoruz. 
+    Aşağıda script içerisinde react  ve react-dom kütüphanelerini çağırdık. Babel ile JSX kodlarını
+    JS kodlarına dönüştürdük.
+    -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
-      // our code goes here
+        console.log(React)
+        //root elemanını HTML dosyasından çekiyoruz
+        const rootElement = document.querySelector('.root')
+
+        //JSX Element oluşturduk
+        const jsxElement = <h1>I am a JSX Element </h1>
+        
+        //JSX element, header
+        const header = (
+            <header style={{border: '1px solid orange', backgroundColor: 'orange'}}>
+                <h1>Welcome to 30 Days of React</h1>
+                <h2> Getting Started React</h2>
+                <h3> JavaScript Library</h3>
+                <p>Ufuk Yetişkin </p>
+            </header>
+        )
+        //JSX element, main
+        const main = (
+            <main>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, quisquam.</p>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+            </main>
+        )
+        //JSX element, footer
+        const footer = (
+            <footer >
+                <p>Today is June 9, 2022</p>
+            </footer>
+        )
+        // header, main ve footer öğelerini sarmalayan kapsayıcı JSX elementidir. Bu sayede sadece bir öğeyi render etmek yerine hepsini kapsayıcı öğe altında toplayarak bir elemnt altında render ederiz
+        const app = (
+            <div>
+                {header}
+                {main}
+                {footer}
+            </div>
+        )
+        
+        // ReactDOM.render([header, main, footer], rootElement)
+        //bir seferde yalnızca bir JSX öğesi render edebiliriz. 
+        ReactDOM.render(app, rootElement)
+
     </script>
 </body>
+
 </html>

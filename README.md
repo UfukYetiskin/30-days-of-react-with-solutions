@@ -246,3 +246,21 @@ Gördüğünüz gibi, başlık öğesi, tüm iç HTML öğeleri için bir üst �
 
 */}
 ```
+##### Style and className in JSX
+Şimdiye kadar JSX öğelerinde herhangi bir stil uygulamadık. Şimdi JSX elementlerimize stil ekleyelim. Tepkinin ortaya çıkmasından sonra satır içi stil çok popüler oldu. JSX başlığına border ekleyelim.
+
+Bir JSX öğesine stil eklemek için satır içi stili veya sınıfAdı kullanırız. {} kullanarak stil nesnesini enjekte ediyoruz. Her CSS özelliği bir anahtar olur ve her CSS özelliği değeri, nesne için bir değer olur. Örneğin, aşağıdaki örnekte border bir anahtar ve '2px düz turuncu' bir değer, renk bir anahtar ve 'black' bir değer, fontSize bir anahtar ve '18px' bir değerdir. React veya JavaScript'te CSS nesnesinde anahtar olarak kullandığımızda, iki kelime CSS özelliğinin tümü camelCase olarak değişecektir.
+
+```
+const header = (
+  <header
+    style={{ border: '2px solid orange', color: 'black', fontSize: '18px' }}
+  >
+    <h1>Welcome to 30 Days Of React</h1>
+    <h2>Getting Started React</h2>
+    <h3>JavaScript Library</h3>
+    <p>Asabeneh Yetayeh</p>
+    <small>Oct 2, 2020</small>
+  </header>
+)
+```
