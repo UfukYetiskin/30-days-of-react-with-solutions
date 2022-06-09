@@ -264,3 +264,69 @@ const header = (
   </header>
 )
 ```
+
+##### Bir JSX Öğesine veri enjekte etme
+Buraya kadar JSX elemanları üzerinde statik veri kullandık fakat farklı veri tiplerini de dinamik veri olarak iletebiliyoruz. Dinamik veriler dize, sayı, boolean, dizi veya nesne olabilir. Her bir veri tipini adım adım görelim. Bir JSX'e veri enjekte etmek için {} parantezini kullanırız.
+
+```
+//Bir JSX Öğesine veri enjekte etme
+const ufuk = "Ufuk Yetişkin"
+const titleofUfuk = "Jr. Front-End Developer"
+
+//JSX element, header
+const header = (
+    <header style={{border: '1px solid orange', backgroundColor: 'orange'}}>
+        <h1>Welcome to 30 Days of React</h1>
+        <h2> Getting Started React</h2>
+        <h3> JavaScript Library</h3>
+        <p>{ufuk} </p>
+        <p>{titleofUfuk}</p>
+    </header>
+)
+```
+
+##### Bir JSX Öğesine bir dizi enjekte etme
+Bir diziye örnek vermek gerekirse, HTML, CSS, JavaScript'i bir diziye değiştirelim ve aşağıdaki ana JSX öğesine enjekte edelim. Listeleri oluşturma bölümünde daha sonra daha ayrıntılı olarak ele alacağız.
+
+```
+const techs = ['HTML', 'CSS', 'JavaScript']
+
+// JSX element, main
+const main = (
+  <main>
+    <div className='main-wrapper'>
+      <p>
+        Prerequisite to get started{' '}
+        <strong>
+          <em>react.js</em>
+        </strong>
+        :
+      </p>
+      <ul>{techs}</ul>
+    </div>
+  </main>
+)
+```
+
+##### Bir JSX Öğesine bir nesne enjekte etme
+JSX'e dize, sayı, boolean, dizi verilerini enjekte edebiliriz ancak doğrudan bir nesneyi enjekte edemeyiz. Verileri JSX öğesine enjekte etmeden önce nesne değerlerini çıkarmalı veya nesnenin içeriğini yok etmeliyiz. Örneğin, bir nesnenin içine ad ve soyadı yazalım ve bunları JSX içinde kullanmak için ayıklayalım.
+
+```
+const author = {
+        firstName: 'Asabeneh',
+        lastName: 'Yetayeh',
+}
+const header = (
+<header>
+    <div className='header-wrapper'>
+    <h1>{welcome}</h1>
+    <h2>{title}</h2>
+    <h3>{subtitle}</h3>
+    <p>
+        Instructor: {author.firstName} {author.lastName}
+    </p>
+    <small>Date: {date}</small>
+    </div>
+</header>
+)
+```

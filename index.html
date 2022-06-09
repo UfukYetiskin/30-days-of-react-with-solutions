@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500|Roboto:300,400,500&display=swap"
+        rel="stylesheet" />
     <title>Document</title>
 </head>
 
@@ -25,31 +27,75 @@
 
         //JSX Element oluşturduk
         const jsxElement = <h1>I am a JSX Element </h1>
-        
+
+        //Bir JSX Öğesine veri enjekte etme
+        const ufuk = "Ufuk Yetişkin"
+        const titleofUfuk = "Jr. Front-End Developer"
         //JSX element, header
         const header = (
-            <header style={{border: '1px solid orange', backgroundColor: 'orange'}}>
+            <header style={{ border: '1px solid orange', backgroundColor: 'orange' }}>
                 <h1>Welcome to 30 Days of React</h1>
                 <h2> Getting Started React</h2>
                 <h3> JavaScript Library</h3>
-                <p>Ufuk Yetişkin </p>
+                <p>{ufuk} </p>
+                <p>{titleofUfuk}</p>
             </header>
         )
+        const mainStyle = {
+            backgroundColor: "royalblue",
+            fontFamily: 'Helvetica Neue',
+            padding: 25,
+            lineHeight: 1.5
+        }
+
+        //Bir JSX Öğesine bir dize enjekte etme
+        const boostrap = "Boostrap"
+        const tailwind = "Tailwind"
+
+        //Bir JSX Öğesine bir dizi enjekte etme
+        const frameworkofJS = ['React', 'Vue', 'Angular']
+        const mapFrameworks = frameworkofJS.map((eleman, index) => <li key={index}>{eleman}</li>)
+        
+        
+        //Bir JSX Öğesine bir nesne enjekte etme
+        const girlFriend = {
+            firstName : "Ümmühan",
+            lastName : "Gümüş"
+        }
+
         //JSX element, main
         const main = (
-            <main>
+            <main style={mainStyle}>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, quisquam.</p>
                 <ul>
                     <li>HTML</li>
                     <li>CSS</li>
                     <li>JavaScript</li>
+                    <li>CSS Frameworks: {boostrap} {tailwind}</li>
                 </ul>
+                <p>
+                    Prerequisite to get started{' '}
+                    <strong>
+                        <em>react.js</em>
+                    </strong>
+                </p>
+                {/* //Bir JSX Öğesine bir dizi enjekte etme */}
+                <ul>{mapFrameworks}</ul>
+
+                {/* //Bir JSX Öğesine bir nesne enjekte etme */}
+                <p>Girlfriend of Ufuk: {girlFriend.firstName} {girlFriend.lastName} </p>
             </main>
         )
+        //Bir JSX Öğesine bir sayı enjekte etme
+        const yearBorn = 1995
+        const currentYear = new Date().getFullYear()
+        const age = currentYear - yearBorn
+        const personAge = <span>{age}</span>
         //JSX element, footer
         const footer = (
             <footer >
                 <p>Today is June 9, 2022</p>
+                Age of Ufuk: {personAge}
             </footer>
         )
         // header, main ve footer öğelerini sarmalayan kapsayıcı JSX elementidir. Bu sayede sadece bir öğeyi render etmek yerine hepsini kapsayıcı öğe altında toplayarak bir elemnt altında render ederiz
@@ -60,7 +106,7 @@
                 {footer}
             </div>
         )
-        
+
         // ReactDOM.render([header, main, footer], rootElement)
         //bir seferde yalnızca bir JSX öğesi render edebiliriz. 
         ReactDOM.render(app, rootElement)
