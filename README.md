@@ -290,6 +290,7 @@ Bir diziye örnek vermek gerekirse, HTML, CSS, JavaScript'i bir diziye değişti
 
 ```
 const techs = ['HTML', 'CSS', 'JavaScript']
+const mapFrameworks = techs.map((eleman, index) => <li key={index}>{eleman}</li>)
 
 // JSX element, main
 const main = (
