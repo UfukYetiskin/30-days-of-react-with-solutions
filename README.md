@@ -333,3 +333,81 @@ const header = (
 ```
 
 ## Third Day of React
+
+### React Proje Kurulum 
+
+2. gün CDN kullanarak Babel ile HTML sayfası üzerinde script yazarak render ettiğimiz uygulamayı artık create-react-app paketini kullanarak gereksiz zaman harcamalardan kurtularak kurarız.
+
+#### Node 
+
+Node,  JavaScript'in sunucuda çalışmasına izin veren bir JavaScript çalışma zamanı ortamıdır.  React uygulaması varsayılan olarak localhost 3000'de başlar. create-react-app, React Uygulaması için bir Node sunucusu yapılandırmıştır. Bu yüzden Node ve Node modüllerine ihtiyacımız var.
+
+Node paketini Node.js websitesinden indiriniz. Daha sonra kurulumun tamamlandığını anlamak için terminal üzerinden versiyon kontrolü yapın. Versiyon kontrol için;
+
+```
+node -v
+```
+```
+v16.13.2
+```
+
+#### Module
+
+Gerektiğinde dışa aktarılabilen ve içe aktarılabilen tekli veya çoklu işlevler bir projeye dahil edilebilir. React'te modüllere veya paketlere erişmek için bağlantı kullanmıyoruz, bunun yerine modülü içe aktarıyoruz. Bir modülün veya modüllerin nasıl içe ve dışa aktarılacağını görelim:
+```
+// math.js
+export const addTwo = (a, b) => a + b
+export const multiply = (a, b) => a * b
+export const subtract = (a, b) => a - b
+
+export default (function doSomeMath() {
+  return {
+    addTwo,
+    multiply,
+    subtract,
+  }
+})()
+```
+Şimdi math.js modüllerini farklı bir dosyaya aktaralım:
+```
+// index.js
+// to import the doSomeMath from the math.js with or without extension
+import doSomeMath from './math.js'
+
+// to import the other modules
+// since these modules were not exported as default we have to desctructure
+import { addTwo, multiply, subtract } from './math.js'
+
+import * as everything from './math.js' // to import everything remaining
+console.log(addTwo(5, 5))
+console.log(doSomeMath.addTwo(5, 5))
+console.log(everything)
+```
+
+### Package
+
+Paket, bir modül veya modüller topluluğudur. Örneğin React, ReactDOM paketlerdir.
+
+### Node Package Manager (NPM)
+
+NPM'i ayrıca kurmaya gerek yok. Node.js kurduğumuzda ayrıca NPM paketi de kurulacaktır. NPM, Node.js için varsayılan bir paket yöneticisidir. Kullanıcıların kayıt defterinde bulunan JavaScript modüllerini kullanmasına ve dağıtmasına olanak tanır. NPM, paketler oluşturmaya, paketleri kullanmaya ve paketleri dağıtmaya izin verir. NMP, JavaScript'in büyümesinde de oldukça büyük bir rol oynadı. Şu anda NPM kayıt defterinde 350.000'den fazla paket var. NPM kayıt defterindeki create-tepki-uygulamasını görelim. İndirme sayısı, paketin popülerliğini gösterir.
+
+### React Projesi Oluşturma
+
+Bir React projesi oluşturmak için aşağıdaki yollarandan birini kullanabiliriz. Node.js kurduğumuzu düşünerek, Mac veya Linux'ta  komut satırı arabirimini (CLI), git bash veya terminali açın. Ardından aşağıdaki komutu çalıştırın. git bash kullanıyorum.
+
+```
+ufuky@DESKTOP ~/Desktop
+$ npx create-react-app name-of-your-project
+```
+Her proje oluşturduğunuzda npx yazmayı sevmiyorsanız, aşağıdaki komutu kullanarak create-react-app paketini global olarak bilgisayarınıza kurabilirsiniz.
+
+```
+$ npm install -g create-react-app
+```
+
+create-react-app'i yükledikten sonra aşağıdaki gibi bir React uygulaması oluşturursunuz:
+
+```
+$ create-react-app name-of-project
+```
