@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import logo512 from './logo512.png'
 
 
 
@@ -61,13 +62,75 @@ const footer = (
   </footer>
 )
 
+//Exercises Level 2
+const subscribeStyle = {
+  backgroundColor : 'lightskyblue',
+  alignItems : 'center',
+  alignContent : 'center',
+  justifyContent : 'center'
+}
+const inputStyles = {
+  margin : '10px',
+  padding : '10px',
+  border : '1px solid lightskyblue',
+  borderRadius : '10px'
+}
+const subscribe = (
+  <div style={subscribeStyle}>
+    <h1 style={{marginLeft : '42%'}}>SUBSCRIBE</h1>
+    <p style={{marginLeft : '38%'}}>Sign up with your email address to receive news and update </p>
+    <div style={{marginLeft : '30%'}}>
+      <input style={inputStyles} type="text" placeholder='First Name' />
+      <input style={inputStyles} type="text" placeholder='Last Name' />
+      <input style={inputStyles} type="mail" placeholder='email' /><br></br>
+    </div>
+    <button  style={{marginLeft:'37%', padding : '8px',marginBottom: '1%', backgroundColor:'salmon', border: '1px solid salmon', width:'20%', borderRadius : '10px'}}>Subscribe</button>
+  </div>
+)
+
+//Exercises Level 3
+const liStyle = {
+  padding : '10px',
+  backgroundColor : 'lightskyblue',
+  marginLeft : '5%',
+  marginTop : '1%',
+  borderRadius : '10px'
+}
+const listStyle = {
+  listStyleType : 'none',
+  display : 'flex',
+  flexWrap : 'wrap' 
+}
+const skills = ['HTML', 'CSS', 'SASS', 'JS', 'Redux', 'Node', 'MongoDB', 'MYSQL', 'GraphQL', 'D3.js', 'Gatsby', 'Docker', 'Heroku', 'Git', 'Pyhton', 'Flask']
+const listSkills = skills.map((element, index) => <li style={liStyle} key={index}>{element}</li>)
+const profile = (
+  <div>
+    <div >
+      <img style={{width : "100px"}} src={logo512}></img>
+    </div>
+    <div>
+      <div><strong>{ufuk}</strong></div>
+      <p>Junior Developer, Turkey</p>
+    </div>
+    <h3>SKILLS</h3>
+    <ul style={listStyle}>
+      {listSkills}
+    </ul>
+    <p>Joined on {today}</p>
+  </div>
+)
+
 const app = (
   <div>
     {header}
     {main}
+    {subscribe}
+    {profile}
     {footer}
   </div>
 )
+
+
   
 
 const rootElement = document.getElementById('root')
