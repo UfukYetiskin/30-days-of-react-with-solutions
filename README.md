@@ -411,3 +411,28 @@ create-react-app'i yükledikten sonra aşağıdaki gibi bir React uygulaması ol
 ```
 $ create-react-app name-of-project
 ```
+
+### React Boilerplate
+
+Aşağıdaki React kazan plakasında üç klasör vardır: node_modules, public ve src. Ayrıca .gitignore, README.md, package.json ve yarn.lock vardır. Bazılarınız, thread.lock yerine package-lock.json'a sahip olabilirsiniz.
+
+Bu klasörleri ve dosyaları bilmek güzel:
+
+- node_modules - React uygulamalarının gerekli tüm düğüm paketlerini saklar.
+- Public
+  - index.html - tüm uygulamada sahip olduğumuz tek HTML dosyası
+  - favicon.ico - bir simge dosyası
+  - manifest.json - uygulamayı aşamalı bir web uygulaması yapmak için kullanılır
+  - other images - açık grafik görselleri(açık grafik görselleri, bir bağlantı sosyal medyada paylaşıldığında görünen görsellerdir)
+  - robots.txt - web sitesi web kazımaya izin veriyorsa bilgi
+- src
+  - App.css, index.css - farklı CSS dosyalarıdır
+  - index.js - tüm bileşenleri index.html ile bağlamaya izin veren bir dosya
+  - App.js - Genellikle sunum bileşenlerinin çoğunu içe aktardığımız bir dosya
+  - serviceWorker.js: aşamalı web uygulaması özellikleri eklemek için kullanılır
+  - setupTests.js - test senaryoları yazmak için
+- package.json - Uygulamaların kullandığı paketlerin listesi
+- .gitignore - React ortak plakası git başlatılan ile birlikte gelir ve .gitingore, dosya ve klasörlerin GitHub'a gönderilmemesine izin verir
+- README.md - Belgeleri yazmak için işaretleme dosyası
+- yarn.lock veya package-lock.json - paketin sürümünü kilitlemenin bir yolu
+
