@@ -92,7 +92,7 @@ const subscribe = (
 const liStyle = {
   padding : '10px',
   backgroundColor : 'lightskyblue',
-  marginLeft : '5%',
+  marginLeft : '2%',
   marginTop : '1%',
   borderRadius : '10px'
 }
@@ -101,10 +101,11 @@ const listStyle = {
   display : 'flex',
   flexWrap : 'wrap' 
 }
-const skills = ['HTML', 'CSS', 'SASS', 'JS', 'Redux', 'Node', 'MongoDB', 'MYSQL', 'GraphQL', 'D3.js', 'Gatsby', 'Docker', 'Heroku', 'Git', 'Pyhton', 'Flask']
+const skills = ['Jango','NumPy','Pandas','Data Analysis','HTML', 'CSS', 'SASS', 'JS', 'Redux', 'Node', 'MongoDB', 'MYSQL', 'GraphQL', 'D3.js', 'Gatsby', 'Docker', 'Heroku', 'Git', 'Pyhton', 'Flask']
 const listSkills = skills.map((element, index) => <li style={liStyle} key={index}>{element}</li>)
 const profile = (
   <div>
+    <div style={{marginLeft : '2%'}}>
     <div >
       <img style={{width : "100px"}} src={logo512}></img>
     </div>
@@ -112,7 +113,8 @@ const profile = (
       <div><strong>{ufuk}</strong></div>
       <p>Junior Developer, Turkey</p>
     </div>
-    <h3>SKILLS</h3>
+    </div>
+    <h3 style={{marginLeft : '2%'}}>SKILLS</h3>
     <ul style={listStyle}>
       {listSkills}
     </ul>
