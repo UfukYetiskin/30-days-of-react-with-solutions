@@ -437,3 +437,85 @@ Bu klasörleri ve dosyaları bilmek güzel:
 - yarn.lock veya package-lock.json - paketin sürümünü kilitlemenin bir yolu
 
 ## Fourth Day of React
+
+### Components 
+
+Bir React bileşeni, uygulama kullanıcı arayüzünün bir bölümünden sorumlu olan küçük, yeniden kullanılabilir bir koddur. Bir React uygulaması, bileşenlerin bir toplamıdır. React, yeniden kullanılabilir bileşenler oluşturmamıza yardımcı olabilir. Aşağıdaki şema farklı bileşenleri göstermektedir. Tüm bileşenlerin farklı kenarlık renkleri vardır. React'te bir uygulama oluşturmak için farklı bileşenleri bir araya getiriyoruz. Bileşenler oluşturmak için JavaScript işlevlerini veya sınıflarını kullanırız. Bir işlev kullanırsak, bileşen işlevsel bir bileşen olacaktır, ancak bir sınıf kullanırsak bileşen, sınıf tabanlı bir bileşen olacaktır.
+
+Bileşenler şunlar olabilir:
+
+- Functional Component / Presentational Component / Stateless Component / Dumb Component
+- Class Component / Container Component/ Statefull Component / Smart Component
+
+Yukarıdaki bileşenlerin sınıflandırılması, React'in en son sürümü için çalışmaz, ancak önceki tanımı ve önceki sürümlerin nasıl çalıştığını bilmek iyidir.
+
+Öyleyse, tüm JSX'leri bileşenlere değiştirelim. React'teki bileşenler, bir JSX döndüren JavaScript işlevleri veya sınıflarıdır. Bileşen adı büyük harfle başlamalı ve ad iki kelimeyse, CamelCase - iki hörgüçlü bir deve olmalıdır.
+
+#### Big picture of components
+
+Bir önceki bölümde, bir web sitesi veya uygulamanın düğmeler, formlar, metinler, medya nesneleri, başlık, bölüm, makale ve alt bilgiden oluştuğu konusunda anlaşmıştık. Milyon dolarlık bir düğmemiz varsa, bir düğmeye ihtiyacımız olduğunda yeniden oluşturmak yerine bu düğmeyi her zaman kullanabiliriz. Aynı şey giriş alanları, formlar, üstbilgi veya altbilgi için de geçerlidir. Bileşenin gücü buradan gelir. Aşağıdaki şemada üstbilgi, ana ve altbilgi bileşenlerdir. Ana içinde ayrıca bir kullanıcı kartı bileşeni ve bir metin bölümü bileşeni vardır. 
+
+#### JavaScript Function
+Bir JavaScript işlevi, normal bir işlev veya bir ok işlevi olabilir. Bu işlevler tam olarak aynı değildir, aralarında küçük bir fark vardır.
+
+```
+const getUserInfo = (firstName, lastName, country, title, skills) => {
+  return `${firstName} ${lastName},  a ${title} developer based in ${country}. He knows ${skills.join(
+    ' '
+  )} `
+}
+// When we call this function we need parameters
+const skills = ['HTML', 'CSS', 'JS', 'React']
+console.log(
+  getUserInfo('Asabeneh', 'Yetayeh', 'Finland', 'FullStack Developer', skills)
+)
+```
+
+#### JavaScript Class 
+
+Sınıf, bir nesnenin planıdır. Farklı nesneler oluşturmak için bir sınıfı başlatıyoruz. Ek olarak, ebeveynin tüm yöntemlerini ve özelliklerini devralarak çocuklar oluşturabiliriz.
+
+```
+class Parent {
+  constructor(firstName, lastName, country, title) {
+    // we bind the params with this class object using this keyword
+    this.firstName = firstName
+    this.lastName = lastName
+    this.country = country
+    this.title = title
+  }
+  getPersonInfo() {
+    return `${this.firstName} ${this.lastName},  a ${this.title} developer base in ${this.country} `
+  }
+  parentMethod() {
+    // code goes here
+  }
+}
+
+const p1 = new Parent('Asabeneh', 'Yetayeh', 'Finland', 'FullStack Developer')
+
+class Child extends Parent {
+  constructor(firstName, lastName, country, title, skills) {
+    super(firstName, lastName, country, title)
+    this.skills = skills
+    // we bind the child params with the this keyword to this child object
+  }
+  getSkills() {
+    let len = this.skills.length
+    return len > 0 ? this.skills.join(' ') : 'No skills found'
+  }
+  childMethod() {
+    // code goes here
+  }
+}
+
+const skills = ['HTML', 'CSS', 'JS', 'React']
+
+const child = new Child(
+  'Asabeneh',
+  'Yetayeh',
+  'Finland',
+  'FullStack Developer',
+  skills
+)
+```

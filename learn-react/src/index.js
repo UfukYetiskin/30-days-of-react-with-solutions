@@ -26,7 +26,7 @@ const mapTech = tech.map((eleman, index) => <li key={index}>{eleman}</li>)
 const today = new Date().toLocaleDateString()
 
 
-const header = (
+const Header = () => (
   <header style={headerStyle}>
     <h1>Welcome to 30 Days Of React</h1>
     <h2>Getting Started React</h2>
@@ -39,24 +39,24 @@ const mainStyle = {
   backgroundColor : 'orange',
 }
 
-
-
-// JSX element, main
-const main = (
-  <main style={mainStyle}>
+const Main = () => {
+  return (
+    <main style={mainStyle}>
     <p>Prerequisite to get started react.js:</p>
     <ul>
       {mapTech}
     </ul>
   </main>
-)
+  )
+}
+
 
 const footerStyle = {
   backgroundColor : 'lightskyblue'
 }
 
 // JSX element, footer
-const footer = (
+const Footer = () => (
   <footer style={footerStyle}>
     <p>Copyright 2020</p>
   </footer>
@@ -75,8 +75,9 @@ const inputStyles = {
   border : '1px solid lightskyblue',
   borderRadius : '10px'
 }
-const subscribe = (
-  <div style={subscribeStyle}>
+const Subscribe = () => {
+  return (
+    <div style={subscribeStyle}>
     <h1 style={{marginLeft : '42%'}}>SUBSCRIBE</h1>
     <p style={{marginLeft : '38%'}}>Sign up with your email address to receive news and update </p>
     <div style={{marginLeft : '30%'}}>
@@ -86,7 +87,9 @@ const subscribe = (
     </div>
     <button  style={{marginLeft:'37%', padding : '8px',marginBottom: '1%', backgroundColor:'salmon', border: '1px solid salmon', width:'20%', borderRadius : '10px'}}>Subscribe</button>
   </div>
-)
+  )
+}
+
 
 //Exercises Level 3
 const liStyle = {
@@ -103,7 +106,7 @@ const listStyle = {
 }
 const skills = ['Jango','NumPy','Pandas','Data Analysis','HTML', 'CSS', 'SASS', 'JS', 'Redux', 'Node', 'MongoDB', 'MYSQL', 'GraphQL', 'D3.js', 'Gatsby', 'Docker', 'Heroku', 'Git', 'Pyhton', 'Flask']
 const listSkills = skills.map((element, index) => <li style={liStyle} key={index}>{element}</li>)
-const profile = (
+const Profile = () =>  (
   <div>
     <div style={{marginLeft : '2%'}}>
     <div >
@@ -121,14 +124,49 @@ const profile = (
     <p>Joined on {today}</p>
   </div>
 )
+//hexaColor bir fonksiyondur.
+const hexaColor = () => {
+  let str = '0123456789abcdef'
+  let hexa = ''
 
-const app = (
+  for(let i = 0; i <6 ; i++){
+    //Bu kod içerisinde for döngüsü ile 6 kadar değer döndürürz. index değişkeni ile rastgele sayı üretiriz. Bu üretilen sayı ile str değişkeninin index değerine göre bir harf alırız ve bu sayede yeni bir hexa renk kodu üretiriz.
+    const index = Math.floor(Math.random() * str.length)
+    hexa += str[index]
+  }
+  return '#' + hexa
+}
+//Yeniden kullanılabilir bir Düğme bileşeni yapın.
+const Button = <button style={{backgroundColor : 'lightblue', padding: '10px', borderRadius: '10px'}}>Reusable Button</button>
+
+//Yeniden kullanılabilir bir InputField bileşeni yapın.
+const Input = <input 
+                type='text' 
+                placeholder='Write Something'
+                style={{backgroundColor : 'lightblue', padding: '10px', borderRadius: '10px'}}
+                />
+
+
+// HexaColor adında bir component oluşturduk.
+const HexaColor = () => {
+  return (
+    <div>
+      {/* hexaColor fonksiyonunu component içersinde çağırdık.*/}
+      <h3 style={{backgroundColor : 'lightblue',alignContent: 'center' , alignItems : 'center', justifyContent : 'center', justifyItems: 'center'}}>{hexaColor()}</h3>
+      <h3 style={{backgroundColor : 'blue',alignContent: 'center' , alignItems : 'center', justifyContent : 'center', justifyItems: 'center'}}>{hexaColor()}</h3>
+      <h3 style={{backgroundColor : 'orange',alignContent: 'center' , alignItems : 'center', justifyContent : 'center', justifyItems: 'center'}}>{hexaColor()}</h3>
+    </div>
+  )
+}
+
+const App = () =>(
   <div>
-    {header}
-    {main}
-    {subscribe}
-    {profile}
-    {footer}
+    <Header />
+    <Profile></Profile>
+    <Main></Main>
+    <Subscribe></Subscribe>
+    <HexaColor/>
+    <Footer></Footer>
   </div>
 )
 
@@ -138,4 +176,4 @@ const app = (
 const rootElement = document.getElementById('root')
 
 {/*ReactDOM.render([header, main, footer], rootElement)*/}
-ReactDOM.render(app, rootElement)
+ReactDOM.render(<App />, rootElement)
