@@ -316,3 +316,115 @@ const User = (props) => {
 // calling or instantiating a component, this component has three properties and we call them props:firstName, lastName, country
 <User firstName = 'Asabeneh', lastName='Yetayeh' country = 'Finland' />
 ```
+
+### Props Object
+
+React props, bir React bileşeni oluşturduğunuzda anında elde ettiğiniz bir nesnedir. Bileşene özellikleri aktarmadan önce, props nesnesinde ne elde ettiğimizi kontrol edelim.
+
+```
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+// Header Component
+const Header = (props) => {
+  console.log(props) // empty object, {}
+  return (
+    <header>
+      <div className='header-wrapper'>
+        <h1>{welcome}</h1>
+        <h2>{title}</h2>
+        <h3>{subtitle}</h3>
+        <p>
+          {author.firstName} {author.lastName}
+        </p>
+        <small>{date}</small>
+      </div>
+    </header>
+  )
+}
+
+// The App, or the parent or the container component
+// Functional Component
+const App = () => {
+  return (
+    <div className='app'>
+      <Header />
+    </div>
+  )
+}
+
+const rootElement = document.getElementById('root')
+
+ReactDOM.render(<App />, rootElement)
+```
+
+Yukarıdaki console.log(props) içinde boş bir nesne({}) elde edersiniz. Bunun anlamı, bileşeni başlattığınızda herhangi bir öznitelik veya özellik iletmezseniz, prop'lar boş olacaktır, aksi takdirde nitelik olarak ilettiğiniz verilerle doldurulacaktır ve bu niteliklerin uygun adı props'tır.
+
+Basit bir örnekle başlayalım. Aşağıdaki örnekte, karşılama dizesi Header bileşenlerinde props olarak geçirilmiştir.
+
+```
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+// Header Component
+const Header = (props) => {
+  console.log(props) // {welcome:'Welcome to 30 Days Of React'}
+  return (
+    <header>
+      <div className='header-wrapper'>
+        <h1>{props.welcome}</h1>
+      </div>
+    </header>
+  )
+}
+
+// The App, or the parent or the container component
+// Functional Component
+const App = () => {
+  return (
+    <div className='app'>
+      <Header welcome='Welcome to 30 Days Of React' />
+    </div>
+  )
+}
+
+const rootElement = document.getElementById('root')
+
+ReactDOM.render(<App />, rootElement)
+```
+
+Yukarıdaki kodda da görebileceğiniz gibi, hoşgeldin sahneleri olan Header bileşenine sadece tek props'u ilettik. Bir bileşen, bir veya daha fazla sahneye sahip olabilir. Proplar farklı veri türleri olabilir. Bir dize, sayı, boole, dizi, nesne veya işlev olabilir. Sonraki bölümlerde farklı türdeki sahne malzemelerini ele alacağız.
+
+#### Different Data Type  Props
+
+##### String Prop Types
+
+##### Boolean Props Type
+```
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+const Status = (props) => {
+  // ternary operator to check the status of the person
+  let status = props.status ? 'Old enough to drive' : 'Too young for driving'
+  return <p>{status}</p>
+}
+
+// The App, or the parent or the container component
+// Functional Component
+const App = () => {
+  let currentYear = 2020
+  let birthYear = 2015
+  const age = currentYear - birthYear // 15 years
+
+  let status = age >= 18
+
+  return (
+    <div className='app'>
+      <Status status={status} />
+    </div>
+  )
+}
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)
+```

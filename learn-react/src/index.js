@@ -22,19 +22,26 @@ const tech = ["HTML", 'CSS/Tailwind, Boostrap', 'JavaScript/ React']
 //tech dizisini map metodu ile listeledik li elementine sararak
 const mapTech = tech.map((eleman, index) => <li key={index}>{eleman}</li>)
 
-//Yerel tarihi alma Date fonksiyonundan
+
 const today = new Date().toLocaleDateString()
 
-
-const Header = () => (
+//Yerel tarihi alma Date fonksiyonundan veri taşıyacağız
+//Header componentine props ile 
+const Header = (props) => {
+  console.log(props) //{welcome: 'Welcome is props value'}
+  return (
   <header style={headerStyle}>
     <h1>Welcome to 30 Days Of React</h1>
+    <h1>We got this from props: {props.welcome}</h1>
     <h2>Getting Started React</h2>
-    <h3>JavaScript Library</h3>
+    <h3>{props.framework}</h3>
     <p>{ufuk}</p>
     <small>{today}</small>
   </header>
-)
+  )
+}
+  
+
 const mainStyle = {
   backgroundColor : 'orange',
 }
@@ -158,17 +165,90 @@ const HexaColor = () => {
     </div>
   )
 }
+//Props
+const getUserInfo = (firstName, lastName, country) =>{
+  return `${firstName} ${lastName} ${country}`
+}
+//getUserInfo('Ümmühan', 'Yetişkin', 'Turkey')
 
-const App = () =>(
-  <div>
-    <Header />
-    <Profile></Profile>
-    <Main></Main>
-    <Subscribe></Subscribe>
-    <HexaColor/>
-    <Footer></Footer>
+const User = (props) => {
+  return(
+    <div>
+      <h1>
+        {props.firstName}
+        {props.lastName}
+      </h1>
+      <small>{props.country}</small>
+    </div>
+  )
+}
+
+
+
+//Bu componenti propsları app kapsayıcı componentinde değişken olarak tanımlayıp bu componente aktarmak için oluşturulmuştur
+const GirlFriend = (props) => {
+  //Boolean Props Type
+  //status propsu ile eğer yaşı 18'den büyükse true dönecektir ve old enough yazısı çıkacaktır
+  let status = props.status ? 'Old enough to drive' : 'Too young for driving'
+  
+  //Array Props Type
+  let listSkills = props.skills.map((skill) => <li>{skill}</li>)
+  return(
+    <div>
+      <h1>{props.firstName} {props.lastName}</h1>
+      <h2>{props.title}</h2>
+      <h3>{props.subtitle}</h3>
+      <h3>{props.age}</h3>
+      <h5>{props.weight}</h5>
+      {/* props. ile tanımlanmamasının sebebi yukarıda let status içerisinde props.status olarak verinin alınması*/}
+      <p>{status}</p>
+      {/* Props ile Array veri türünde veri aktardık */}
+      <ul>{listSkills}</ul>
+    </div>
+  )
+}
+
+
+
+
+
+
+const App = () =>{
+  //Burada tanımlanmış değişkenler props ile GirlFriend componentine aktarılacaktır.
+  const firstName = 'Ümmühan'
+  const lastName = 'Gümüş Yetişkin'
+  const subtitle  ='SEO'
+  const age = 23
+  const gravity = 9.81
+  const mass = 75
+  
+
+  let status = age >= 18
+
+  return (
+    <div>
+      <Header framework= 'JavaScript Library' welcome = 'Welcome is props value'/>
+      <Profile></Profile>
+      {/* getUserInfo fonksiyonu oluşturduk. ardından bu fonksiyondaki değerleri props ile User compenentine taşıdık. Kapsayıcı compenent içerisinde istenilen değerleri User componentine aktardık.*/}
+      <User firstName='Deniz' lastName = 'Yetişkin' country='Turkey'></User>
+      <Main></Main>
+      <Subscribe></Subscribe>
+      <HexaColor/>
+      <GirlFriend
+      firstName = {firstName}
+      lastName = {lastName}
+      subtitle = {subtitle}
+      age = {age}
+      weight = {gravity * mass}
+      status = {status}
+
+      //Array Type Props
+      skills = {['Data Analysis', 'Digitale Marketing']}
+      />
+      <Footer></Footer>
   </div>
-)
+  )
+}
 
 
   
