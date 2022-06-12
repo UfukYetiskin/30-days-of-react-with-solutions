@@ -514,3 +514,266 @@ ReactDOM.render(<App />, rootElement)
 ```
 
 HTML'de onclick, onmouseover, onhover, onkeypress vb. olay işleyicileri vardır. React'te bu işleyiciler camelCase'dedir. 
+
+
+##### Destructuring props
+
+
+ Props olarak ilettiğimiz her şey props nesnesinde saklanır. Bu nedenle props bir nesnedir ve özelliklerini bozabiliriz. Object props örneğinde yazdığımız bazı props'ları yok edelim. Birçok şekilde yok edebiliriz:
+
+ 1. Adım adım yıkım
+  ```
+  const { welcome, title, subtitle, author, date } = data
+  const { firstName, lastName } = author
+  ```
+  ```
+  import React from 'react'
+import ReactDOM from 'react-dom'
+
+const showDate = (time) => {
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ]
+
+  const month = months[time.getMonth()].slice(0, 3)
+  const year = time.getFullYear()
+  const date = time.getDate()
+  return ` ${month} ${date}, ${year}`
+}
+// Header Component
+const Header = (props) => {
+  const data = props.data
+  const { welcome, title, subtitle, author, date } = data
+  const { firstName, lastName } = author
+  return (
+    <header>
+      <div className='header-wrapper'>
+        <h1>{welcome}</h1>
+        <h2>{title}</h2>
+        <h3>{subtitle}</h3>
+        <p>
+          {firstName} {lastName}
+        </p>
+        <small>{showDate(date)}</small>
+      </div>
+    </header>
+  )
+}
+
+// The App, or the parent or the container component
+// Functional Component
+const App = () => {
+  const data = {
+    welcome: 'Welcome to 30 Days Of React',
+    title: 'Getting Started React',
+    subtitle: 'JavaScript Library',
+    author: {
+      firstName: 'Asabeneh',
+      lastName: 'Yetayeh',
+    },
+    date: new Date(),
+  }
+
+  return (
+    <div className='app'>
+      <Header data={data} />
+    </div>
+  )
+}
+const rootElement = document.getElementById('root')
+// we render the JSX element using the ReactDOM package
+ReactDOM.render(<App />, rootElement)
+  ```
+  2. Tek satırda yıkım
+  ```
+   const data = props.data
+  const {
+    welcome,
+    title,
+    subtitle,
+    author: { firstName, lastName },
+    date,
+  } = data
+  ```
+
+
+  ```
+  import React from 'react'
+import ReactDOM from 'react-dom'
+
+const showDate = (time) => {
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ]
+
+  const month = months[time.getMonth()].slice(0, 3)
+  const year = time.getFullYear()
+  const date = time.getDate()
+  return ` ${month} ${date}, ${year}`
+}
+// Header Component
+const Header = (props) => {
+  const data = props.data
+  const {
+    welcome,
+    title,
+    subtitle,
+    author: { firstName, lastName },
+    date,
+  } = data
+
+  return (
+    <header>
+      <div className='header-wrapper'>
+        <h1>{welcome}</h1>
+        <h2>{title}</h2>
+        <h3>{subtitle}</h3>
+        <p>
+          {firstName} {lastName}
+        </p>
+        <small>{showDate(date)}</small>
+      </div>
+    </header>
+  )
+}
+
+// The App, or the parent or the container component
+// Functional Component
+const App = () => {
+  const data = {
+    welcome: 'Welcome to 30 Days Of React',
+    title: 'Getting Started React',
+    subtitle: 'JavaScript Library',
+    author: {
+      firstName: 'Asabeneh',
+      lastName: 'Yetayeh',
+    },
+    date: new Date(),
+  }
+
+  return (
+    <div className='app'>
+      <Header data={data} />
+    </div>
+  )
+}
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)
+  ```
+
+  3. Parantez içindeki sahne öğelerini yok etme
+   ```
+    data: {
+    welcome,
+    title,
+    subtitle,
+    author: { firstName, lastName },
+    date,
+  }
+   ```
+
+   ```
+   import React from 'react'
+import ReactDOM from 'react-dom'
+
+const showDate = (time) => {
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ]
+
+  const month = months[time.getMonth()].slice(0, 3)
+  const year = time.getFullYear()
+  const date = time.getDate()
+  return ` ${month} ${date}, ${year}`
+}
+// Header Component
+const Header = ({
+  data: {
+    welcome,
+    title,
+    subtitle,
+    author: { firstName, lastName },
+    date,
+  },
+}) => {
+  return (
+    <header>
+      <div className='header-wrapper'>
+        <h1>{welcome}</h1>
+        <h2>{title}</h2>
+        <h3>{subtitle}</h3>
+        <p>
+          {firstName} {lastName}
+        </p>
+        <small>{showDate(date)}</small>
+      </div>
+    </header>
+  )
+}
+
+// The App, or the parent or the container component
+// Functional Component
+const App = () => {
+  const data = {
+    welcome: 'Welcome to 30 Days Of React',
+    title: 'Getting Started React',
+    subtitle: 'JavaScript Library',
+    author: {
+      firstName: 'Asabeneh',
+      lastName: 'Yetayeh',
+    },
+    date: new Date(),
+  }
+
+  return (
+    <div className='app'>
+      <Header data={data} />
+    </div>
+  )
+}
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)
+```
+
+##### propTypes
+
+propTypes paketi, bir bileşene aktardığımız propların veri türlerini atamamıza yardımcı olur.
+
+##### defaultProps
+
+Bir bileşen için bazı varsayılan prop türlerine sahip olmak istediğimizde defaultProps kullanılabilir.
+
+propType'ları diğer bölümlerde ayrıntılı olarak ele alacağız.
