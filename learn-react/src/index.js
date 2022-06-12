@@ -326,16 +326,12 @@ const Countries = ({countries}) => {
 //Sixth Day of React  | Exercises Level 2
 const sayilar = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 
-const Generator = ({sayi}) => {
-  return(
-    <div>
-      <span>{sayi}</span>
-    </div>
-  )
-}
-const GeneratorNumber = ({sayilar}) => {
-  const listNumer = sayilar.map((sayi) => <Generator sayi= {sayi} />)
-  return listNumer
+
+
+const GeneratorNumber = (props) => {
+  console.log(props)
+  const listNumbers = props.sayilar.map((sayi) => sayi % 2 === 0 ? <span style={{backgroundColor:'green', padding : '1%', margin : '5%'}}>{sayi}</span> : <span style={{backgroundColor:'red', padding : '1%', margin : '5%'}}>{sayi}</span>)
+  return listNumbers
 }
 
 
@@ -366,7 +362,7 @@ const App = () =>{
   //Sayı dizisini eşleme
   const numbers = [1, 2, 3, 4]
 
-
+  const sayilar = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   return (
     <div>
       <Header framework= 'JavaScript Library' welcome = 'Welcome is props value'/>
