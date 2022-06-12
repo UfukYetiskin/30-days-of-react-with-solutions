@@ -208,6 +208,7 @@ const GirlFriend = (props) => {
   )
 }
 
+
 const showDate = (time) => {
   const months = [
     'January',
@@ -230,6 +231,7 @@ const showDate = (time) => {
 }
 
 
+
 const ChildOfUs = (props) => {
   return (
     <div>
@@ -238,6 +240,8 @@ const ChildOfUs = (props) => {
       <h1>{props.child.surName}</h1>
       <h1>{props.child.title}</h1>
       <h2>{showDate(props.child.date)}</h2>
+      {/* Fonksyionel props aktarımı örneği. Butona bastığımızda onClick metodu çalışacak  ve fonksiyonu çalıştıracak alert verecektir.*/}
+      <button onClick={props.onClick}> {props.text}</button>
     </div>
   )
 }
@@ -261,6 +265,11 @@ const App = () =>{
   }
 
   let status = age >= 18
+
+  //Functional Props Type
+  const alertHi = () => {
+    alert('Hi, Im Deniz!')
+  }
 
   return (
     <div>
@@ -287,6 +296,8 @@ const App = () =>{
       />
       <ChildOfUs 
       child = {aboutChild}
+      text = 'Who am I?'
+      onClick = {alertHi}
       ></ChildOfUs>
       <Footer></Footer>
   </div>
