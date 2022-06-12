@@ -1,6 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import logo512 from './logo512.png'
+import reactLogo from './images/logo512.png'
+import cssLogo from './images/css.png'
+import htmlLogo from './images/html.png'
+import jsLogo from './images/js.png'
 
 
 
@@ -117,7 +120,7 @@ const Profile = () =>  (
   <div>
     <div style={{marginLeft : '2%'}}>
     <div >
-      <img style={{width : "100px"}} src={logo512}></img>
+      <img style={{width : "100px"}} src={reactLogo}></img>
     </div>
     <div>
       <div><strong>{ufuk}</strong></div>
@@ -247,6 +250,26 @@ const ChildOfUs = (props) => {
   )
 }
 
+//Day 5 Exercises Level 2
+const imgStyle = {
+  width : '15%',
+  height : '15%',
+  margin : '5%',
+  backgroundColor : 'lightblue' 
+}
+const FrontendTechs = () => {
+  return (
+    <div style={{backgroundColor : 'lightblue'}}>
+      <h1 style={{marginLeft: '40%'}}>Front End Technologies</h1>
+      <div>
+        <img style={imgStyle}  src={htmlLogo} />
+        <img style={imgStyle} src ={cssLogo}></img>
+        <img style={imgStyle} src ={jsLogo}></img>
+        <img style={imgStyle} src ={reactLogo}></img>
+      </div>
+    </div>
+  )
+}
 
 const App = () =>{
   //Burada tanımlanmış değişkenler props ile GirlFriend componentine aktarılacaktır.
@@ -302,6 +325,7 @@ const App = () =>{
       onClick = {alertHi}
       onClick2 = {() => alert(new Date().toLocaleTimeString())}
       ></ChildOfUs>
+      <FrontendTechs/>
       <Footer></Footer>
   </div>
   )
