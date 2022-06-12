@@ -528,3 +528,7 @@ const child = new Child(
 Props, React'te özellikler anlamına gelen ve bir bileşenden diğerine ve çoğunlukla ana bileşenden alt bileşene veri aktarmak için kullanılan özel bir anahtar kelimedir. Props'ın bir veri taşıyıcısı veya veri taşıma aracı olduğunu söyleyebiliriz.
 
 ## Sixth Day of React
+
+### Mapping Arrays
+
+Dizi, birçok türde sorunu çözmek için en sık kullanılan veri yapısıdır. React'te, bir dizinin her bir öğesine belirli bir HTML öğesi ekleyerek bir diziyi JSX listesine değiştirmek için map'i kullanırız.

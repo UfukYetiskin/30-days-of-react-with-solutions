@@ -270,6 +270,74 @@ const FrontendTechs = () => {
     </div>
   )
 }
+//Sayı dizisini eşleme
+//const Numbers = ({numbers})  => {} bu da kullanılabilir
+const Numbers = (props) => {
+  const listNumber = props.numbers.map((number) => <li key={number}>{number}</li>)
+  return listNumber
+}
+
+//Mapping array of arrays
+const feskills = [
+  ['HTML', 10],
+  ['CSS', 7],
+  ['JavaScript', 9],
+  ['React', 8]
+]
+
+//Mapping array of arrays
+//Skill component
+const Skill = ({skill : [tech, level]}) => {
+  return(
+    <div>
+      <li>{tech} {level}</li>
+    </div>
+  )
+}
+//Skills component
+const Skills  = ({skills}) => {
+  const skillsList = skills.map((skill) => <Skill skill={skill} />)
+  console.log(skillsList)
+  return skillsList
+}
+
+//Nesne dizisini eşleme
+const countries = [
+  {name: 'Turkey', city:'Diyarbakır'},
+  {name: 'Finland', city:'Helsinki'},
+  {name: 'Denmark', city:'Copenhagen'},
+  {name: 'Norway', city:'Oslo'}
+]
+
+const Country = ({country : {name, city}}) => {
+  return (
+    <div>
+      <span>Country: {name} </span>
+      <span> City: {city}</span>
+    </div>
+  )
+}
+
+const Countries = ({countries}) => {
+  const countryList = countries.map((country) => <Country country={country}></Country>)
+  return countryList
+}
+
+//Sixth Day of React  | Exercises Level 2
+const sayilar = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+
+const Generator = ({sayi}) => {
+  return(
+    <div>
+      <span>{sayi}</span>
+    </div>
+  )
+}
+const GeneratorNumber = ({sayilar}) => {
+  const listNumer = sayilar.map((sayi) => <Generator sayi= {sayi} />)
+  return listNumer
+}
+
 
 const App = () =>{
   //Burada tanımlanmış değişkenler props ile GirlFriend componentine aktarılacaktır.
@@ -294,6 +362,10 @@ const App = () =>{
   const alertHi = () => {
     alert('Hi, Im Deniz!')
   }
+
+  //Sayı dizisini eşleme
+  const numbers = [1, 2, 3, 4]
+
 
   return (
     <div>
@@ -327,6 +399,10 @@ const App = () =>{
       ></ChildOfUs>
       <FrontendTechs/>
       <Footer></Footer>
+      <Numbers numbers = {numbers} />
+      <Skills skills={feskills} />
+      <Countries countries={countries} />
+      <GeneratorNumber sayilar = {sayilar} />
   </div>
   )
 }

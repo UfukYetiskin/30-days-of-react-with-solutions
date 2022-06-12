@@ -779,3 +779,101 @@ Bir bileşen için bazı varsayılan prop türlerine sahip olmak istediğimizde 
 propType'ları diğer bölümlerde ayrıntılı olarak ele alacağız.
 
 ## Sixth Day of React
+
+### Mapping Arrays
+
+Dizi, birçok türde sorunu çözmek için en sık kullanılan veri yapısıdır. React'te, bir dizinin her bir öğesine belirli bir HTML öğesi ekleyerek bir diziyi JSX listesine değiştirmek için map'i kullanırız.
+
+#### Mapping and rendering arrays
+
+
+Çoğu zaman verileri bir dizi veya bir dizi nesne biçimindedir. Bu diziyi veya nesne dizisini oluşturmak için çoğu zaman verileri map kullanarak değiştiririz . Bir önceki bölümde, bir harita yöntemi kullanarak teknoloji listesini oluşturduk. Bu bölümde daha fazla örnek göreceğiz.
+
+Aşağıdaki örneklerde, bir sayı dizisini, bir dizi diziyi, bir dizi ülkeyi ve bir dizi beceriyi tarayıcıda nasıl oluşturduğumuzu göreceksiniz.
+
+```
+import React from 'react'
+import ReactDOM from 'react-dom'
+const App = () => {
+  return (
+    <div className='container'>
+      <div>
+        <h1>Numbers List</h1>
+        {[1, 2, 3, 4, 5]}
+      </div>
+    </div>
+  )
+}
+
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)
+```
+
+Tarayıcıyı kontrol ederseniz, sayıların bir satırda birbirine eklendiğini göreceksiniz. Bunu önlemek için diziyi değiştiririz ve dizi öğelerini JSX öğesine değiştiririz. Aşağıdaki örneğe bakın, dizi bir JSX öğeleri listesi olarak değiştirildi.
+
+
+#### Mapping array of numbers
+
+```
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+const Numbers = ({ numbers }) => {
+  // modifying array to array of li JSX
+  const list = numbers.map((number) => <li>{number}</li>)
+  return list
+}
+
+// App component
+
+const App = () => {
+  const numbers = [1, 2, 3, 4, 5]
+
+  return (
+    <div className='container'>
+      <div>
+        <h1>Numbers List</h1>
+        <ul>
+          <Numbers numbers={numbers} />
+        </ul>
+      </div>
+    </div>
+  )
+}
+
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)
+```
+
+#### Dizileri eşlemede anahtar
+
+Anahtarlar, React'in değişen, eklenen veya kaldırılan öğeleri tanımlamasına yardımcı olur. Öğelere kararlı bir kimlik kazandırmak için dizi içindeki öğelere anahtarlar verilmelidir. Anahtar benzersiz olmalıdır. Çoğunlukla veriler id olarak gelir ve id'yi anahtar olarak kullanabiliriz. Eşleme sırasında anahtarı React'e iletmezsek, tarayıcıda bir uyarı verir. Verinin bir kimliği yoksa, onu eşleştirdiğimizde her öğe için benzersiz bir tanımlayıcı oluşturmanın bir yolunu bulmamız gerekir. Aşağıdaki örneğe bakın:
+
+```
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+const Numbers = ({ numbers }) => {
+  // modifying array to array of li JSX
+  const list = numbers.map((num) => <li key={num}>{num}</li>)
+  return list
+}
+
+const App = () => {
+  const numbers = [1, 2, 3, 4, 5]
+
+  return (
+    <div className='container'>
+      <div>
+        <h1>Numbers List</h1>
+        <ul>
+          <Numbers numbers={numbers} />
+        </ul>
+      </div>
+    </div>
+  )
+}
+
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)
+```
