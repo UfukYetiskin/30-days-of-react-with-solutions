@@ -192,7 +192,7 @@ const GirlFriend = (props) => {
   let status = props.status ? 'Old enough to drive' : 'Too young for driving'
   
   //Array Props Type
-  let listSkills = props.skills.map((skill) => <li>{skill}</li>)
+  let listSkills = props.skills.map((skill) => <li key={skill}>{skill}</li>)
   return(
     <div>
       <h1>{props.firstName} {props.lastName}</h1>
@@ -208,9 +208,39 @@ const GirlFriend = (props) => {
   )
 }
 
+const showDate = (time) => {
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ]
+  const month = months[time.getMonth()].slice(0,3)
+  const year = time.getFullYear()
+  const date = time.getDate()
+  return `${date} ${month} ${year}`
+}
 
 
-
+const ChildOfUs = (props) => {
+  return (
+    <div>
+      {/* Obje türünden oluşturulan veri props ile aktarıldı.*/}
+      <h1>{props.child.name}</h1>
+      <h1>{props.child.surName}</h1>
+      <h1>{props.child.title}</h1>
+      <h2>{showDate(props.child.date)}</h2>
+    </div>
+  )
+}
 
 
 const App = () =>{
@@ -222,6 +252,13 @@ const App = () =>{
   const gravity = 9.81
   const mass = 75
   
+  //Object props tanımlaması
+  const aboutChild = {
+    name : 'Deniz', 
+    surName : 'Gümüş Yetişkib',
+    title : 'Student',
+    date : new Date()
+  }
 
   let status = age >= 18
 
@@ -244,7 +281,13 @@ const App = () =>{
 
       //Array Type Props
       skills = {['Data Analysis', 'Digitale Marketing']}
+
+      //object Props Type
+      
       />
+      <ChildOfUs 
+      child = {aboutChild}
+      ></ChildOfUs>
       <Footer></Footer>
   </div>
   )
