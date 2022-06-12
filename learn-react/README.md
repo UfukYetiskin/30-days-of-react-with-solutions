@@ -281,3 +281,38 @@ const rootElement = document.getElementById('root')
 // we render the App component using the ReactDOM package
 ReactDOM.render(<HexaColor />, rootElement)
 ```
+
+## Fifth Day of React
+
+### Props
+
+Çoğu zaman, parametreli fonksiyonlar akıllıdır ve dinamik verileri de aynı şekilde alabilirler. Props, bir bileşene veri veya parametre iletmemizin bir yoludur. Bir fonksiyon ve bir bileşen arasındaki farkı görelim.
+
+```
+// function syntax
+
+const getUserInfo = (firstName, lastName, country) => {
+  return `${firstName} ${lastName}. Lives in ${country}.`
+}
+
+// calling a functons
+
+getUserInfo('Asabeneh', 'Yeteyeh', 'Finland')
+
+//component syntax
+
+// User component, component should start with an uppercase
+const User = (props) => {
+  return (
+    <div>
+      <h1>
+        {props.firstName}
+        {props.lastName}
+      </h1>
+      <small>{props.country}</small>
+    </div>
+  )
+}
+// calling or instantiating a component, this component has three properties and we call them props:firstName, lastName, country
+<User firstName = 'Asabeneh', lastName='Yetayeh' country = 'Finland' />
+```
