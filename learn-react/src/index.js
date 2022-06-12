@@ -242,6 +242,7 @@ const ChildOfUs = (props) => {
       <h2>{showDate(props.child.date)}</h2>
       {/* Fonksyionel props aktarımı örneği. Butona bastığımızda onClick metodu çalışacak  ve fonksiyonu çalıştıracak alert verecektir.*/}
       <button onClick={props.onClick}> {props.text}</button>
+      <button onClick={props.onClick2}> {props.text2}</button>
     </div>
   )
 }
@@ -297,7 +298,9 @@ const App = () =>{
       <ChildOfUs 
       child = {aboutChild}
       text = 'Who am I?'
+      text2 = "Date"
       onClick = {alertHi}
+      onClick2 = {() => alert(new Date().toLocaleTimeString())}
       ></ChildOfUs>
       <Footer></Footer>
   </div>
