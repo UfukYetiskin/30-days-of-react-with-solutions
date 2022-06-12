@@ -324,16 +324,31 @@ const Countries = ({countries}) => {
 }
 
 //Sixth Day of React  | Exercises Level 2
-const sayilar = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-
-
 
 const GeneratorNumber = (props) => {
   console.log(props)
-  const listNumbers = props.sayilar.map((sayi) => sayi % 2 === 0 ? <span style={{backgroundColor:'green', padding : '1%', margin : '5%'}}>{sayi}</span> : <span style={{backgroundColor:'red', padding : '1%', margin : '5%'}}>{sayi}</span>)
-  return listNumbers
+  const listNumbers = props.sayilar.map((sayi) => sayi % 2 === 0 ? <span style={{backgroundColor:'green', padding : '8%'}}>{sayi}</span> : <span style={{backgroundColor:'red', padding : '8%'}}>{sayi}</span>)
+  return (
+    <div style={{display : 'flex', flexWrap : 'wrap'}}>
+      {listNumbers}
+    </div>
+  )
 }
 
+//Sixth Day of React | Exercises Level 3
+const GeneratorHexa = (props) => {
+  let color = ''
+  for(let i = 0 ; i<6; i++){
+    //color += letters[(Math.floor(Math.random() * 16))];
+    const random = Math.floor(Math.random()* props.str.length) 
+    color += props.str[random]
+  }
+  return (
+    <div style={{display : 'flex', flexWrap : 'wrap'}}>
+      <span style={{backgroundColor : `#${color}`, padding : '1%', margin : '1%'}}>#{color}</span>
+    </div>
+  )
+} 
 
 const App = () =>{
   //Burada tanımlanmış değişkenler props ile GirlFriend componentine aktarılacaktır.
@@ -362,7 +377,13 @@ const App = () =>{
   //Sayı dizisini eşleme
   const numbers = [1, 2, 3, 4]
 
+
+  //Sixth Day of React  | Exercises Level 2
   const sayilar = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+
+  const str = '0123456789abcdef'
+
+
   return (
     <div>
       <Header framework= 'JavaScript Library' welcome = 'Welcome is props value'/>
@@ -399,6 +420,7 @@ const App = () =>{
       <Skills skills={feskills} />
       <Countries countries={countries} />
       <GeneratorNumber sayilar = {sayilar} />
+      <GeneratorHexa str={str} />
   </div>
   )
 }
