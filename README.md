@@ -526,3 +526,5 @@ const child = new Child(
 ### Props
 
 Props, React'te özellikler anlamına gelen ve bir bileşenden diğerine ve çoğunlukla ana bileşenden alt bileşene veri aktarmak için kullanılan özel bir anahtar kelimedir. Props'ın bir veri taşıyıcısı veya veri taşıma aracı olduğunu söyleyebiliriz.
+
+## Sixth Day of React

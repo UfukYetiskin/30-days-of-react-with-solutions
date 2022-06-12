@@ -777,3 +777,5 @@ propTypes paketi, bir bileşene aktardığımız propların veri türlerini atam
 Bir bileşen için bazı varsayılan prop türlerine sahip olmak istediğimizde defaultProps kullanılabilir.
 
 propType'ları diğer bölümlerde ayrıntılı olarak ele alacağız.
+
+## Sixth Day of React
