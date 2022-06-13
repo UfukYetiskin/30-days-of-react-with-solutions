@@ -949,3 +949,55 @@ React kütüphanesi içindeki “Component” class ‘ından extend olan javasc
 Basit olarak react elementleri (JSX) dönen javascript fonksiyonlarıdır. Dummy, dumb component olarak da isimlendirildiği oluyor. Bunun sebebi genel olarak state ‘e erişemediklerindendir. Ancak bu tasarım v.16.8 ile birlikte daha ziyade değişmiş oldu. {artık} fonksiyonel component ‘ler de state ‘e erişim elde edin sağlayabiliyor.
 
 v.16.8 ile birlikte aralarında syntax haricinde pek de bir varyasyon kalmayan component çeşitlerini faydalanmak amacınıza, keyfinize ve yapacağınız işe bağlı olarak seçmek kesinlikle size kalmış.
+
+**Fonksiyonel React Component**
+```
+// index.js
+
+import React from 'react'
+import ReactDOM from 'react-dom'
+// Header Component
+// Functional component
+const Header = () => (
+  <header>
+    <div className='header-wrapper'>
+      <h1>Welcome to 30 Days Of React</h1>
+      <h2>Getting Started React</h2>
+      <h3>JavaScript Library</h3>
+      <p>Asabeneh Yetayeh</p>
+      <small>Oct 6, 2020</small>
+    </div>
+  </header>
+)
+const rootElement = document.getElementById('root')
+ReactDOM.render(<Header />, rootElement)
+```
+
+Sınıf tabanlı React bileşeni, React.Component'in bir alt öğesidir ve yerleşik bir oluşturma yöntemine sahiptir ve bir yapıcısı olabilir.
+
+```
+//index.js
+
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+// class based component
+class Header extends React.Component {
+  render() {
+    return (
+      <header>
+        <div className='header-wrapper'>
+          <h1>Welcome to 30 Days Of React</h1>
+          <h2>Getting Started React</h2>
+          <h3>JavaScript Library</h3>
+          <p>Asabeneh Yetayeh</p>
+          <small>Oct 7, 2020</small>
+        </div>
+      </header>
+    )
+  }
+}
+
+const rootElement = document.getElementById('root')
+ReactDOM.render(<Header />, rootElement)
+```

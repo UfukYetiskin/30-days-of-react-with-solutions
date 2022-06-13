@@ -4,6 +4,7 @@ import reactLogo from './images/logo512.png'
 import cssLogo from './images/css.png'
 import htmlLogo from './images/html.png'
 import jsLogo from './images/js.png'
+import ClassComponents from './Components/ClassComponents'
 
 
 
@@ -421,6 +422,7 @@ const App = () =>{
       <Countries countries={countries} />
       <GeneratorNumber sayilar = {sayilar} />
       <GeneratorHexa str={str} />
+      <ClassComponents></ClassComponents>
   </div>
   )
 }
