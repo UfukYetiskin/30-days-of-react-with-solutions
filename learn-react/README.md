@@ -26,6 +26,20 @@ const main = (
 )
 ```
 
+#### React JSX olmasaydı ve createElement kullanılsaydı
+Bu şekilde element oluştururduk:
+```
+const h1 = createElement('h1', {className :'test', id: 'test'}, 'h1 element created')
+//'h1' ile oluşturulacak element belirtildi.
+// {} içerisinde attribute belirtilir. boş bırakmak istersek parantez yerine  null ifadesi de yazılabilir.
+// 'element created' ifadesi ile elementin textContentini belirtiriz
+```
+Bir diziyi map methodu ile listeleyelim
+```
+const todos = ['todo1', 'todo2', 'todo3']
+const ul = createElement('ul', null, todos.map((todo) => createElement('li', 'null', todo )))
+```
+
 ### React'te Medya Nesnelerini içe Aktarma
 
 resim import edilir js dosyasına. 
@@ -40,6 +54,26 @@ const reactLogo = (
 )
 ```
 public dosyası içerisindeki logo192 isimli png uzantılı resmi alırız.
+
+### Fragment
+Componentler içerisinde return ederken kodu herhangi bir kapsayıcı ister. Bu kapsayıcı herhangi bir etiket olabilir. Bunu yapmak istemiyorsak eğer Fragment'ı kullanabiliriz.
+
+```
+import {Fragment} from 'react'
+
+function App(){
+  return(
+    <Fragment>
+      <h1 tabIndex ="3" style = {{}} >
+      <label htmlFor="search" tabIndex ="2" onClick = {() => alert('Selam')} >Arama</label>
+      <input type="text" id="search" tabIndex="1"   />
+    </Fragment>
+  )
+}
+```
+
+Fragment yerine kapsayıcı olarak **<> ve </>**  da kullanılabilir.
+
 
 ## Fourth Day of React
 
@@ -357,8 +391,33 @@ const rootElement = document.getElementById('root')
 
 ReactDOM.render(<App />, rootElement)
 ```
-
 Yukarıdaki console.log(props) içinde boş bir nesne({}) elde edersiniz. Bunun anlamı, bileşeni başlattığınızda herhangi bir öznitelik veya özellik iletmezseniz, prop'lar boş olacaktır, aksi takdirde nitelik olarak ilettiğiniz verilerle doldurulacaktır ve bu niteliklerin uygun adı props'tır.
+
+Birden fazla prop geldiğinde component içerisinde props diye tanımlama yerine obje türetip bu obje içerisinde gelen değerleri ismiyle tutabiliriz örneğin:
+```
+export default Button({text, variant}){
+  return(
+    <>
+      <button>{text}</button>
+    </>
+  )
+}
+```
+şeklinde kullanılabilir. Children prop'u da vardır. Bu prop kapsayıcı componenti içerisinde bulunan componentin iki arasında bulunan texte denir. Örneğin
+```
+function App(){
+  <Button variant = "success" text="metin"> Children: burada bulunan metin değeridir. </Button>
+}
+```
+```
+function Button({text, children, variant}){
+  return (
+    <button> {children} </button>
+  )
+}
+```
+şeklinde children propu kullanılır.
+
 
 Basit bir örnekle başlayalım. Aşağıdaki örnekte, karşılama dizesi Header bileşenlerinde props olarak geçirilmiştir.
 
