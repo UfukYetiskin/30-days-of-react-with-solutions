@@ -596,3 +596,43 @@ function Example() {
   );
 }
 ```
+
+## Eighth Day of React
+
+## States
+
+States, belirli bir zamanda birinin veya bir şeyin içinde bulunduğu özel durumdur .
+
+Bazı hallerin bir şey olduğunu görelim - Mutlu musun yoksa üzgün müsün? - Işık açık mı kapalı mı? Mevcut mu yoksa yok mu? - Dolu mu boş mu? Örneğin, mutluyum çünkü 30 Days Of React meydan okumasını yapmaktan keyif alıyorum. Senin de mutlu olduğuna inanıyorum.
+
+Durum, durum verileri değiştiğinde bileşenin yeniden oluşturulmasına izin veren tepki veren bir nesnedir.
+
+### How to set a state | Durum nasıl ayarlanır
+
+Sınıf tabanlı bir bileşenin yapıcısının içinde veya yapıcısının dışında bir başlangıç ​​durumu belirledik. Durumu doğrudan değiştirmiyoruz veya mutasyona uğratmıyoruz, ancak yeni bir duruma sıfırlamak için setState() yöntemini kullanıyoruz. . Aşağıda göreceğiniz gibi durum nesnesinde 0 başlangıç ​​değeri ile saydık. this.state ve özellik adını kullanarak durum nesnesine erişebiliriz. Aşağıdaki örneğe bakın.
+
+```
+// index.js
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+class App extends React.Component {
+  // declaring state
+  state = {
+    count: 0,
+  }
+  render() {
+    // accessing the state value
+    const count = this.state.count
+    return (
+      <div className='App'>
+        <h1>{count} </h1>
+      </div>
+    )
+  }
+}
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)
+
+```
+

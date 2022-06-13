@@ -1042,3 +1042,42 @@ class Header extends React.Component {
 const rootElement = document.getElementById('root')
 ReactDOM.render(<Header />, rootElement)
 ```
+## Eighth Day of React
+
+## State
+### How to set a state | Durum nasıl ayarlanır
+
+Sınıf tabanlı bir bileşenin yapıcısının içinde veya yapıcısının dışında bir başlangıç ​​durumu belirledik. Durumu doğrudan değiştirmiyoruz veya mutasyona uğratmıyoruz, ancak yeni bir duruma sıfırlamak için setState() yöntemini kullanıyoruz. . Aşağıda göreceğiniz gibi durum nesnesinde 0 başlangıç ​​değeri ile saydık. this.state ve özellik adını kullanarak durum nesnesine erişebiliriz. Aşağıdaki örneğe bakın.
+
+```
+import React from "react";
+import ReactDOM from "react-dom"
+
+class States extends React.Component {
+
+    state = {
+        count : 0,
+    }
+
+    increaseCount = () => {
+        this.setState({count : this.state.count + 1})
+    }
+    decreaseCount = () => {
+        this.setState({count : this.state.count - 1})
+    }
+    render(){
+        const count = this.state.count
+        return(
+            <div>
+                <button onClick={this.increaseCount}>Increase</button>
+                <button onClick={this.decreaseCount}>Decrease</button>
+                <span>{count}</span>
+            </div>
+        )
+    }
+}
+
+export default States
+
+```
+

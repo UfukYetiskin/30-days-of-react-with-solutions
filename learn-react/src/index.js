@@ -5,6 +5,8 @@ import cssLogo from './images/css.png'
 import htmlLogo from './images/html.png'
 import jsLogo from './images/js.png'
 import ClassComponents from './Components/ClassComponents'
+import States from './Components/States'
+import DogorCat from './Components/StateExample2'
 
 
 
@@ -436,7 +438,9 @@ const App = () =>{
       <GeneratorNumber sayilar = {sayilar} />
       <GeneratorHexa str={str} />
       <ClassComponents whoDeniz = {whoDeniz}></ClassComponents>
-  </div>
+      <States></States>
+      <DogorCat></DogorCat>
+      </div>
   )
 }
 
