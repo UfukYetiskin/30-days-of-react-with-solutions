@@ -384,6 +384,19 @@ const App = () =>{
 
   const str = '0123456789abcdef'
 
+  //Seventh Day of React 
+  //Object
+  const whoDeniz = {
+    firstName : 'Deniz',
+    lastName : 'Yetişkin',
+    age : 18,
+    title : 'Student',
+    parents : {
+        father: 'Ufuk',
+        mother : 'Ümmühan'
+    },
+    birthDay : '07.08.2030'
+  }
 
   return (
     <div>
@@ -422,7 +435,7 @@ const App = () =>{
       <Countries countries={countries} />
       <GeneratorNumber sayilar = {sayilar} />
       <GeneratorHexa str={str} />
-      <ClassComponents></ClassComponents>
+      <ClassComponents whoDeniz = {whoDeniz}></ClassComponents>
   </div>
   )
 }

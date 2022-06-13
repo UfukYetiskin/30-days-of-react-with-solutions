@@ -1004,3 +1004,41 @@ ReactDOM.render(<Header />, rootElement)
 
 #### Sınıf bileşenlerinde aksesuarlara erişme | Accessing props in Class components
 Props'ın bir bileşenden diğerine veri gönderme aracı olduğunu belirtmiştik veya props'ın veri taşıyıcısı olduğunu söyleyebiliriz. Bu nedenle, sınıf tabanlı bileşende sahne öğelerini de ele almalıyız. this anahtar sözcüğünü kullanarak sınıf tabanlı bir bileşenin donanımlarına erişebiliriz . Aşağıdaki örneğe bakın.
+
+
+#### Methods in Class based component |  Sınıf tabanlı bileşendeki yöntemler
+
+Yöntemlere sınıf tabanlı bileşende erişiyoruz. Çoğu zaman, ana bileşene farklı yöntemler yazıyoruz ve bunları alt bileşenlere aktarıyoruz. Uygulamaya bakalım.
+
+Bu bileşene bir method ekleyelim.
+
+```
+//index.js
+
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+// class based component
+class Header extends React.Component {
+  greetPeople = () => {
+    alert('Welcome to 30 Days Of React Challenge, 2020')
+  }
+  render() {
+    return (
+      <header>
+        <div className='header-wrapper'>
+          <h1>Welcome to 30 Days Of React</h1>
+          <h2>Getting Started React</h2>
+          <h3>JavaScript Library</h3>
+          <p>Asabeneh Yetayeh</p>
+          <small>Oct 7, 2020</small>
+          <button onClick={this.greetPeople}> Greet </button>
+        </div>
+      </header>
+    )
+  }
+}
+
+const rootElement = document.getElementById('root')
+ReactDOM.render(<Header />, rootElement)
+```
