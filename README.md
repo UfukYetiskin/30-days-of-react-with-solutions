@@ -532,3 +532,67 @@ Props, React'te özellikler anlamına gelen ve bir bileşenden diğerine ve ço�
 ### Mapping Arrays
 
 Dizi, birçok türde sorunu çözmek için en sık kullanılan veri yapısıdır. React'te, bir dizinin her bir öğesine belirli bir HTML öğesi ekleyerek bir diziyi JSX listesine değiştirmek için map'i kullanırız.
+
+## Seventh Day of React
+
+### Class Components
+Basite indirgemek gerekirse React Component ‘leri tüketici arayüzünü şekillendiren, özel görevleri olan, class ya da özellik olarak tanımlanmış, geriye react elementleri döndüren , opsiyonel olarak parametre konum tasarım taşlarıdır.
+
+#### Class-Based Components  (Eğitim sınıfı Tabanlı)
+React kütüphanesi içindeki “Component” class ‘ından extend olan javascript class ‘ları olarak tanımlayabiliriz. Bu class ‘lar React Component ‘ten extend olduğundan Component Lifecycle süreçlerini de barındırır.
+
+#### Functional Components  (Fonksiyonel)
+Basit olarak react elementleri (JSX) dönen javascript fonksiyonlarıdır. Dummy, dumb component olarak da isimlendirildiği oluyor. Bunun sebebi genel olarak state ‘e erişemediklerindendir. Ancak bu tasarım v.16.8 ile birlikte daha ziyade değişmiş oldu. {artık} fonksiyonel component ‘ler de state ‘e erişim elde edin sağlayabiliyor.
+
+v.16.8 ile birlikte aralarında syntax haricinde pek de bir varyasyon kalmayan component çeşitlerini faydalanmak amacınıza, keyfinize ve yapacağınız işe bağlı olarak seçmek kesinlikle size kalmış. 
+
+#### React Functional ve Class Components Farkları ve Kullanımı
+
+Her ikisi de aynı görevi yapmakta olmasına rağmen Class component yerine functional component kullanmak daha çok tavsiye edilir. Nedenleri ise;
+- Yazması, okunması ve test edilmesi kolaydır.
+- Daha az kod yazmanızı sağlar.
+- Daha kolay pratik yapmanızı sağlar.
+- Performans açısından daha verimlidir.
+
+Class component örneği
+```
+class Example extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+  }
+ 
+  render() {
+    return (
+      <div>
+        <p>You clicked {this.state.count} times</p>
+        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          Click me
+        </button>
+      </div>
+    );
+  }
+}
+```
+
+Functional component örneği ise şu şekildedir;
+
+```
+import React, { useState } from 'react';
+ 
+function Example() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
+ 
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
