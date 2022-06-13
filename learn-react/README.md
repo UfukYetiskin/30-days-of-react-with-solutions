@@ -1001,3 +1001,6 @@ class Header extends React.Component {
 const rootElement = document.getElementById('root')
 ReactDOM.render(<Header />, rootElement)
 ```
+
+#### Sınıf bileşenlerinde aksesuarlara erişme | Accessing props in Class components
+Props'ın bir bileşenden diğerine veri gönderme aracı olduğunu belirtmiştik veya props'ın veri taşıyıcısı olduğunu söyleyebiliriz. Bu nedenle, sınıf tabanlı bileşende sahne öğelerini de ele almalıyız. this anahtar sözcüğünü kullanarak sınıf tabanlı bir bileşenin donanımlarına erişebiliriz . Aşağıdaki örneğe bakın.
