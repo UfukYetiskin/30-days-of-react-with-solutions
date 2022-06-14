@@ -403,7 +403,7 @@ const App = () =>{
   }
   //Conditional Rendering
   const whoUmmuhan = {
-    firstName : 'Ümmühan',
+    firstName : 'Ümmühan', 
     lastName : 'Yetişkin',
     age : 23,
     husband : 'Ufuk',
@@ -416,7 +416,7 @@ const App = () =>{
   //Conditional Rendering
   const[isLoggedIn, setIsLoggedIn] = useState(false)
 
-  
+
   return (
     <div>
       <Header framework= 'JavaScript Library' welcome = 'Welcome is props value'/>
@@ -447,17 +447,28 @@ const App = () =>{
       onClick = {alertHi}
       onClick2 = {() => alert(new Date().toLocaleTimeString())}
       ></ChildOfUs>
+      <br></br>
       <FrontendTechs/>
+      <br></br>
       <Footer></Footer>
+      <br></br>
       <Numbers numbers = {numbers} />
+      <br></br>
       <Skills skills={feskills} />
+      <br></br>
       <Countries countries={countries} />
+      <br></br>
       <GeneratorNumber sayilar = {sayilar} />
+      <br></br>
       <GeneratorHexa str={str} />
+      <br></br>
       <ClassComponents whoDeniz = {whoDeniz}></ClassComponents>
+      <br></br>
       <States></States>
+      <br></br>
       <DogorCat></DogorCat>
-      <ConditionalRendering whoUmmuhan={whoUmmuhan}></ConditionalRendering>
+      <br></br>
+      <ConditionalRendering  whoUmmuhan={whoUmmuhan}></ConditionalRendering>
       </div>
   )
 }

@@ -1092,3 +1092,49 @@ Component'lerde return işleminden sonra bir kod varsa bunlar çalışmayacaktı
 
 #### If ve Else deyimini kullanarak Koşullu Oluşturma |  Conditional Rendering using If and Else statement
 Aşağıdaki kodda, false olan bir ilk login durumumuz var. Durum yanlışsa, kullanıcıyı oturum açması için bilgilendiririz, aksi takdirde kullanıcıyı memnuniyetle karşılarız.
+
+```
+import React from 'react'
+
+export default class ConditionalRendering extends React.Component{
+    state = {
+        isim : "",
+        message : ""
+    }
+
+    //Burada isim state'ine girilen isimleri  tutması için setState'i ayaraldık
+    handleChange = (event) => {
+        this.setState({isim : event.target.value})
+    }
+
+    // Burada ise butona basğtımız takdirde isim state'inin uzunluğuna göre bize mesaj gösteriyor.
+    handleSubmit = (isim) => {
+        if(isim.length < 6){
+            this.setState({message : "Girilen isim 6 harften küçüktür."})
+        }else{
+            this.setState({message :""})
+        }
+    }
+    render(){
+
+        const { firstName, lastName, age, husband, parents : {mother, father} , birthDay} =this.props.whoUmmuhan
+        const errorMessage = this.state.message ? <h2>{this.state.message}</h2> : <h2>Giriş Yapınız.</h2>
+        return (
+            <div style={{border: "1px solid black", margin : "!%"}}>
+                <h1>This component is about of Conditional Rendering</h1>
+                <h1>{firstName}</h1>
+                <input 
+                    placeholder='Write here something'
+                    value={this.state.isim}
+                    onChange={this.handleChange}
+                />
+                {/* buton içerisinde onClick metoduna fonksiyon tanımladık.  */}
+                <button onClick={() => this.handleSubmit(this.state.isim)} >Submit</button>
+                <span>{this.state.isim}</span>
+                {/*<span>{this.state.message}</span> */}
+                <div>{errorMessage}</div>
+            </div>
+        )
+    }
+}
+```
