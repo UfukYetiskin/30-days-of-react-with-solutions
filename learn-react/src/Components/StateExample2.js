@@ -15,8 +15,13 @@ class DogorCat extends React.Component{
             population : 27657145,
             currency : "Afghan afghani",
             flag : "https://restcountries.eu/data/sjm.svg"
-        }
+        },
+        color : 'red' 
 
+    }
+    changeColor = () => {
+        let color = this.state.color === 'red' ? 'green' : 'red'
+        this.setState({color})
     }
 
     changeAnimalImage = () => {
@@ -25,22 +30,17 @@ class DogorCat extends React.Component{
         let image = this.state.image === catURL ? dogURL : catURL
         this.setState({image})
     }
+
+    //bu fonkisyon anlık tepki yerine bir seferlik çalışmaktadır.
     changeBackgroundColor = () => {
         let bgBlue = {
             backgroundColor : 'blue'
-            
         }
         let bgBlack = {
             backgroundColor : 'black',
             color: 'white'
         }
         let color = this.state.color === bgBlack ? bgBlue : bgBlack
-        if(this.state.color === bgBlack){
-            this.setState({color})
-        }else{
-            this.setState({color})
-        }
-
         this.setState({color})
         console.log(color)
     }
@@ -2070,16 +2070,17 @@ class DogorCat extends React.Component{
 
     render(){
         return(
-            <div >
+            <div style={{backgroundColor : this.state.color}}>
                 <h1>This Component is second example. The example is about Dog or Cat</h1>
                 <div>
                     <img src={this.state.image} alt="AnimalImage"/>
                 </div>
-                <div style={this.state.color}>
+                <div style={{backgroundColor: this.state.color.backgroundColor}}>
                     Bu elementin arka plan rengi değişmeli
                 </div>
                 <button onClick={this.changeAnimalImage}>Change Image</button>
                 <button onClick={this.changeBackgroundColor} >Change Color</button>
+                <button onClick={this.changeColor} >Change Color</button>
                 <div>
                     <h1>This div is include countries data</h1>
                     <div>
