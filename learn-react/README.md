@@ -1081,3 +1081,14 @@ export default States
 
 ```
 
+## Nineth Day of React
+
+### Conditional Rendering | Koşullu  Oluşturma
+
+
+ koşula bağlı şekilde render edilme durumu söz konusu olduğunda uygulayacağımız bir yöntem denebilir. Hemen bir örnekle konuyu somutlaştırayım. Mesela bir uygulama açıldığında "yükleniyor" yazar (hatta bir halka döner) daha sonrasında da mesela instagramdaysanız gönderilen resimler yüklenmeye başlar. İşte burada eğer sunucudan resimler gelmediyse loader componentini göster, resimler gelince de sadece resimleri göster şeklinde bir şart koşulabilir.
+
+Component'lerde return işleminden sonra bir kod varsa bunlar çalışmayacaktır. Bu yüzdenk koşullu olarakta render yapabilirsiniz. Örneğin kullanıcı giriş yapmışsa başka bir değer, yapmamışsa başka bir değer return edebilirdik.
+
+#### If ve Else deyimini kullanarak Koşullu Oluşturma |  Conditional Rendering using If and Else statement
+Aşağıdaki kodda, false olan bir ilk login durumumuz var. Durum yanlışsa, kullanıcıyı oturum açması için bilgilendiririz, aksi takdirde kullanıcıyı memnuniyetle karşılarız.

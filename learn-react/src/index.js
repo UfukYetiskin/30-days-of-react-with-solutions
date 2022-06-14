@@ -7,7 +7,8 @@ import jsLogo from './images/js.png'
 import ClassComponents from './Components/ClassComponents'
 import States from './Components/States'
 import DogorCat from './Components/StateExample2'
-
+import ConditionalRendering from './Components/ConditionalRendering'
+import { useState } from 'react'
 
 
 
@@ -354,6 +355,7 @@ const GeneratorHexa = (props) => {
 } 
 
 const App = () =>{
+  
   //Burada tanımlanmış değişkenler props ile GirlFriend componentine aktarılacaktır.
   const firstName = 'Ümmühan'
   const lastName = 'Gümüş Yetişkin'
@@ -399,7 +401,22 @@ const App = () =>{
     },
     birthDay : '07.08.2030'
   }
+  //Conditional Rendering
+  const whoUmmuhan = {
+    firstName : 'Ümmühan',
+    lastName : 'Yetişkin',
+    age : 23,
+    husband : 'Ufuk',
+    parents : {
+        father: 'Veysel',
+        mother : 'Sunay'
+    },
+    birthDay : '07.08.1998'
+  }
+  //Conditional Rendering
+  const[isLoggedIn, setIsLoggedIn] = useState(false)
 
+  
   return (
     <div>
       <Header framework= 'JavaScript Library' welcome = 'Welcome is props value'/>
@@ -440,6 +457,7 @@ const App = () =>{
       <ClassComponents whoDeniz = {whoDeniz}></ClassComponents>
       <States></States>
       <DogorCat></DogorCat>
+      <ConditionalRendering whoUmmuhan={whoUmmuhan}></ConditionalRendering>
       </div>
   )
 }
