@@ -35,10 +35,17 @@ class DogorCat extends React.Component{
             color: 'white'
         }
         let color = this.state.color === bgBlack ? bgBlue : bgBlack
+        if(this.state.color === bgBlack){
+            this.setState({color})
+        }else{
+            this.setState({color})
+        }
+
         this.setState({color})
         console.log(color)
     }
     getNewCountry = () => {
+        //here has array about countries, but flags doesnt seem on web
         const countriesData =[
             {
               name: 'Afghanistan',
@@ -2060,10 +2067,10 @@ class DogorCat extends React.Component{
         const countries = countriesData[index]
         this.setState({countries})
     }
+
     render(){
-        console.log(this.state.countries)
         return(
-            <div  style={this.state.color}>
+            <div >
                 <h1>This Component is second example. The example is about Dog or Cat</h1>
                 <div>
                     <img src={this.state.image} alt="AnimalImage"/>

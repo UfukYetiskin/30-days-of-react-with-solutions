@@ -299,7 +299,7 @@ const Skill = ({skill : [tech, level]}) => {
 }
 //Skills component
 const Skills  = ({skills}) => {
-  const skillsList = skills.map((skill) => <Skill skill={skill} />)
+  const skillsList = skills.map((skill) => <Skill key={skill} skill={skill} />)
   console.log(skillsList)
   return skillsList
 }
@@ -322,7 +322,7 @@ const Country = ({country : {name, city}}) => {
 }
 
 const Countries = ({countries}) => {
-  const countryList = countries.map((country) => <Country country={country}></Country>)
+  const countryList = countries.map((country ,index) => <Country key={index} country={country}></Country>)
   return countryList
 }
 
@@ -330,7 +330,7 @@ const Countries = ({countries}) => {
 
 const GeneratorNumber = (props) => {
   console.log(props)
-  const listNumbers = props.sayilar.map((sayi) => sayi % 2 === 0 ? <span style={{backgroundColor:'green', padding : '8%'}}>{sayi}</span> : <span style={{backgroundColor:'red', padding : '8%'}}>{sayi}</span>)
+  const listNumbers = props.sayilar.map((sayi) => sayi % 2 === 0 ? <span style={{backgroundColor:'green', padding : '8%'}} key={sayi}>{sayi}</span> : <span key={sayi} style={{backgroundColor:'red', padding : '8%'}}>{sayi}</span>)
   return (
     <div style={{display : 'flex', flexWrap : 'wrap'}}>
       {listNumbers}
