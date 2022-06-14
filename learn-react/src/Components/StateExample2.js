@@ -16,11 +16,11 @@ class DogorCat extends React.Component{
             currency : "Afghan afghani",
             flag : "https://restcountries.eu/data/sjm.svg"
         },
-        color : 'red' 
+        color : 'blue' 
 
     }
     changeColor = () => {
-        let color = this.state.color === 'red' ? 'green' : 'red'
+        let color = this.state.color === 'blue' ? 'green' : 'blue'
         this.setState({color})
     }
 
