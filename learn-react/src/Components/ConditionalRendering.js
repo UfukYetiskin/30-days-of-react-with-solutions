@@ -5,7 +5,9 @@ export default class ConditionalRendering extends React.Component{
         isim : "",
         message : "",
         value : "",
-        color : ""
+        color : "",
+        date : new Date().getHours(),
+        time : "",
     }
 
     //Burada isim state'ine girilen isimleri  tutması için setState'i ayaraldık
@@ -43,14 +45,24 @@ export default class ConditionalRendering extends React.Component{
                 this.setState({color: "red"})
         }
     }
+    
+    getHour = (date) => {
+        if(date < 5 || date > 20){
+            this.setState({time : "black"})
+        }else if(date > 5 && date < 18){
+            this.setState({time : "yellow"})
+        }else{
+            this.setState({time: "orange"})
+        }
+    }
     render(){
-
+        
         const { firstName, lastName, age, husband, parents : {mother, father} , birthDay} =this.props.whoUmmuhan
         const errorMessage = this.state.message ? <h2>{this.state.message}</h2> : <h2>Giriş Yapınız.</h2>
         
         return (
             <div style={{border: "1px solid black", margin : "1%", backgroundColor: this.state.color }}>
-                <div>
+                <div style={{margin : "1%", padding : "1%"}}>
                     <h1>This component is about of Conditional Rendering</h1>
                     <h1>{firstName}</h1>
                     <input 
@@ -64,15 +76,20 @@ export default class ConditionalRendering extends React.Component{
                     {/*<span>{this.state.message}</span> */}
                     <div>{errorMessage}</div>
                 </div>
-                <div>
+                <div style={{margin : "1%", padding : "1%"}}>
                     <h1>Exercises Level 2</h1>
+                    <p>Input içerisine girilen mevsime göre arka plan rengini değiştirmektedir. Mevsim ismini girdikten sonra submit ediniz.</p>
                     <input 
                         placeholder='Write here something'
                         value={this.state.value}
                         onChange={this.handleSeason}
                     />
                     <button onClick={()=> this.handleNow(this.state.value)}>Season</button>
-                    
+                </div>
+                <div style={{margin : "1%", padding : "1%", backgroundColor : this.state.time}}>
+                    <p>Bu görevde saate göre arka plan rengini değiştirecektir.</p>
+                    <h5>{this.state.date}</h5>
+                    <button onClick={() => this.getHour(this.state.date) }>Hour?</button>
                 </div>
             </div>
         )
