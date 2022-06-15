@@ -1141,3 +1141,9 @@ export default class ConditionalRendering extends React.Component{
 
 
 ## React Project Klasör Yapısı ve Dosya Adlandırma |React Project Folder Structure and File Naming
+
+React projesinde tek bir klasör yapısı veya dosya adlandırma kullanmanın kesin bir yolu yoktur. Çoğu zaman, bu tür bir seçim bir ekip tarafından yapılabilir. Bazen bir şirketin izlenecek kod kuralları, klasör yapısı ve dosya adlandırma konusunda gelişmiş yönergeleri olabilir. Bir React projesini yapılandırmanın doğru ya da yanlış bir yolu yoktur, ancak bazı yapılar ölçeklenebilirlik, sürdürülebilirlik, dosyalar üzerinde çalışma kolaylığı ve kolay anlaşılır yapı açısından diğerlerinden daha iyidir. Klasör yapısı hakkında daha fazla bilgi edinmek isterseniz aşağıdaki makalelere göz atabilirsiniz.
+
+### Dosya Adlandırma
+
+Tüm React projemde tüm bileşenler için CamelCase dosya adını kullanacağım. Açıklayıcı uzun ad kullanmayı tercih ederim.
