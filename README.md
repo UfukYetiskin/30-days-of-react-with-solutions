@@ -636,3 +636,4 @@ ReactDOM.render(<App />, rootElement)
 
 ```
 
+## React Project Klasör Yapısı ve Dosya Adlandırma |React Project Folder Structure and File Naming
