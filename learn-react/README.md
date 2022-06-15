@@ -1147,3 +1147,76 @@ React projesinde tek bir klasör yapısı veya dosya adlandırma kullanmanın ke
 ### Dosya Adlandırma
 
 Tüm React projemde tüm bileşenler için CamelCase dosya adını kullanacağım. Açıklayıcı uzun ad kullanmayı tercih ederim.
+
+### Fragments
+
+Parçalar, JSX'te gereksiz üst öğeden kaçınmanın bir yoludur. Bir parça uygulayalım. Reaksiyon modülünden parçayı içe aktarıyoruz. Aşağıda görebileceğiniz gibi, React'i içe aktardık ve virgülle ayırma kullanarak parçaladık.
+
+```
+import React, { Fragment } from 'react'
+
+const Skills = () => {
+  return (
+    <Fragment>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </Fragment>
+  )
+}
+const RequiredSkills = () => {
+  return (
+    <ul>
+      <Skills />
+    </ul>
+  )
+}
+```
+
+Fragment modülünü aşağıda gösterildiği gibi React'ten çıkarmak da mümkündür.
+
+```
+import React from 'react'
+
+const Skills = () => {
+  return (
+    <React.Fragment>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </React.Fragment>
+  )
+}
+
+const RequiredSkills = () => {
+  return (
+    <ul>
+      <Skills />
+    </ul>
+  )
+}
+```
+Reacts'in en son sürümünde, bu işaretleri kullanarak (<> </>) çıkarmadan veya içe aktarmadan yazmak da mümkündür.
+
+```
+import React from 'react'
+
+// Recommended
+const Skills = () => {
+  return (
+    <>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </>
+  )
+}
+
+const RequiredSkills = () => {
+  return (
+    <ul>
+      <Skills />
+    </ul>
+  )
+}
+```
