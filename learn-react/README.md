@@ -1220,3 +1220,31 @@ const RequiredSkills = () => {
   )
 }
 ```
+
+## Eleventh Day of React 
+
+### Events
+onClick eventi;
+
+```
+import React from 'react'
+// if it is functional components
+const App = () => {
+  const greetPeople = () => {
+    alert('Welcome to 30 Days Of React Challenge')
+  }
+  return <button onClick={greetPeople}> </button>
+}
+```
+```
+import React, { Component } from 'react'
+// if it is class components
+class App extends Component {
+  greetPeople = () => {
+    alert('Welcome to 30 Days Of React Challenge')
+  }
+  render() {
+    return <button onClick={this.greetPeople}> </button>
+  }
+}
+```

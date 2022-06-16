@@ -635,8 +635,8 @@ const rootElement = document.getElementById('root')
 ReactDOM.render(<App />, rootElement)
 
 ```
-
-## React Project Klasör Yapısı ve Dosya Adlandırma |React Project Folder Structure and File Naming
+## Day Tenth of React
+### React Project Klasör Yapısı ve Dosya Adlandırma |React Project Folder Structure and File Naming
 
 React projesinde tek bir klasör yapısı veya dosya adlandırma kullanmanın kesin bir yolu yoktur. Çoğu zaman, bu tür bir seçim bir ekip tarafından yapılabilir. Bazen bir şirketin izlenecek kod kuralları, klasör yapısı ve dosya adlandırma konusunda gelişmiş yönergeleri olabilir. Bir React projesini yapılandırmanın doğru ya da yanlış bir yolu yoktur, ancak bazı yapılar ölçeklenebilirlik, sürdürülebilirlik, dosyalar üzerinde çalışma kolaylığı ve kolay anlaşılır yapı açısından diğerlerinden daha iyidir. Klasör yapısı hakkında daha fazla bilgi edinmek isterseniz aşağıdaki makalelere göz atabilirsiniz.
 
@@ -716,3 +716,69 @@ const RequiredSkills = () => {
   )
 }
 ```
+ 
+## Eleventh Day of React
+
+## Events
+
+### What is the yEvent
+
+Event, HTML elementlerinde gerçekleşen olaylardır. Bir event tarayıcının yahut kullanıcının neden olduğu bir şey olabilir. Ve biz javascript yardımı ile bu event ‘leri (olayları) yakalayabiliriz. Örnekleyecek olursak
+
+En bilinen örneklerdir ki:
+
+- Kullanıcı butona tıkladığında
+- Kullanıcı tarafından klavyeden tuşa basıldığında (onkeydown)
+- HTML elementinden değişikiklik olduğunda (onchange)
+- Sayfanın yüklenmesi tamamlandığında (onLoad)
+
+React'te olayları işlemek, saf JavaScript kullanarak DOM öğelerindeki öğeleri işlemeye çok benzer. React'te olay işleme ile saf JavaScript arasındaki sözdizimi farklarından bazıları:
+- React olayları, küçük harf yerine camelCase kullanılarak adlandırılır.
+- JSX ile, bir dizge yerine olay işleyicisi olarak bir işlevi iletirsiniz.
+
+```
+import React from 'react'
+// if it is functional components
+const App = () => {
+  const greetPeople = () => {
+    alert('Welcome to 30 Days Of React Challenge')
+  }
+  return <button onClick={greetPeople}> </button>
+}
+```
+```
+import React, { Component } from 'react'
+// if it is class components
+class App extends Component {
+  greetPeople = () => {
+    alert('Welcome to 30 Days Of React Challenge')
+  }
+  render() {
+    return <button onClick={this.greetPeople}> </button>
+  }
+}
+```
+
+HTML ve React olayı arasındaki diğer bir fark, React'te varsayılan davranışı önlemek için false döndürememenizdir. ÖnlemeDefault'u açıkça çağırmalısınız. Örneğin, düz HTML ile, yeni bir sayfa açmanın varsayılan bağlantı davranışını önlemek için şunları yazabilirsiniz:
+
+ HTML için; 
+ ```
+ //a elementine tıklandığında yeni bir pencerede açılmasını engellemek için return false kullanırız.
+ <a href="#" onclick="console.log('The link was clicked.'); return false">
+  Click me
+</a>
+ ```
+Ancak, React'te aşağıdaki gibi olabilir:
+ ```
+const App = () => {
+ function handleClick(e) { 
+   //e elementi yapay bir eventtir. preventDefault ile 'a' elementinin varsayılan davranışı olan yeni bir sekmede belirtilen url'i açmasını engelledik.
+   e.preventDefault(); 
+   alert('Linke tıklandı.'); 
+ } 
+ return ( 
+   <a href="#" onClick={handleClick}> Test </a> 
+ ); 
+}
+ ```
+Olay işleme çok geniş bir konudur ve bu meydan okumada en yaygın olay türlerine odaklanacağız. Aşağıdaki fare ve klavye olaylarını kullanabiliriz. onMouseMove, onMouseEnter, onMouseLeave, onMouseOut, onClick, onKeyDown, onKeyPress, onKeyUp, onCopy, onCut, onDrag, onChange,onBlur,onInput, onSubmit
