@@ -5,6 +5,7 @@ function Events(){
     const [firstName, setFirstName] = useState('')
     const [message, setMessage] =  useState('')
     const [key, setKey] = useState('')
+    const [position, setPosition] = useState()
 
     const handleClick = (e) => {
         setMessage('Welcome to the world of events')
@@ -25,6 +26,11 @@ function Events(){
     const handleCopy = (e) => {
         setMessage('Using 30 Days of React for commercial purpose is not allowed')
     }
+    const handleRandomPosition = (e) => {
+        const random = Math.round(Math.random()*150)
+        setPosition(random)
+    }
+    console.log(position)
     return(
         <div style={{border : '1px solid black', padding : '1%'}}>
             <h1>This div includes Events chapter</h1>
@@ -67,6 +73,9 @@ function Events(){
                     <input type='submit' value='Submit' />
                 </div>
             </form>
+            <div style={{ position: 'relative',width : '40%', height : '300px', backgroundColor: 'lightskyblue', margin:'1%'}}>
+                <div onClick={handleRandomPosition} style={{backgroundColor: 'salmon', position : 'absolute', left: `${position}px`, bottom: `${position + 1.33}px`}}>30 Days of React </div>
+            </div>
         </div>
     )
 }
