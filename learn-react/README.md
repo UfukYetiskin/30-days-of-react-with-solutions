@@ -1248,3 +1248,9 @@ class App extends Component {
   }
 }
 ```
+
+- onBlur event, belirli bir elemandan focusu yani odağı çektikten sonra onBlur eventi gerçekleşir. Örneğin, bir inputa değer girdiniz ve sayfanın herhangi bir yerine tıkladınız. İnput üzerinden odağı çektiğiniz anda event gerçekleşecektir.
+- enKeyPress event, klavye üzerinden basılan bir tuş hareketini algılar. örneğin input'a bir değer girdiğinizde onKeyPress eventi ile charCode metodunu çağırırsak, klavyedeki değerin sayısal değerini verir.
+- onCopy Event, herhangi bir elementi ya da text'i kopyaladığımızda event aktif olur.
+- onMouseMove Event, mouse ile herhangi bir elemanın üzerinden geçtiğimiz takdirde event gerçekleşir. Tıklama gibi olaylara gerek yok, sadece mouse imlecin üstünden geçmesi yeterli.
+- onClick eventi, herhangi bir elemente bastığımızda gerçekleşen bir eventtir.
