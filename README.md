@@ -637,3 +637,82 @@ ReactDOM.render(<App />, rootElement)
 ```
 
 ## React Project Klasör Yapısı ve Dosya Adlandırma |React Project Folder Structure and File Naming
+
+React projesinde tek bir klasör yapısı veya dosya adlandırma kullanmanın kesin bir yolu yoktur. Çoğu zaman, bu tür bir seçim bir ekip tarafından yapılabilir. Bazen bir şirketin izlenecek kod kuralları, klasör yapısı ve dosya adlandırma konusunda gelişmiş yönergeleri olabilir. Bir React projesini yapılandırmanın doğru ya da yanlış bir yolu yoktur, ancak bazı yapılar ölçeklenebilirlik, sürdürülebilirlik, dosyalar üzerinde çalışma kolaylığı ve kolay anlaşılır yapı açısından diğerlerinden daha iyidir. Klasör yapısı hakkında daha fazla bilgi edinmek isterseniz aşağıdaki makalelere göz atabilirsiniz.
+
+### Dosya Adlandırma
+
+Tüm React projemde tüm bileşenler için CamelCase dosya adını kullanacağım. Açıklayıcı uzun ad kullanmayı tercih ederim.
+
+### Fragments
+
+Parçalar, JSX'te gereksiz üst öğeden kaçınmanın bir yoludur. Bir parça uygulayalım. Reaksiyon modülünden parçayı içe aktarıyoruz. Aşağıda görebileceğiniz gibi, React'i içe aktardık ve virgülle ayırma kullanarak parçaladık.
+
+```
+import React, { Fragment } from 'react'
+
+const Skills = () => {
+  return (
+    <Fragment>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </Fragment>
+  )
+}
+const RequiredSkills = () => {
+  return (
+    <ul>
+      <Skills />
+    </ul>
+  )
+}
+```
+
+Fragment modülünü aşağıda gösterildiği gibi React'ten çıkarmak da mümkündür.
+
+```
+import React from 'react'
+
+const Skills = () => {
+  return (
+    <React.Fragment>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </React.Fragment>
+  )
+}
+
+const RequiredSkills = () => {
+  return (
+    <ul>
+      <Skills />
+    </ul>
+  )
+}
+```
+Reacts'in en son sürümünde, bu işaretleri kullanarak (<> </>) çıkarmadan veya içe aktarmadan yazmak da mümkündür.
+
+```
+import React from 'react'
+
+// Recommended
+const Skills = () => {
+  return (
+    <>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </>
+  )
+}
+
+const RequiredSkills = () => {
+  return (
+    <ul>
+      <Skills />
+    </ul>
+  )
+}
+```
