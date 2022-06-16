@@ -27,7 +27,7 @@ function Events(){
         setMessage('Using 30 Days of React for commercial purpose is not allowed')
     }
     const handleRandomPosition = (e) => {
-        const random = Math.round(Math.random()*150)
+        const random = Math.round(Math.random()*300)
         setPosition(random)
     }
     console.log(position)
@@ -73,8 +73,11 @@ function Events(){
                     <input type='submit' value='Submit' />
                 </div>
             </form>
-            <div style={{ position: 'relative',width : '40%', height : '300px', backgroundColor: 'lightskyblue', margin:'1%'}}>
-                <div onClick={handleRandomPosition} style={{backgroundColor: 'salmon', position : 'absolute', left: `${position}px`, bottom: `${position + 1.33}px`}}>30 Days of React </div>
+            <div style={{border: '1px solid black'}}>
+            <h3>Text'in üzerine tıkladıkça farklı bir konum izliyor.</h3>
+            <div style={{ position: 'relative',width : '80%', height : '500px', backgroundColor: 'lightskyblue', margin:'1%'}}>
+                <div onClick={handleRandomPosition} style={{backgroundColor: 'salmon', position : 'absolute', left: `${position}px`, bottom: `${position }px` } }>30 Days of React </div>
+            </div>
             </div>
         </div>
     )
