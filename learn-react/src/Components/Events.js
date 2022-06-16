@@ -76,7 +76,7 @@ function Events(){
             <div style={{border: '1px solid black'}}>
             <h3>Text'in üzerine tıkladıkça farklı bir konum izliyor.</h3>
             <div style={{ position: 'relative',width : '80%', height : '500px', backgroundColor: 'lightskyblue', margin:'1%'}}>
-                <div onClick={handleRandomPosition} style={{backgroundColor: 'salmon', position : 'absolute', left: `${position}px`, bottom: `${position }px` } }>30 Days of React </div>
+                <div onMouseMove={handleRandomPosition} style={{backgroundColor: 'salmon', position : 'absolute', left: `${position}px`, bottom: `${position }px` } }>30 Days of React </div>
             </div>
             </div>
         </div>
