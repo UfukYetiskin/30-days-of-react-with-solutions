@@ -2,12 +2,18 @@ import {useState} from 'react'
 
 
 const Forms = () => {
-    const [value, setValue] = useState('')
+    const [Name, setName] = useState('')
+    const [lastName, setLastName]  = useState('')
+
 
 
     const handleChange = (e) => {
-        const value = e.target.value
-        setValue(value)
+        const Name = e.target.value
+        setName(Name)
+    }
+    const handleChangeLastName = (e) => {
+        const lastName = e.target.value
+        setLastName(lastName)
     }
 
     return (
@@ -19,11 +25,21 @@ const Forms = () => {
                     id='value'
                     onChange={handleChange}
                     placeholder = 'Write Your Name'
-                    value={value}
+                    value={Name}
                 />
             </div>
             <div>
-                <h3>{value}</h3>
+            <label style={{margin: '10px'}} htmlFor='value2'>Name</label>
+                <input 
+                    id='value2'
+                    onChange={handleChangeLastName}
+                    placeholder = 'Write Your Name'
+                    value={lastName}
+                />
+            </div>
+            <div>
+                <h3>{Name}</h3>
+                <h3>{lastName}</h3>
             </div>
         </div>
     )
