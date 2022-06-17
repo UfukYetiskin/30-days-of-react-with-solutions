@@ -1267,6 +1267,8 @@ Form, bir kullanıcıdan veri toplamak için kullanılır. Arada bir, bilgilerim
 Şimdiye kadar giriş alanından herhangi bir veri alamadık. Şimdi, bir girdi alanından nasıl veri alınacağını öğrenmenin zamanı geldi. Kontrollü bir girdiden veri almak için bir girdi alanına, olay dinleyicisine (onChange) ve duruma ihtiyacımız var. Aşağıdaki örneğe bakın. Giriş etiketinin altındaki h1 öğesi, girişe ne yazdığımızı gösterir. 
 Giriş öğesinin değer, ad, kimlik, yer tutucu, tür ve olay işleyici gibi birçok özelliği vardır. Ek olarak, girdi alanı kimliğini ve etiketin htmlFor'unu kullanarak bir etiket ve bir girdi alanını bağlayabiliriz. Etiket ve girdi bağlantılıysa, etikete tıkladığımızda girdiye odaklanacaktır. Aşağıda verilen örneğe bakın.
 
+
+//Class Components
 ```
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
@@ -1309,3 +1311,43 @@ class App extends Component {
 const rootElement = document.getElementById('root')
 ReactDOM.render(<App />, rootElement)
 ```
+
+Functions Components 
+```
+import {useState} from 'react'
+
+
+const Forms = () => {
+    const [value, setValue] = useState('')
+
+
+    const handleChange = (e) => {
+        const value = e.target.value
+        setValue(value)
+    }
+
+    return (
+        <div style={{border: "1px solid black", margin: '1%', padding: '1%'}}>
+            <h1>This div about the Froms</h1>
+            <div>
+                <label style={{margin: '10px'}} htmlFor='value'>Name</label>
+                <input 
+                    id='value'
+                    onChange={handleChange}
+                    placeholder = 'Write Your Name'
+                    value={value}
+                />
+            </div>
+            <div>
+                <h3>{value}</h3>
+            </div>
+        </div>
+    )
+}
+
+export default Forms
+```
+
+#### Formdan birden çok giriş verisi alma |  Getting multiple input data from form
+
+Bu bölümde, kullanıcı bilgilerini toplayan küçük bir form geliştireceğiz. Kullanıcımız öğrencidir. Kullanıcı bilgilerini toplamak için bir üst form öğesi ve belirli sayıda giriş öğesi kullanırız. Buna ek olarak form (onSubmit) ve girdiler (onChange) için olay dinleyicimiz olacak. Aşağıdaki örneğe bakın, ortak noktaları da görmeye çalışın. 
