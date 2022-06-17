@@ -1254,3 +1254,58 @@ class App extends Component {
 - onCopy Event, herhangi bir elementi ya da text'i kopyaladığımızda event aktif olur.
 - onMouseMove Event, mouse ile herhangi bir elemanın üzerinden geçtiğimiz takdirde event gerçekleşir. Tıklama gibi olaylara gerek yok, sadece mouse imlecin üstünden geçmesi yeterli.
 - onClick eventi, herhangi bir elemente bastığımızda gerçekleşen bir eventtir.
+
+
+## Twelfth
+
+## Forms 
+
+Form, bir kullanıcıdan veri toplamak için kullanılır. Arada bir, bilgilerimizi bir kağıda veya bir web sitesine doldurmak için form kullanırız. Kayıt olmak, oturum açmak veya bir işe başvurmak için farklı form alanlarını doldurarak verilerimizi uzak veritabanına gönderiyoruz. Basit metin, e-posta, şifre, telefon, tarih, onay kutusu, radyo düğmesi, seçenek seçimi ve metin alanı alanı gibi bir formu doldurduğumuzda farklı form alanları ile karşılaşıyoruz. Şu anda, HTML5 oldukça fazla alan türü sağlamaktadır.
+
+### Bir giriş alanından veri alma |  Getting data from an input field
+
+Şimdiye kadar giriş alanından herhangi bir veri alamadık. Şimdi, bir girdi alanından nasıl veri alınacağını öğrenmenin zamanı geldi. Kontrollü bir girdiden veri almak için bir girdi alanına, olay dinleyicisine (onChange) ve duruma ihtiyacımız var. Aşağıdaki örneğe bakın. Giriş etiketinin altındaki h1 öğesi, girişe ne yazdığımızı gösterir. 
+Giriş öğesinin değer, ad, kimlik, yer tutucu, tür ve olay işleyici gibi birçok özelliği vardır. Ek olarak, girdi alanı kimliğini ve etiketin htmlFor'unu kullanarak bir etiket ve bir girdi alanını bağlayabiliriz. Etiket ve girdi bağlantılıysa, etikete tıkladığımızda girdiye odaklanacaktır. Aşağıda verilen örneğe bakın.
+
+```
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+
+class App extends Component {
+  // declaring state
+  // initial state
+  state = {
+    firstName: '',
+  }
+  handleChange = (e) => {
+    const value = e.target.value
+    this.setState({ firstName: value })
+  }
+
+  render() {
+    /*
+     accessing the state value and 
+     this value will injected to the input in the value attribute
+     */
+
+    const firstName = this.state.firstName
+    return (
+      <div className='App'>
+        <label htmlFor='firstName'>First Name: </label>
+        <input
+          type='text'
+          id='firstName'
+          name='firstName'
+          placeholder='First Name'
+          value={firstName}
+          onChange={this.handleChange}
+        />
+        <h1>{this.state.firstName}</h1>
+      </div>
+    )
+  }
+}
+
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)
+```

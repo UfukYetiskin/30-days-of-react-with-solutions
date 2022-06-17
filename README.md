@@ -782,3 +782,61 @@ const App = () => {
 }
  ```
 Olay işleme çok geniş bir konudur ve bu meydan okumada en yaygın olay türlerine odaklanacağız. Aşağıdaki fare ve klavye olaylarını kullanabiliriz. onMouseMove, onMouseEnter, onMouseLeave, onMouseOut, onClick, onKeyDown, onKeyPress, onKeyUp, onCopy, onCut, onDrag, onChange,onBlur,onInput, onSubmit
+
+## Twelfth Day of React
+
+### Forms 
+
+Form, bir kullanıcıdan veri toplamak için kullanılır. Arada bir, bilgilerimizi bir kağıda veya bir web sitesine doldurmak için form kullanırız. Kayıt olmak, oturum açmak veya bir işe başvurmak için farklı form alanlarını doldurarak verilerimizi uzak veritabanına gönderiyoruz. Basit metin, e-posta, şifre, telefon, tarih, onay kutusu, radyo düğmesi, seçenek seçimi ve metin alanı alanı gibi bir formu doldurduğumuzda farklı form alanları ile karşılaşıyoruz. Şu anda, HTML5 oldukça fazla alan türü sağlamaktadır. Aşağıdaki mevcut HTML5 giriş türlerine bir göz atabilirsiniz.
+
+```
+<input type="text" />
+<input type="number" />
+<input type="range" />
+
+<input type="email" />
+<input type="password" />
+<input type="tel" />
+
+<input type="checkbox" />
+<input type="radio" />
+
+<input type="color" />
+
+<input type="url" />
+<input type="image" />
+<input type="file" />
+
+<input type="hidden" />
+
+<input type="date" />
+<input type="datetime-local" />
+<input type="month" />
+<input type="week" />
+<input type="time" />
+
+<input type="reset" />
+<input type="search" />
+<input type="submit" />
+<input type="button" />
+```
+Bir formdan veri almak için başka bir HTML alanı textarea ve seçeneklerle seçme öğeleridir.
+
+```
+<textarea>Please write your comment ...</textarea>
+
+<select name="country">
+  <option value="">Select your country</option>
+  <option value="finland">Finland</option>
+  <option value="sweden">Sweden</option>
+  <option value="denmark">Denmark</option>
+  <option value="norway">Norway</option>
+  <option value="iceland">Iceland</option>
+</select>
+```
+Artık bir formdan veri almak için ihtiyaç duyduğumuz alanların çoğunu biliyorsunuz. Metin alanına sahip bir girişle başlayalım. Önceki gün, farklı olay türleri gördük ve bugün, bir giriş alanı verisi değiştiğinde tetiklenen onChange olay türüne daha fazla odaklanacağız. Giriş alanı varsayılan olarak giriş verilerini depolamak için bir belleğe sahiptir, ancak bu bölümde durumu kullanarak bunu kontrol ediyoruz ve kontrollü bir giriş uyguluyoruz. Bugün kontrollü bir girdi uygulayacağız. Kontrolsüz girişi ayrı bir bölümde ele alacağız.
+
+#### Bir giriş alanından veri alma |  Getting data from an input field
+
+Şimdiye kadar giriş alanından herhangi bir veri alamadık. Şimdi, bir girdi alanından nasıl veri alınacağını öğrenmenin zamanı geldi. Kontrollü bir girdiden veri almak için bir girdi alanına, olay dinleyicisine (onChange) ve duruma ihtiyacımız var. Aşağıdaki örneğe bakın. Giriş etiketinin altındaki h1 öğesi, girişe ne yazdığımızı gösterir. 
+Giriş öğesinin değer, ad, kimlik, yer tutucu, tür ve olay işleyici gibi birçok özelliği vardır. Ek olarak, girdi alanı kimliğini ve etiketin htmlFor'unu kullanarak bir etiket ve bir girdi alanını bağlayabiliriz. Etiket ve girdi bağlantılıysa, etikete tıkladığımızda girdiye odaklanacaktır. Aşağıda verilen örneğe bakın.

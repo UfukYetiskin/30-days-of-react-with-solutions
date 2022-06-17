@@ -8,6 +8,7 @@ import DogorCat from './Components/StateExample2'
 import ConditionalRendering from './Components/ConditionalRendering'
 import { useState } from 'react'
 import Events from './Components/Events'
+import Forms from './Components/Forms'
 
 
 
@@ -470,6 +471,8 @@ const App = () =>{
       <ConditionalRendering  whoUmmuhan={whoUmmuhan}></ConditionalRendering>
       <br></br>
       <Events></Events>
+      <br></br>
+      <Forms></Forms>
       </div>
   )
 }
