@@ -1414,3 +1414,13 @@ const Forms = () => {
 
 export default Forms
 ```
+
+### Form Doğrulama | Form Validation
+
+#### What is the Validation
+
+Bu durumda verilerdeki bir şeyin geçerliliğini veya doğruluğunu kontrol etme veya kanıtlama eylemi veya süreci.
+
+#### Validation Types
+
+Doğrulama istemci tarafında veya sunucu tarafında yapılabilir. Şu anda bir ön uç teknolojisi olan React kullanıyoruz ve istemci tarafında doğrulama kullanıyoruz. Doğrulama HTML5 yerleşik doğrulaması veya JavaScript (normal ifade kullanarak) kullanılarak gerçekleştirilebilir.

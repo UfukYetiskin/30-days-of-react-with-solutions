@@ -80,6 +80,19 @@ const Forms = () => {
         setOption(optionValue)
 
     }
+
+    //Form Validation Örneği
+    const [nameError, setNameError] = useState('')
+    const validate = (e) => {
+        e.preventDefault();
+        if(Name.length < 3 || Name.length > 12 || Name.length === 0){
+            setNameError('First name be must between 3 and 12 ')
+        }else if (lastName.length === 0){
+            setNameError('Last name be must between 2 and 12 ')
+        }
+    }
+
+    
     return (
         <div style={{border: "1px solid black", margin: '1%', padding: '1%'}}>
             <h1>This div about the Froms</h1>
@@ -98,6 +111,7 @@ const Forms = () => {
             <label style={{margin: '10px'}} htmlFor='value2'>Lastname</label>
                 <input 
                     id='value2'
+                    required
                     onChange={handleChangeLastName}
                     placeholder = 'Write Your Lastname'
                     value={lastName}
@@ -108,6 +122,7 @@ const Forms = () => {
                 <h3>{lastName}</h3>
             </div>
             <div>
+                {/* Farklı giriş alanı türlerinden veri alın*/}
                 <select onChange={handleOptionValue}>
                     {mappingOptions}
                 </select>
@@ -117,11 +132,13 @@ const Forms = () => {
                     type="submit"
                     onClick={handleSubmit}
                 />
+               
             </div>
-                {/* Farklı giriş alanı türlerinden veri alın*/}
+                
             
             </form>
-            
+            <button onClick={validate}>Validation</button>
+            <div style={{color : 'red', fontSize : '12px'}}>{nameError}</div>
 
             
         </div>
