@@ -1469,3 +1469,7 @@ export default function UncontrolledComponents(){
     )
 }
 ```
+
+Çoğu zaman kontrolsüz girdi yerine kontrollü girdi kullanırız. DOM'da bir öğeyi hedeflemek istiyorsanız, o öğenin içeriğini almak için ref kullanacaksınız. Saf JavaScript kullanarak doğrudan dokunmayın. Bir React uygulaması geliştirirken doğrudan DOM'ye dokunmayın çünkü React'in DOM manipülasyonunu ele almanın kendi yolu vardır.
+
+Egzersizler
