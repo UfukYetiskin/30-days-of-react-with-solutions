@@ -1424,3 +1424,16 @@ Bu durumda verilerdeki bir şeyin geçerliliğini veya doğruluğunu kontrol etm
 #### Validation Types
 
 Doğrulama istemci tarafında veya sunucu tarafında yapılabilir. Şu anda bir ön uç teknolojisi olan React kullanıyoruz ve istemci tarafında doğrulama kullanıyoruz. Doğrulama HTML5 yerleşik doğrulaması veya JavaScript (normal ifade kullanarak) kullanılarak gerçekleştirilebilir.
+
+## thirteenth Day of React
+
+### Uncontrolled Components
+
+- A Controlled Component , şu anki değerini props ile alan ve onChange gibi geri çağrılar yoluyla yapılan değişiklikleri bildirendir. Bir ana bileşen geri aramayı ele alarak ve kendi durumunu yöneterek ve yeni değerleri kontrol edilen bileşene sahne olarak geçirerek "kontrol eder". Buna "aptal bir bileşen" de diyebilirsiniz.
+- A Kontrolsüz Bileşen , kendi durumunu dahili olarak saklayan biridir ve DOM, ihtiyacınız olduğunda mevcut değerini bulmak için bir ref kullanarak sorgularsınız. Bu biraz daha geleneksel HTML gibi.
+
+Kontrolsüz bir bileşen yazmak için, her durum güncellemesi için bir olay işleyicisi yazmak yerine, DOM'dan form değerleri almak için bir ref kullanabilirsiniz. Kontrolsüz girdide, geleneksel HTML form veri işleme gibi girdi alanlarından veri alırız.
+
+Kontrolsüz bileşen örneği
+
+### Kontrolsüz bir girdiden veri alma
