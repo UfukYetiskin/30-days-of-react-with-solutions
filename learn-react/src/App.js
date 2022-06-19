@@ -9,6 +9,7 @@ import ConditionalRendering from './Components/ConditionalRendering'
 import { useState } from 'react'
 import Events from './Components/Events'
 import Forms from './Components/Forms'
+import UncontrolledComponents from './Components/UncontrolledComponents'
 
 
 
@@ -473,6 +474,8 @@ const App = () =>{
       <Events></Events>
       <br></br>
       <Forms></Forms>
+      <br></br>
+      <UncontrolledComponents></UncontrolledComponents>
       </div>
   )
 }
