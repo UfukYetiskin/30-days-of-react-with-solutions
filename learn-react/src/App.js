@@ -10,6 +10,7 @@ import { useState } from 'react'
 import Events from './Components/Events'
 import Forms from './Components/Forms'
 import UncontrolledComponents from './Components/UncontrolledComponents'
+import LifeCycle from './Components/LifeCycle'
 
 
 
@@ -476,6 +477,8 @@ const App = () =>{
       <Forms></Forms>
       <br></br>
       <UncontrolledComponents></UncontrolledComponents>
+      <br></br>
+      <LifeCycle></LifeCycle>
       </div>
   )
 }

@@ -1518,3 +1518,86 @@ export default function App() {
   );
 }
 ```
+
+## Fourteenth Day of React
+
+## Component Life Cycle
+
+### Whe we should use useEffect() 
+
+useEffect Hook'un tanıtılmasının arkasındaki motivasyon, sınıf tabanlı bileşenlerin kullanılmasının yan etkilerini ortadan kaldırmaktır. Örneğin, DOM'yi güncelleme, API uç noktalarından veri alma, abonelikler veya zamanlayıcılar ayarlama vb. gibi görevler, istenmeyen yan etkilere neden olabilir. Render yöntemi hızlı bir şekilde yan etki üreteceğinden, yan etkileri gözlemlemek için yaşam döngüsü yöntemlerini kullanmak gerekir. Örneğin, basit bir sayaç bileşeni için belge başlığını mevcut değere güncellemeyi düşünün. İlk oluşturmada, mevcut tıklanan değeri 0 tıklama olarak ayarladık. Dolayısıyla bu bölüm, bileşen yaşam döngüsünde yalnızca bir kez yürütülen componentDidMount() yöntemine kodlanmıştır. Ardından, her tıklamada sayım durumu değerini birer birer artırmak için bir düğme oluştururuz. Sayım değeri durumu değiştikçe, ayrıca belge başlığını tekrar güncellememiz gerekiyor ve bunun için aynı kodu componentDidUpdate() içine yazmamız gerekiyor. componentDidupdate() yöntemi, durum değiştiğinde sayaç değerini güncellemek için mükemmeldir ancak kodun tekrarı yan etkilerden biridir.
+
+```
+componentDidMount(){
+	document.title = `you clicked ${this.state.count} times`;
+}
+
+componentDidUpdate(){
+	document.title = `you clicked ${this.state.count} times`;
+}
+```
+Bir zamanlayıcı kurarak başka bir yan etkiyi düşünelim. componentDidMount() yönteminde, her 5 saniyede bir "merhaba" dizesini günlüğe kaydetmek için bir zamanlayıcı ayarladık. Bileşen DOM'dan kaldırılırken bu zamanlayıcıyı temizleyebiliriz. Bunu componentWillUnmount() yaşam döngüsü yönteminde yapıyoruz. Böylece zamanlayıcının kodu aşağıdaki gibi görünür
+```
+componentDidMount(){
+    this.interval = setInterval(this.tick, 1000)
+}
+ 
+componentWillUnmount(){
+    clearInterval(this.interval)
+}
+```
+Tek bir bileşen oluşturmak için birleştirildiğinde hem sayaç hem de zamanlayıcı aşağıdaki gibi görünür:
+
+```
+componentDidMount(){
+	document.title = `you clicked ${this.state.count} times`;
+	this.interval = setInterval(this.tick, 1000)
+
+}
+
+componentDidUpdate(){
+	document.title = `you clicked ${this.state.count} times`;
+	clearInterval(this.interval)
+}
+```
+
+useEffect'i belirttiğimizde, temel olarak, bileşenin her oluşturduğunda, useEffect işlevinde argüman olarak ilettiğimiz işlevi yürütmek için tepki istiyoruz. Unutulmaması gereken ikinci şey, bileşenin içinde useeffect kullanılmasıdır, çünkü bunu yaparak, herhangi bir ek kod yazmak zorunda kalmadan bileşenlerin durumuna ve donanımlarına kolayca erişebiliriz.
+```
+import { useEffect, useState } from "react"
+
+export default function LifeCycle(){
+
+    const [count, setCount] = useState(0);
+
+
+    useEffect(() => {
+        //Örneğin bir butona basıldığında component render olur ve useEffect çalışır.
+       console.log('Component render olduğunda çalışır.') 
+    })
+
+    useEffect(() => {
+        //Bu satırda ilgili component yüklendiği anda çalışır.
+        console.log('component ilk yüklendiğinde çalışır!')
+        
+        //ilgili component öldürüldüğünde çalışır. Örneğin sayfa yenilendiğinde öldürülür.
+        return()=>{
+            console.log('component öldürülüdğünde çalışır.')
+        }
+    }, [])
+
+    //State ile tutulan veri her değiştiğinde component tekrardan render edilir.  useEffect ile statemizi de alabiliriz
+    useEffect(() => {
+        console.log('Count değeri değişti: ', count)
+    },[count])
+
+    return(
+        <div style={{border: '1px solid black', padding : '1%'}}>
+            <h1>This div includes Life Cycle Chapter </h1>
+            <div>
+                <button onClick={() => setCount(count + 1)}>Increase</button>
+                <span style={{padding: '1%', marginLeft :'1%'}}>{count}</span>
+            </div>
+        </div>
+    )
+}
+```

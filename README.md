@@ -840,3 +840,62 @@ Artık bir formdan veri almak için ihtiyaç duyduğumuz alanların çoğunu bil
 
 Şimdiye kadar giriş alanından herhangi bir veri alamadık. Şimdi, bir girdi alanından nasıl veri alınacağını öğrenmenin zamanı geldi. Kontrollü bir girdiden veri almak için bir girdi alanına, olay dinleyicisine (onChange) ve duruma ihtiyacımız var. Aşağıdaki örneğe bakın. Giriş etiketinin altındaki h1 öğesi, girişe ne yazdığımızı gösterir. 
 Giriş öğesinin değer, ad, kimlik, yer tutucu, tür ve olay işleyici gibi birçok özelliği vardır. Ek olarak, girdi alanı kimliğini ve etiketin htmlFor'unu kullanarak bir etiket ve bir girdi alanını bağlayabiliriz. Etiket ve girdi bağlantılıysa, etikete tıkladığımızda girdiye odaklanacaktır. Aşağıda verilen örneğe bakın.
+
+## Fourteenth Day of React
+
+## Component Life Cycle
+### What is Component Life Cycle
+
+Bileşen yaşam döngüsü, bir React uygulamasında bir bileşeni takma, güncelleme ve yok etme sürecidir. Bir bileşen yaşam döngüsünü insanın büyüme süreciyle ilişkilendirebilirsiniz: doğum, yetişkinlik, yaşlılık ve ölüm. React bileşeninde ayrıca bir bileşen ilk kez monte edilebilir veya oluşturulabilir, veriler değiştirilerek güncellenebilir ve ayrıca ihtiyaç duyulmadığında yok edilebilir. React'te her bileşenin üç ana aşaması vardır:
+
+- Mounting
+- Updating
+- Unmounting
+
+#### Mounting 
+
+React bileşenini DOM'a işlemeye veya yerleştirmeye mount denir. Aşağıdaki yerleşik yöntemler, bir React bileşeninin montajı sırasında verilen sırayla çalışır.
+
+1. Constructor()
+2. Static getDerivedStateFromProps()
+3. Render()
+4. ComponentDidMount()
+
+Sınıf tabanlı bir bileşen yaparken, yerleşik bir oluşturma yöntemi kullandık ve tüm sınıf tabanlı bileşenlerde gereklidir, ancak diğer yöntemler isteğe bağlıdır. Aşağıdaki kod parçacığını çalıştırarak farklı yöntemlerin yürütme sırasına bakın.
+
+```
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+    console.log('I am  the constructor and  I will be the first to run.')
+    this.state = {
+      firstName: '',
+    }
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log(
+      'I am getDerivedStateFromProps and I will be the second to run.'
+    )
+    return null
+  }
+  componentDidMount() {
+    console.log('I am componentDidMount and I will be last to run.')
+  }
+
+  render() {
+    console.log('I am render and I will be the third to run.')
+    return (
+      <div className='App'>
+        <h1>React Component Life Cycle</h1>
+      </div>
+    )
+  }
+}
+
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)
+```
