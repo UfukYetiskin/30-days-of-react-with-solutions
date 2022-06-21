@@ -1040,3 +1040,172 @@ Asabeneh@DESKTOP-KGC1AKC MINGW64 ~/Desktop/30-days-of-react$ npm install axios
 //or
 Asabeneh@DESKTOP-KGC1AKC MINGW64 ~/Desktop/30-days-of-react$ yarn add axios
 ```
+Örnek kod
+```
+import axios from "axios"
+import React from 'react'
+
+
+
+export default class ThirdPartyPackages extends React.Component {
+    state = {
+      persons: []
+    }
+  
+    componentDidMount() {
+      axios.get(`https://jsonplaceholder.typicode.com/users`)
+        .then(res => {
+          const persons = res.data;
+          this.setState({ persons });
+        })
+    }
+  
+    render() {
+      return (
+        <ul>
+          {
+            this.state.persons
+              .map(person =>
+                <li key={person.id}>{person.name}</li>
+              )
+          }
+        </ul>
+      )
+    }
+  }
+```
+
+Axios'u wait ve async işlevleriyle kullanabiliriz. Bekleme ve zaman uyumsuzluğunu uygulamak için componentDidMount dışında ayrı bir işleve ihtiyacımız var. Bekleme ve zaman uyumsuzluğunu uygularsak, hatanın dene ve yakala ile işlenmesi gerekir.
+
+### react-icons
+
+Simgeler bir web sitesinin ayrılmaz bir parçasıdır. Farklı SVG simgeleri almak için
+
+```
+Asabeneh@DESKTOP-KGC1AKC MINGW64 ~/Desktop/30-days-of-react$ npm install react-icons
+
+//or
+
+Asabeneh@DESKTOP-KGC1AKC MINGW64 ~/Desktop/30-days-of-react$ yarn add react-icons
+```
+
+Örnek
+```
+import React, { Component } from 'react'
+import axios from 'axios'
+import ReactDOM from 'react-dom'
+import moment from 'moment'
+import {
+  TiSocialLinkedinCircular,
+  TiSocialGithubCircular,
+  TiSocialTwitterCircular,
+} from 'react-icons/ti'
+
+const Footer = () => (
+  <footer>
+    <h3>30 Days Of React</h3>
+    <div>
+      <TiSocialLinkedinCircular />
+      <TiSocialGithubCircular />
+      <TiSocialTwitterCircular />
+    </div>
+    <div>
+      <small> Copyright &copy; {new Date().getFullYear()} </small>
+    </div>
+  </footer>
+)
+
+class App extends Component {
+  render() {
+    return (
+      <div className='App'>
+        <h1>Welcome to the world of Icons</h1>
+        <Footer />
+      </div>
+    )
+  }
+}
+
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)
+```
+
+### moment
+
+Moment, bize farklı zaman biçimleri sağlayan küçük bir JavaScript kitaplığıdır.
+
+```
+npm install moment
+```
+
+Örnek
+```
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+
+class App extends Component {
+  render() {
+    return (
+      <div className='App'>
+        <h1>How to use moment</h1>
+        <p>This challenge was started {moment('2020-10-01').fromNow()}</p>
+        <p>The challenge will be over in {moment('2020-10-30').fromNow()}</p>
+        <p>Today is {moment(new Date()).format('MMMM DD, YYYY HH:mm')}</p>
+      </div>
+    )
+  }
+}
+
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)
+```
+### styled-components
+
+Bir bileşene stil vermek için etiketli bir şablon değişmezleri kullanır. Bileşenler ve stiller arasındaki eşlemeyi kaldırır. Bu, stillerinizi tanımlarken, aslında stillerinizin eklendiği normal bir React bileşeni oluşturduğunuz anlamına gelir.
+
+```
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import styled from 'styled-components'
+
+const Title = styled.h1`
+  font-size: 70px;
+  font-weight: 300;
+`
+const Header = styled.header`
+  background-color: #61dbfb;
+  padding: 25;
+  padding: 10px;
+  margin: 0;
+`
+
+class App extends Component {
+  render() {
+    return (
+      <div className='App'>
+        <Header>
+          <div>
+            <Title>30 Days Of React</Title>
+            <h2>Getting Started React</h2>
+            <h3>JavaScript Library</h3>
+            <p>Instructor: Asabeneh Yetayeh</p>
+            <small>Oct 15, 2020</small>
+          </div>
+        </Header>
+      </div>
+    )
+  }
+}
+
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)
+```
+
+### reactstrap
+Reactstrap paketi, bir bileşenin bootstrap ile kullanılmasına izin verir .
+
+### lodash
+
+esmi lodash belgelerine göre, 'Modülerlik, performans ve ekstralar sunan modern bir JavaScript yardımcı program kitaplığı.'
+
+Ayrıca classnames ve validator paketinin nasıl kullanılacağını da öğrenmeye çalışın .

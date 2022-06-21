@@ -269,10 +269,10 @@ const FrontendTechs = () => {
     <div style={{backgroundColor : 'lightblue'}}>
       <h1 style={{marginLeft: '40%'}}>Front End Technologies</h1>
       <div>
-        <img style={imgStyle}  src={htmlLogo} />
-        <img style={imgStyle} src ={cssLogo}></img>
-        <img style={imgStyle} src ={jsLogo}></img>
-        <img style={imgStyle} src ={reactLogo}></img>
+        <img style={imgStyle} alt='img'    src={htmlLogo} />
+        <img style={imgStyle} alt='img'  src ={cssLogo}></img>
+        <img style={imgStyle} alt='img' src ={jsLogo}></img>
+        <img style={imgStyle} alt='img' src ={reactLogo}></img>
       </div>
     </div>
   )
