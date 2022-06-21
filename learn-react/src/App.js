@@ -11,6 +11,7 @@ import Events from './Components/Events'
 import Forms from './Components/Forms'
 import UncontrolledComponents from './Components/UncontrolledComponents'
 import LifeCycle from './Components/LifeCycle'
+import ThirdPartyPackages from './Components/ThirdPartyPackages'
 
 
 
@@ -126,7 +127,7 @@ const Profile = () =>  (
   <div>
     <div style={{marginLeft : '2%'}}>
     <div >
-      <img style={{width : "100px"}} src={reactLogo}></img>
+      <img style={{width : "100px"}} src={reactLogo} alt="img"></img>
     </div>
     <div>
       <div><strong>{ufuk}</strong></div>
@@ -479,6 +480,8 @@ const App = () =>{
       <UncontrolledComponents></UncontrolledComponents>
       <br></br>
       <LifeCycle></LifeCycle>
+      <br></br>
+      <ThirdPartyPackages></ThirdPartyPackages>
       </div>
   )
 }
