@@ -899,3 +899,24 @@ class App extends Component {
 const rootElement = document.getElementById('root')
 ReactDOM.render(<App />, rootElement)
 ```
+
+## Fifteenth Day of React
+
+## Third Party Packages
+
+
+npm kayıt defterinde 1,4 milyondan fazla JavaScript paketi vardır. Artık neredeyse her türlü sorun için bir paket var. Tekerleği yaratmamız gerekmiyor, tekerleği nasıl kullanacağımızı bilmeliyiz. Bu bölümde npm paketlerinin nasıl kullanılacağını öğreneceğiz ve ayrıca React uygulamaları için en yaygın paketi uygulayacağız. 
+
+Bir şekilde, React uygulamalarınızda aşağıdaki paketlere ihtiyacınız var. Bazı projeler için özellikle düğüm-sass, moment ve axios önemlidir.
+
+
+- node-sass
+- moment
+- axios
+- react-icons
+- styled-components
+- reactstrap
+- lodash
+- uuid
+
+### NPM or Yarn
