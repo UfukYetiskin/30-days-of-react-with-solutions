@@ -920,3 +920,123 @@ Bir şekilde, React uygulamalarınızda aşağıdaki paketlere ihtiyacınız var
 - uuid
 
 ### NPM or Yarn
+Paketleri kurmak için npm veya yarn kullanabilirsiniz. yarn kullanmak istiyorsanız, ayrı olarak yüklediniz. Paketlerden birine yapışmanızı tavsiye ederim. Her iki paket yönetim aracını aynı anda tek bir uygulamada kullanmayın.
+
+Bir uygulamaya paketlerin nasıl kurulacağını görelim. Öncelikle proje dizinine gidiyoruz ve aşağıdaki komutu yazıyoruz.
+
+```
+// syntax, we can use i or install
+npm i package-name
+// or
+yarn add package-name
+```
+
+### node-sass
+SASS, Syntactically Awesome Style Sheets(Sözdizimsel Müthiş Stil Sayfaları) ifadesinin kısaltılmış halidir. En çok kullanılan CSS ön-işlemcilerinden biridir.
+
+#### SASS ve CSS Arasındaki Fark Nedir?
+
+SASS , CSS yazmayı daha dinamik bir hale getirmek için ortaya çıkmıştır. Kısaca CSS ‘e bir programlama dili havası katmaktadır. CSS’ de bulunmayan pek çok özellik barındırır.(Değişken tanımlama, İç içe yapılar kullanma, Fonksiyon tanımlama,...)
+
+Sass'ın gücünden yararlanmak için node-sass'ı kuralım.
+
+npm'yi kullanma:
+```
+Asabeneh@DESKTOP-KGC1AKC MINGW64 ~/Desktop/30-days-of-react$ npm install node-sass
+
+// or
+
+Asabeneh@DESKTOP-KGC1AKC MINGW64 ~/Desktop/30-days-of-react$ yarn add node-sass
+```
+
+Node-sass'ı kurduktan sonra React'te Sass'ı kullanmaya başlayabilirsiniz. Bir stiller klasörü oluşturun ve bu klasörün içinde test.scss oluşturun. Bu dosyayı, çalıştığınız bileşene veya index.js'ye aktarın. Düğüm-sass'ı bileşene aktarmanız gerekmez.
+
+```
+/* ./styles/header.scss */
+header {
+  background-color: #61dbfb;
+  padding: 25;
+  padding: 10px;
+  margin: 0;
+}
+
+// Header.js
+import React from 'react'
+import './styles/header.scss
+const Header = () = (
+   <header>
+          <div className='header-wrapper'>
+            <h1>30 Days Of React</h1>
+            <h2>Getting Started React</h2>
+            <h3>JavaScript Library</h3>
+            <p>Instructor: Asabeneh Yetayeh</p>
+            <small>Oct 15, 2020</small>
+          </div>
+        </header>
+)
+
+export default Header
+
+
+```
+
+### CSS Modules
+
+
+Sass'a ek olarak, React'te CSS modüllerinin nasıl kullanılacağını bilmek iyidir. Bir CSS modülünün React uygulamalarında CSS modülünü kullanabilmesi için ayrı bir paket kurmamız gerekmiyor. CSS modülü, Pure CSS veya Sass ile kullanılabilir. CSS modülünün adlandırma kuralı, nokta ve modülün (test.module.css veya test.module.scss) ardından gelen belirli bir addır.
+
+dosya ismi adlandırma:
+
+```
+// naming for Sass
+[component-name].module.scss
+// naming for CSS
+[component-name].module.css
+```
+
+Biçimlendirme: 
+```
+/* ./styles/header.module.scss */
+.header {
+  background-color: #61dbfb;
+  padding: 25;
+  padding: 10px;
+  margin: 0;
+}
+.header-wrapper {
+  font-weight:500
+  border: 5px solid orange;
+}
+```
+Biçimlendirilecek component
+```
+// Header.js
+import React from 'react'
+import headerStyles from  './styles/header.module.scss
+// We can all destructure the class name
+const {header, headerWrapper} = headerStyles
+const Header = () = (
+   <header className = {headerStyles.header}>
+          <div className={headerStyles.headerWrapper}>
+            <h1>30 Days Of React</h1>
+            <h2>Getting Started React</h2>
+            <h3>JavaScript Library</h3>
+            <p>Instructor: Asabeneh Yetayeh</p>
+            <small>Oct 15, 2020</small>
+          </div>
+        </header>
+)
+
+export default Header
+```
+
+### Axios
+
+Axios, veri almak için HTTP istekleri yapabilen bir JavaScript kitaplığıdır. Bu bölümde bir alma isteği göreceğiz. Ancak tüm istek tiplerini axios (GET, POST, PUT, PATCH, DELETE) kullanarak yapmak mümkündür.
+
+Paket yükleme
+```
+Asabeneh@DESKTOP-KGC1AKC MINGW64 ~/Desktop/30-days-of-react$ npm install axios
+//or
+Asabeneh@DESKTOP-KGC1AKC MINGW64 ~/Desktop/30-days-of-react$ yarn add axios
+```
