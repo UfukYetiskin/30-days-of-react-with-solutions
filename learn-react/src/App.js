@@ -12,6 +12,7 @@ import Forms from './Components/Forms'
 import UncontrolledComponents from './Components/UncontrolledComponents'
 import LifeCycle from './Components/LifeCycle'
 import ThirdPartyPackages from './Components/ThirdPartyPackages'
+import FromsLesson2 from './Components/FormsLesson2'
 
 
 
@@ -477,11 +478,15 @@ const App = () =>{
       <br></br>
       <Forms></Forms>
       <br></br>
+      <FromsLesson2></FromsLesson2>
+      <br></br>
       <UncontrolledComponents></UncontrolledComponents>
       <br></br>
       <LifeCycle></LifeCycle>
       <br></br>
       <ThirdPartyPackages></ThirdPartyPackages>
+      <br></br>
+      
       </div>
   )
 }
