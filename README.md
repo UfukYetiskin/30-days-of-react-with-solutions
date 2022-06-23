@@ -1209,3 +1209,8 @@ Reactstrap paketi, bir bileşenin bootstrap ile kullanılmasına izin verir .
 esmi lodash belgelerine göre, 'Modülerlik, performans ve ekstralar sunan modern bir JavaScript yardımcı program kitaplığı.'
 
 Ayrıca classnames ve validator paketinin nasıl kullanılacağını da öğrenmeye çalışın .
+
+## Sixteenth Day of React
+
+### Higher Order Component
+
