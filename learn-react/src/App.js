@@ -421,6 +421,12 @@ const App = () =>{
   const[isLoggedIn, setIsLoggedIn] = useState(false)
 
 
+  //Higher Order Components
+
+  
+  
+
+
   return (
     <div>
       <Header framework= 'JavaScript Library' welcome = 'Welcome is props value'/>

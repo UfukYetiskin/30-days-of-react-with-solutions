@@ -1214,3 +1214,8 @@ Ayrıca classnames ve validator paketinin nasıl kullanılacağını da öğrenm
 
 ### Higher Order Component
 
+Yüksek dereceli bileşen terimi, JavaScript'teki yüksek dereceli işleve benzer. JavaScript'te daha yüksek dereceli bir işlev, parametre olarak başka bir işlevi alan veya başka bir işlev döndüren bir işlevdir.
+
+Daha yüksek dereceli fonksiyona benzer şekilde, daha yüksek dereceli bir bileşen bir bileşen alır ve başka bir bileşen döndürür. Bu tanım örneklerle anlam kazanacaktır. Daha iyi anlamak için aşağıdaki örneğe bakın.
+
+Parametre olarak component alan bir fonksiyondur. Bunu örneğin birden fazla component olan projelerde kod tekrarını azaltmak için kullanılır.

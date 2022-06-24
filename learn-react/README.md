@@ -1601,3 +1601,9 @@ export default function LifeCycle(){
     )
 }
 ```
+
+## Sixteenth Day of React
+
+## Higher Order Component
+
+Parametre olarak component alan bir fonksiyondur. Bunu örneğin birden fazla component olan projelerde kod tekrarını azaltmak için kullanılır.
