@@ -17,7 +17,7 @@ const ExampleofFormik = () => {
         }
     })
     return (
-        <form onSubmit={formik.handleSubmit}>
+        <form style={{border : '1px solid black', padding : '1%'}} onSubmit={formik.handleSubmit}>
             <h1>This Component includes Formik</h1>
             <label htmlFor='email'> Email Address</label>
             <input 
