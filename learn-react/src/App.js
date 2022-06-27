@@ -14,6 +14,8 @@ import LifeCycle from './Components/LifeCycle'
 import ThirdPartyPackages from './Components/ThirdPartyPackages'
 import FromsLesson2 from './Components/FormsLesson2'
 import ExampleofFormik from './Components/Formik'
+import ReactRoter from './Components/ReactRouter'
+
 
 
 
@@ -422,9 +424,7 @@ const App = () =>{
   const[isLoggedIn, setIsLoggedIn] = useState(false)
 
 
-  //Higher Order Components
 
-  
   
 
 
@@ -494,7 +494,9 @@ const App = () =>{
       <ThirdPartyPackages></ThirdPartyPackages>
       <br></br>
       <ExampleofFormik></ExampleofFormik>
-      </div>
+      <h1>Router Componenets</h1>
+      <ReactRoter></ReactRoter>
+    </div>
   )
 }
 
