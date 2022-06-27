@@ -1615,3 +1615,56 @@ Parametre olarak component alan bir fonksiyondur. Bunu örneğin birden fazla co
 Rotanın gerçek anlamı, bir yere ulaşmanın bir yolu veya yoludur. React'teki anlam da gerçek anlama benzer. React Router, kendi başına, React bileşenleri arasında gezinmenizi sağlayan bir React bileşenidir.
 
 En başından belirttiğimiz gibi, React tüm uygulamada yalnızca bir index.html sayfası olan tek sayfalık bir uygulamadır. Bir React Router uyguladığımızda, farklı bileşenler index.html sayfasında aynı anda veya farklı mantık ve koşullara göre farklı zamanlarda işlenir.
+
+```
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Route, Switch, Routes, NavLink } from 'react-router-dom'
+
+//----- React Router --------
+
+// Home component
+const Home = (props) => <h1>Welcome Home</h1>
+// About component
+const About = (props) => <h1>About Us</h1>
+// Contact component
+const Contact = (props) => <h1>Contact us</h1>
+// Challenge component
+const Challenges = (props) => (
+    <div>
+      <h1>30 Days Of React Challenge</h1>
+    </div>
+  )
+export default class ReactRoter extends React.Component {
+    render() {
+        return (
+          <Router>
+            <div className='App'>
+              <ul>
+                <li>
+                  <NavLink to='/'>Home</NavLink>
+                </li>
+                <li>
+                  <NavLink to='/about'>About</NavLink>
+                </li>
+                <li>
+                  <NavLink to='/contact'>Contact</NavLink>
+                </li>
+                <li>
+                  <NavLink to='/challenges'>Challenges</NavLink>
+                </li>
+              </ul>
+    
+              <Routes>
+                <Route path='/about' element={<About/>} />
+                <Route path='/contact' element={<Contact/>} />
+                <Route path='/challenges' element={<Challenges/>} />
+                <Route path='/' element={<Home/>} />
+                
+              </Routes>
+            </div>
+          </Router>
+        )
+      }
+}
+```
