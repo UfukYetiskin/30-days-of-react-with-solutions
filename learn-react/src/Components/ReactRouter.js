@@ -4,7 +4,17 @@ import {useRouteMatch} from 'react'
 import { useParams } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Switch, Routes, NavLink } from 'react-router-dom'
 
+//Redirect
+/*
+Yönlendirme, bazı koşullara dayalı olarak bir rotayı belirli bir 
+yola yönlendirmemize yardımcı olabilir. Örneğin, bir kullanıcı 
+oturum açtıysa, onu gösterge panosuna, aksi takdirde oturum açma 
+sayfasına yönlendiririz. 
+*/
 
+
+//Nesting 
+//bir rotayı nasıl yuvalayabileceğimizi görelim. React'te iç içe bir rotaya sahip olmak mümkündür.
 const NestingExample = (props) =>{
 
     return(
