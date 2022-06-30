@@ -1616,55 +1616,59 @@ Rotanın gerçek anlamı, bir yere ulaşmanın bir yolu veya yoludur. React'teki
 
 En başından belirttiğimiz gibi, React tüm uygulamada yalnızca bir index.html sayfası olan tek sayfalık bir uygulamadır. Bir React Router uyguladığımızda, farklı bileşenler index.html sayfasında aynı anda veya farklı mantık ve koşullara göre farklı zamanlarda işlenir.
 
+
+UI’ızı URL ile senkronize tutmak için HTML5 history API’sini (pushState, replaceState ve popstate eventi) kullanan bir **<Router>**dır.
+```
+//index.js
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import { BrowserRouter } from 'react-router-dom'
+ 
+
+const root = ReactDOM.createRoot(document.getElementById('root'))
+
+{/*ReactDOM.render([header, main, footer], rootElement)*/}
+//ReactDOM.render(<App />, rootElement)
+
+root.render(<BrowserRouter>
+    <App></App>
+</BrowserRouter>)
+```
+index.js sayfası ile web servisini tek bir html sayfasına çevirdik. BrowserRouter ile sardığımız için oluşturulan componentlerde tekrardan **Router** elementi ile kapsayamayız.
+
 ```
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route, Switch, Routes, NavLink } from 'react-router-dom'
+import { Switch , useRouteMatch } from 'react'
+import {Route,Routes, NavLink} from 'react-router-dom'
 
-//----- React Router --------
+const Home = () => <h1>Home</h1>
+const Contact = () => <h1>Contact</h1>
+const About = () => <h1>About Us</h1>
 
-// Home component
-const Home = (props) => <h1>Welcome Home</h1>
-// About component
-const About = (props) => <h1>About Us</h1>
-// Contact component
-const Contact = (props) => <h1>Contact us</h1>
-// Challenge component
-const Challenges = (props) => (
-    <div>
-      <h1>30 Days Of React Challenge</h1>
-    </div>
-  )
 export default class ReactRoter extends React.Component {
     render() {
         return (
-          <Router>
-            <div className='App'>
-              <ul>
+          <div>
+            <ul>
                 <li>
-                  <NavLink to='/'>Home</NavLink>
+                    <NavLink to='/' >Home</NavLink>
                 </li>
                 <li>
-                  <NavLink to='/about'>About</NavLink>
+                    <NavLink to='/contact' >Contact</NavLink>
                 </li>
                 <li>
-                  <NavLink to='/contact'>Contact</NavLink>
+                    <NavLink to='about' >About</NavLink>
                 </li>
-                <li>
-                  <NavLink to='/challenges'>Challenges</NavLink>
-                </li>
-              </ul>
-    
-              <Routes>
-                <Route path='/about' element={<About/>} />
-                <Route path='/contact' element={<Contact/>} />
-                <Route path='/challenges' element={<Challenges/>} />
+            </ul>
+            <Routes>
                 <Route path='/' element={<Home/>} />
-                
-              </Routes>
-            </div>
-          </Router>
+                <Route path = '/contact' element={<Contact/>} />
+                <Route path = '/about' element={<About/>} />
+            </Routes>
+          </div>
         )
-      }
+    }
 }
 ```
