@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Switch , useRouteMatch } from 'react'
-import {Route,Routes, NavLink, Outlet} from 'react-router-dom'
+import {Route,Routes, NavLink, Outlet, useParams} from 'react-router-dom'
 
 
 
@@ -24,9 +24,25 @@ const Vizyon = () => (
     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 )
 
-const Misyon = () => (
-    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-)
+const Misyon = () => {
+    //use params ile url'yi alabiliriz.
+    const {url} = useParams() 
+    return(
+        <div>
+            <h1>Misyon</h1>
+            misyon page = {url}
+        </div>
+    )
+}
+//404 yazdırmak için
+const Page404 = () => {
+    return(
+        <div>
+            <h4>Sayfa bulunamadı.</h4>
+            <NavLink  to='/'>Anasayfaya dön</NavLink>
+        </div>
+    )
+}
 
 export default class ReactRoter extends React.Component {
     render() {
@@ -49,8 +65,11 @@ export default class ReactRoter extends React.Component {
                 <Route path = '/about' element={<AboutLayout/>}>
                     <Route index={true} element={<About/>} />
                     <Route path='vizyon' element={<Vizyon/>} />
-                    <Route path='misyon' element={<Misyon/>} />
+                    {/* <Route path='misyon/:url' element={<Misyon/>} />  yazarsak url'e yönlendirir bizi. Bu url almak için ise useParams hookunu kullanabiliriz. */}
+                    <Route path='misyon/:url' element={<Misyon/>} />
                 </Route>
+                {/* 404 almak için, yani eşleşen bir sayfa yoksa 404 göstermek istersek. */}
+                <Route path='*' element={<Page404/>} />
             </Routes>
           </div>
         )
