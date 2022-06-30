@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useState, useContext, createContext} from 'react'
 import ReactDOM from 'react-dom'
 import { Switch , useRouteMatch } from 'react'
-import {Route,Routes, NavLink, Outlet, useParams} from 'react-router-dom'
+import {Route,Routes, NavLink, Outlet, useParams, Navigate} from 'react-router-dom'
 
 
 
@@ -25,7 +25,7 @@ const Vizyon = () => (
 )
 
 const Misyon = () => {
-    //use params ile url'yi alabiliriz.
+    //React uygulamamızda bazen mevcut rotanın parametrelerine erişmek istiyoruz, bu durumda useParams kancası devreye giriyor. tepki-yönlendirici-dom paketi, geçerli rotanın parametrelerine erişmenizi sağlayan useParams kancalarına sahiptir.
     const {url} = useParams() 
     return(
         <div>
@@ -43,6 +43,20 @@ const Page404 = () => {
         </div>
     )
 }
+//Private Route, belli kontrol doğrultusunda route girilip girilmeyeceğini belirleyebiliriz.
+//children ile PrivateRoute componentleri arasında bulunan eleman ya da text alınır.
+
+
+//CreateContext,
+/*Tipik bir React uygulamasında veri prop’lar aracılığıyla yukarıdan aşağıya aktarılır 
+(üst bileşenlerden alt bileşenlere). Fakat bu tür bir kullanım, uygulamadaki birçok 
+bileşen tarafından ihtiyaç duyulan belirli tipteki prop’lar (örneğin; lokalizasyon, 
+arayüz teması) için kullanışsız olabilir. Context, bileşen ağacın her bir seviyesi
+üzerinden açıkça bir prop geçirmeden, bileşenler arasında bu gibi değerleri 
+paylaşmanın bir yolunu sağlar.
+*/
+//const Context = createContext()
+
 
 export default class ReactRoter extends React.Component {
     render() {
