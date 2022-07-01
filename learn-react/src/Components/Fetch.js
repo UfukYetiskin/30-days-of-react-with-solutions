@@ -5,7 +5,8 @@ import {useEffect, useState} from 'react'
 
 const Fetch = () => {
     const [users, setUsers] = useState(false)
-
+    const [name, setName] = useState("")
+    const [avatar, setAvatar] = useState(false)
     
 
     //Post metodu için kullanılır
@@ -50,14 +51,49 @@ const Fetch = () => {
             body: 'post method içeriği'
         })
     }, [])
-
+    
+    // form içerisinde inputlar ile alınan verileri istediğimiz api'ya göndermeye yarıyor
+    const submitHandle = (e) => {
+        console.log('Submit Edildi.')
+        e.preventDefault()
+        const data = {
+            name,
+            avatar
+        }
+        const formData = new FormData()
+        formData.append('name', name)
+        formData.append('avatar', avatar)
+        //verilerimizi fetch ile istenilen adrese gönderiyoruz. Post methodunu kullanarak formData tipinde gönderiyoruz.
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+            method : 'POST',
+            body : formData
+        })
+    }
     return(
         <div>
-            {users && users.map((user, index) => (
-                <li key={index}>
-                   id: {user.id}  name:{user.name}
-                </li>
-            ))}
+            <form >
+                <input 
+                    type='text'
+                    value={name}
+                    name = 'name'
+                    onChange={(e)=> setName(e.target.value)}
+                />
+                <input 
+                    type='file'
+                    name ='avatar'
+                    onChange= {(e) => setAvatar(e.target.files[0])}
+                />
+                <button type='submit' disabled={!name || !avatar} onClick={submitHandle}>Submit</button>
+            </form>
+
+            <h1>User List</h1>
+            <ul>
+                {users && users.map((user, index) => (
+                    <li key={index}>
+                        id: {user.id}  name:{user.name}
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 
