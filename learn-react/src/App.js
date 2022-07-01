@@ -17,6 +17,7 @@ import ExampleofFormik from './Components/Formik'
 import ReactRoter from './Components/ReactRouter'
 import Fetch from './Components/Fetch'
 import Async from './Components/Async'
+import FetchWork from './Components/FetchWork'
 
 
 
@@ -502,6 +503,8 @@ const App = () =>{
       <Fetch></Fetch>
       <br></br>
       <Async ></Async>
+      <br></br>
+      <FetchWork></FetchWork>
     </div>
   )
 }
