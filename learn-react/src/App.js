@@ -15,6 +15,7 @@ import ThirdPartyPackages from './Components/ThirdPartyPackages'
 import FromsLesson2 from './Components/FormsLesson2'
 import ExampleofFormik from './Components/Formik'
 import ReactRoter from './Components/ReactRouter'
+import Fetch from './Components/Fetch'
 
 
 
@@ -496,6 +497,8 @@ const App = () =>{
       <ExampleofFormik></ExampleofFormik>
       <h1>Router Componenets</h1>
       <ReactRoter></ReactRoter>
+      <h1>Fetch and Axios</h1>
+      <Fetch></Fetch>
     </div>
   )
 }

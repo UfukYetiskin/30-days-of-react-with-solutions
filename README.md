@@ -1229,3 +1229,12 @@ Parametre olarak component alan bir fonksiyondur. Bunu örneğin birden fazla co
 Rotanın gerçek anlamı, bir yere ulaşmanın bir yolu veya yoludur. React'teki anlam da gerçek anlama benzer. React Router, kendi başına, React bileşenleri arasında gezinmenizi sağlayan bir React bileşenidir.
 
 En başından belirttiğimiz gibi, React tüm uygulamada yalnızca bir index.html sayfası olan tek sayfalık bir uygulamadır. Bir React Router uyguladığımızda, farklı bileşenler index.html sayfasında aynı anda veya farklı mantık ve koşullara göre farklı zamanlarda işlenir.
+
+
+## Eighteenth Day of React
+
+### Fetch and Axios
+
+#### Fecth
+
+Şu anda JavaScript, HTTP istekleri yapmak için bir getirme API'si sağlar. Getirme tüm tarayıcılar tarafından desteklenmeyebilir, bu nedenle tarayıcı destekleri için ek paket yükledik. Ancak, Axios kullanırsak tarayıcı desteği için ek paket kullanmamız gerekmez. Axios kodu getirmeden daha temiz görünüyor. Bu bölümde fetch ve axios arasındaki farkı göreceğiz.

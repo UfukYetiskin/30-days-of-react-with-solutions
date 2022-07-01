@@ -1672,3 +1672,11 @@ export default class ReactRoter extends React.Component {
     }
 }
 ```
+
+## Eighteenth Day of React
+
+### Fetch and Axios
+
+#### Fecth
+
+Şu anda JavaScript, HTTP istekleri yapmak için bir getirme API'si sağlar. Getirme tüm tarayıcılar tarafından desteklenmeyebilir, bu nedenle tarayıcı destekleri için ek paket yükledik. Ancak, Axios kullanırsak tarayıcı desteği için ek paket kullanmamız gerekmez. Axios kodu getirmeden daha temiz görünüyor. Bu bölümde fetch ve axios arasındaki farkı göreceğiz.
