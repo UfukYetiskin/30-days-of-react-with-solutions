@@ -16,6 +16,7 @@ import FromsLesson2 from './Components/FormsLesson2'
 import ExampleofFormik from './Components/Formik'
 import ReactRoter from './Components/ReactRouter'
 import Fetch from './Components/Fetch'
+import Async from './Components/Async'
 
 
 
@@ -497,7 +498,10 @@ const App = () =>{
       <ExampleofFormik></ExampleofFormik>
       <h1>Router Componenets</h1>
       <ReactRoter></ReactRoter>
+      <br></br>
       <Fetch></Fetch>
+      <br></br>
+      <Async ></Async>
     </div>
   )
 }
