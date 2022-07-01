@@ -70,7 +70,8 @@ const Fetch = () => {
         })
     }
     return(
-        <div>
+        <div style={{border : '1px solid black', margin : '1%', padding : '1%'}}>
+            <h1>Fetch</h1>
             <form >
                 <input 
                     type='text'

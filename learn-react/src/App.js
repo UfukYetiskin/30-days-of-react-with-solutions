@@ -497,7 +497,6 @@ const App = () =>{
       <ExampleofFormik></ExampleofFormik>
       <h1>Router Componenets</h1>
       <ReactRoter></ReactRoter>
-      <h1>Fetch and Axios</h1>
       <Fetch></Fetch>
     </div>
   )
