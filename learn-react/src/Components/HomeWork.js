@@ -16,7 +16,16 @@ const HomeWork = () => {
         <div>
             <h1>This work about the Cats API</h1>
             <ul>
-
+                {cats.map((cat, index) => (
+                    <li style={{listStyleType : 'none', marginTop : '5%', marginLeft : '5%'}} key={index}>
+                        <img src={cat.url}  alt={cat.name}/>
+                        <p>{cat.name}</p>
+                        <p>{cat.origin}</p>
+                        <p>Temperament: {cat.temperament}</p>
+                        <p>Life Span: {cat.life_span} </p>
+                        <p>Description: {cat.description}</p>
+                    </li>
+                ))}
             </ul>
         </div>
     )
