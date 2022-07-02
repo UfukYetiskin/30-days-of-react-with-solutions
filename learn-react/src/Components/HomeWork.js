@@ -11,10 +11,16 @@ const HomeWork = () => {
             .catch(err => console.log(err))
     }, [])
 
-
     return(
         <div style={{border : '1px solid black', paddin : '1%'}}>
             <h1>This work about the Cats API</h1>
+            <div style={{width : '50%' , marginLeft : '7%'}}>
+                {cats && cats.map((cat, index) => (
+                    <button  style={{margin : '10px', padding : '10px', borderRadius : '10px', fontSize : '16px'}} key={index}>
+                        {cat.origin}
+                    </button>
+                ))}
+            </div>
             <ul>
                 {cats && cats.map((cat, index) => (
                     <li style={{overflow : 'auto',border : '1px solid black',listStyleType : 'none', marginTop : '5%', marginLeft : '5%', padding : ' 2%', width : '50%'}} key={index}>
