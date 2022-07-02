@@ -18,6 +18,7 @@ import ReactRoter from './Components/ReactRouter'
 import Fetch from './Components/Fetch'
 import Async from './Components/Async'
 import FetchWork from './Components/FetchWork'
+import HomeWork from './Components/HomeWork'
 
 
 
@@ -505,6 +506,8 @@ const App = () =>{
       <Async ></Async>
       <br></br>
       <FetchWork></FetchWork>
+      <br></br>
+      <HomeWork></HomeWork>
     </div>
   )
 }
