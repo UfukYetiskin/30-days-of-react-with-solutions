@@ -13,12 +13,12 @@ const HomeWork = () => {
 
 
     return(
-        <div>
+        <div style={{border : '1px solid black', paddin : '1%'}}>
             <h1>This work about the Cats API</h1>
             <ul>
-                {cats.map((cat, index) => (
-                    <li style={{listStyleType : 'none', marginTop : '5%', marginLeft : '5%'}} key={index}>
-                        <img src={cat.url}  alt={cat.name}/>
+                {cats && cats.map((cat, index) => (
+                    <li style={{overflow : 'auto',border : '1px solid black',listStyleType : 'none', marginTop : '5%', marginLeft : '5%', padding : ' 2%'}} key={index}>
+                        <img src='https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg'  alt={cat.image}/>
                         <p>{cat.name}</p>
                         <p>{cat.origin}</p>
                         <p>Temperament: {cat.temperament}</p>
