@@ -14,8 +14,14 @@ const HomeWork = () => {
     const handleClick = (e) => {
         
         const buttonValue = e.target.value
-        const filterCats = cats && cats.filter((cat) => cat.origin === buttonValue).map((cat) => {return cat})
+        let filterCats = cats && cats.filter((cat) => cat.origin === buttonValue).map((cat) => {return cat})
         setFilterCats(filterCats)
+        if(buttonValue === 'All'){
+           filterCats =  cats && cats.map((cat) => {return cat} )
+           setFilterCats(filterCats)
+        }else{
+            setFilterCats(filterCats)
+        }
         console.log(buttonValue)
         console.log(filterCat)
     }
@@ -28,6 +34,7 @@ const HomeWork = () => {
                         {cat.origin}
                     </button>
                 ))}
+                <button style={{margin : '10px', padding : '10px', borderRadius : '10px', fontSize : '16px'}} value="All" onClick={handleClick}>All</button>
             </div>
             <ul value={filterCat}>
                 {filterCat && filterCat.map((cat, index) => (
