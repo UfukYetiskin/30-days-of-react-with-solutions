@@ -19,6 +19,7 @@ import Fetch from './Components/Fetch'
 import Async from './Components/Async'
 import FetchWork from './Components/FetchWork'
 import HomeWork from './Components/HomeWork'
+import Context from './Components/Context'
 
 
 
@@ -508,6 +509,8 @@ const App = () =>{
       <FetchWork></FetchWork>
       <br></br>
       <HomeWork></HomeWork>
+      <br></br>
+      <Context></Context>
     </div>
   )
 }
