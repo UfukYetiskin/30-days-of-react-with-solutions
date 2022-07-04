@@ -20,6 +20,7 @@ import Async from './Components/Async'
 import FetchWork from './Components/FetchWork'
 import HomeWork from './Components/HomeWork'
 import Context from './Components/Context'
+import ContextHook from './Components/Context'
 
 
 
@@ -510,7 +511,7 @@ const App = () =>{
       <br></br>
       <HomeWork></HomeWork>
       <br></br>
-      <Context></Context>
+      <ContextHook></ContextHook>
     </div>
   )
 }

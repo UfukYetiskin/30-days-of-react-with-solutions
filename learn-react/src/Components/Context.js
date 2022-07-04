@@ -1,31 +1,34 @@
-import {useState, createContext} from 'react'
+import {useState, createContext, useContext} from 'react'
+import SiteContext from './SiteContext'
 
 
 //Header Componenti
 //Propslar ile Context componenti üzerinden state'leri aldık ve istediğimiz fonksiyonları atadık
-const Header = ({theme, setTheme, language, setLanguage}) => {
+const Header = () => {
     return(
         <div>
             Header <br></br>
-            <SwitchTheme theme={theme} setTheme={setTheme}/>
-            <SwitchLanguage language={language} setLanguage={setLanguage}/>
+            <SwitchTheme />
+            <SwitchLanguage />
         </div>
     )
 }
 
 //Footer Component
 //Propslar ile Context componenti üzerinden state'leri aldık ve istediğimiz fonksiyonları atadık
-const Footer = ({theme, setTheme, language, setLanguage}) =>  {
+const Footer = () =>  {
     return(
         <div>
             Footer<br></br>
-            <SwitchTheme theme={theme} setTheme={setTheme}/>
-            <SwitchLanguage language={language} setLanguage={setLanguage}/>
+            <SwitchTheme />
+            <SwitchLanguage />
         </div>
     )
 }
 
-const SwitchTheme = ({theme, setTheme}) => {
+const SwitchTheme = () => {
+    //Parent conponent içerisinde createContext ile tuttuğumuz propları  data adıyla bir objede Home componenti ile paylaştık. Burada üstten en alta doğru birbirine bağlı olan bütün componentler useContext Hook ile bu propslara erişebilecek.
+    const {theme, setTheme} = useContext(SiteContext)
     return(
         <div>
              Mevcut Teme = {theme} <br/>
@@ -34,7 +37,9 @@ const SwitchTheme = ({theme, setTheme}) => {
     )
 }
 //Bu component ile language state'ini tutarız ve istediğimiz fonksiyonları sağlarız.
-const SwitchLanguage = ({language, setLanguage}) => {
+const SwitchLanguage = () => {
+    //useContext hooku ile propsları çekiyoruz.
+    const {language, setLanguage} = useContext(SiteContext)
     return(
         <div>
             Mevcut Dil : {language}<br></br>
@@ -42,22 +47,32 @@ const SwitchLanguage = ({language, setLanguage}) => {
         </div>
     )
 }
-//context adında createContext metodunu kullaanrak bir component oluşturduk.
-const context = createContext();
-
+//Footer ve Header componentlerini tutacak bir component
+const Home = ({theme, setTheme, language, setLanguage}) => {
+    return(
+        <div>
+            <Header />
+            <Footer />
+        </div>
+    )
+}
 
 //Context component'i parent görevi görmektedir.
-export default function Context (){
+export default function ContextHook (){
 
     const [theme, setTheme] = useState('light')
     const [language, setLanguage] = useState('tr')
 
+    const data = {
+        theme,
+        setTheme,
+        language,
+        setLanguage
+    }
 
     return(
-        <div style={{border : '1px solid black', padding :' 2%'}}>
-            <h1>useContext Hook</h1>
-            <Header theme={theme} setTheme={setTheme} language={language} setLanguage={setLanguage}/>
-            <Footer theme={theme} setTheme={setTheme} language={language} setLanguage={setLanguage}/>
-        </div>
+        <SiteContext.Provider value={data}>
+            <Home  />
+        </SiteContext.Provider>
     )
 }

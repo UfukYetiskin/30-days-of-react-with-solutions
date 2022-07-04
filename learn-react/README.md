@@ -1791,3 +1791,111 @@ export default Fetch
 React uygulamalarında state'ler prop'lar yardımıyla parent (üst) componentlardan child (alt) componentlara aktarılır. Uygulama genelinde state'nin aktarıldığı component seviyesi fazla ise yani state birden fazla iç içe componenta aktarılmak isteniyorsa uygulamamız yönetilemez hale gelebilir. React Context'ler component ağacında istediğimiz veriyi prop'lar üzerinden taşımadan componentlar arasında taşımayı sağlar.
 
 React ile uygulama geliştirirken state'ler tanımlarız ve bu state'leri kullanacağımız componentlara prop'lar yardımıyla aktarırız. Aynı seviyedeki componentlarda bu state'i kullanmak istediğimizde ise state'i bir seviye üstteki component'a taşımak zorunda kalırız. Bu akış basit uygulamalarda problem olmayabilir. Fakat uygulama büyüdükçe ve component sayısı arttıkça state'i yönetmek ve component'ların bu state'i kullanmasını sağlamak büyük bir problem haline gelebiliyor. 
+
+
+```
+import {useState, createContext, useContext} from 'react'
+import SiteContext from './SiteContext'
+
+
+//Header Componenti
+//Propslar ile Context componenti üzerinden state'leri aldık ve istediğimiz fonksiyonları atadık
+const Header = () => {
+    return(
+        <div>
+            Header <br></br>
+            <SwitchTheme />
+            <SwitchLanguage />
+        </div>
+    )
+}
+
+//Footer Component
+//Propslar ile Context componenti üzerinden state'leri aldık ve istediğimiz fonksiyonları atadık
+const Footer = () =>  {
+    return(
+        <div>
+            Footer<br></br>
+            <SwitchTheme />
+            <SwitchLanguage />
+        </div>
+    )
+}
+
+const SwitchTheme = () => {
+    //Parent conponent içerisinde createContext ile tuttuğumuz propları  data adıyla bir objede Home componenti ile paylaştık. Burada üstten en alta doğru birbirine bağlı olan bütün componentler useContext Hook ile bu propslara erişebilecek.
+    const {theme, setTheme} = useContext(SiteContext)
+    return(
+        <div>
+             Mevcut Teme = {theme} <br/>
+            <button onClick={(e) => setTheme(theme === 'light' ? 'dark' : 'light')}>Temayı Değiştir</button>
+        </div>
+    )
+}
+//Bu component ile language state'ini tutarız ve istediğimiz fonksiyonları sağlarız.
+const SwitchLanguage = () => {
+    //useContext hooku ile propsları çekiyoruz.
+    const {language, setLanguage} = useContext(SiteContext)
+    return(
+        <div>
+            Mevcut Dil : {language}<br></br>
+            <button onClick={() => setLanguage(language === 'tr' ? 'en' : 'tr')} >Dili Değiştir</button>
+        </div>
+    )
+}
+//Footer ve Header componentlerini tutacak bir component
+const Home = ({theme, setTheme, language, setLanguage}) => {
+    return(
+        <div>
+            <Header />
+            <Footer />
+        </div>
+    )
+}
+
+//Context component'i parent görevi görmektedir.
+export default function ContextHook (){
+
+    const [theme, setTheme] = useState('light')
+    const [language, setLanguage] = useState('tr')
+
+    const data = {
+        theme,
+        setTheme,
+        language,
+        setLanguage
+    }
+
+    return(
+        <SiteContext.Provider value={data}>
+            <Home  />
+        </SiteContext.Provider>
+    )
+}
+```
+
+İlk olarak SiteContext adında bir dosya oluşturduk ve içerisinde createContext metodunu kullandık.
+
+```
+import { createContext } from "react";
+
+const context = createContext()
+
+export default context
+```
+
+oluşturduğumuz componenti hemen import ettik ve istenilen componenti içerisine sarmalladık. Bu sayede istediğimiz props(verileri) parent'tan child'a doğru akışını sağlamış olduk. Burada Home componenti oluşturduk ve onun içerisinde component sarmalı oluşturdukç Bu sayede Home componentinin aldığı verileri rahatça child'lara aktarmayı başardık.
+
+En küçük child'ımız içerisinde parent'tan gelen verileri almak için useContext Hook'unu kullandık. Bu sayede istedğimiz verileri rahatça elde ettik. 
+```
+const SwitchLanguage = () => {
+
+    const {language, setLanguage} = useContext(SiteContext)
+    return(
+        <div>
+            Mevcut Dil : {language}<br></br>
+            <button onClick={() => setLanguage(language === 'tr' ? 'en' : 'tr')} >Dili Değiştir</button>
+        </div>
+    )
+}
+```
