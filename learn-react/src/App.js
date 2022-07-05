@@ -19,8 +19,8 @@ import Fetch from './Components/Fetch'
 import Async from './Components/Async'
 import FetchWork from './Components/FetchWork'
 import HomeWork from './Components/HomeWork'
-import Context from './Components/Context'
 import ContextHook from './Components/Context'
+import FetchCountries from './Components/FetchCountries'
 
 
 
@@ -512,6 +512,8 @@ const App = () =>{
       <HomeWork></HomeWork>
       <br></br>
       <ContextHook></ContextHook>
+      <br></br>
+      <FetchCountries/>
     </div>
   )
 }
