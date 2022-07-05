@@ -1899,3 +1899,10 @@ const SwitchLanguage = () => {
     )
 }
 ```
+
+
+## Twenty Seventh Days of React
+
+## UseRef
+
+React’ta refs, dom elemanına ya da react render metodu içerisinde oluşturulan ögelere erişmeye imkan tanıyan yapılardır.
