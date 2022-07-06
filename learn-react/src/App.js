@@ -21,6 +21,7 @@ import FetchWork from './Components/FetchWork'
 import HomeWork from './Components/HomeWork'
 import ContextHook from './Components/Context'
 import FetchCountries from './Components/FetchCountries'
+import FormikSecondExample from './Components/FormikSecondExample'
 
 
 
@@ -514,6 +515,8 @@ const App = () =>{
       <ContextHook></ContextHook>
       <br></br>
       <FetchCountries/>
+      <br/>
+      <FormikSecondExample></FormikSecondExample>
     </div>
   )
 }
