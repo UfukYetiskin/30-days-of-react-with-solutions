@@ -23,6 +23,7 @@ import ContextHook from './Components/Context'
 import FetchCountries from './Components/FetchCountries'
 import FormikSecondExample from './Components/FormikSecondExample'
 import ReactMemo from './Components/ReactMemo'
+import UseMemoComponent from './Components/UseMemoComponent'
 
 
 
@@ -518,7 +519,10 @@ const App = () =>{
       <FetchCountries/>
       <br/>
       <FormikSecondExample></FormikSecondExample>
+      <br></br>
       <ReactMemo></ReactMemo>
+      <br></br>
+      <UseMemoComponent></UseMemoComponent>
     </div>
   )
 }
