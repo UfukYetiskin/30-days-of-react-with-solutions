@@ -13,11 +13,18 @@ const Profile = () => {
             setLoading(false)
         }, 1500) 
     }
+    const handleLogout = () => {
+        data.setUser(null)
+    }
     return(
         <div>
             <button onClick={handleLogin}>{loading ? "loading" : "Login"}</button>
             {data.bio}
             <code>{JSON.stringify(data)}</code>
+            <br></br>
+            {
+                data.user && <button onClick={handleLogout}>Logout</button>
+            }
         </div>
     )
 }
