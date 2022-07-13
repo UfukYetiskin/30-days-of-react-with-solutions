@@ -1,5 +1,5 @@
 
-import { createContext, useState } from "react"
+import { createContext, useState, useEffect } from "react"
 
 //ThemeContext ile dataları tutacak bir state yaratmış olduk.
 //Bunun sayesinde componentler içerisinde yukarıdan aşağı veri akışını engellemeyi başarmış oluruz ve istediğimiz yerden veri çekebilir hale geliyoruz.
@@ -20,6 +20,9 @@ export const ThemeProvider = ({children}) => {
         textColor,
         setTextColor
     }
+    useEffect(() => {
+        console.log(theme)
+    }, [theme])
     return(
         <ThemeContext.Provider value={values}>
             {children}
