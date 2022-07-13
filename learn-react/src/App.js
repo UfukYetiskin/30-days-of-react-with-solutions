@@ -24,6 +24,7 @@ import FetchCountries from './Components/FetchCountries'
 import FormikSecondExample from './Components/FormikSecondExample'
 import ReactMemo from './Components/ReactMemo'
 import UseMemoComponent from './Components/UseMemoComponent'
+import SecondContext from './Components/context/SecondContext'
 
 
 
@@ -523,6 +524,8 @@ const App = () =>{
       <ReactMemo></ReactMemo>
       <br></br>
       <UseMemoComponent></UseMemoComponent>
+      <br></br>
+      <SecondContext></SecondContext>
     </div>
   )
 }
