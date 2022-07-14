@@ -18,8 +18,9 @@ export const  WheatherProvider = ({children}) => {
         fetch(url)
             .then((res)=> res.json())
             .then((data) => setData(data))
-    }, [])
+    }, [city])
     console.log(data)
+    console.log(city)
     return(
         <WheatherContext.Provider value={values}>
             {children}
