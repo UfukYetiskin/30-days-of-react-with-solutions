@@ -9,7 +9,7 @@ const Weather = () => {
     return(
     <div>
         <h1>Weather Component</h1>
-        {data}
+        {data.weather}
     </div>
     )
 
