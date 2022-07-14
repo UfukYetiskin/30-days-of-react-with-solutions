@@ -25,6 +25,7 @@ import FormikSecondExample from './Components/FormikSecondExample'
 import ReactMemo from './Components/ReactMemo'
 import UseMemoComponent from './Components/UseMemoComponent'
 import SecondContext from './Components/context/SecondContext'
+import MainComponent from './Components/weather/MainComponent'
 
 
 
@@ -526,6 +527,8 @@ const App = () =>{
       <UseMemoComponent></UseMemoComponent>
       <br></br>
       <SecondContext></SecondContext>
+      <br></br>
+      <MainComponent></MainComponent>
     </div>
   )
 }
