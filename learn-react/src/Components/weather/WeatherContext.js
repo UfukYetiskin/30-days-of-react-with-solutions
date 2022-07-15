@@ -4,8 +4,8 @@ const WheatherContext = createContext();
 
 export const  WheatherProvider = ({children}) => {
     const [data, setData] = useState(false)
-    const [city, setCity] = useState('Ankara')
-    const apiKey = 'a8f42045640d3c79798418f0074f1cd4'
+    const [city, setCity] = useState('Şanlıurfa')
+    const apiKey = '0e8b2c4e5a41d2b3b81897c77b9e4d88'
     const url =  `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=tr`
 
     const values = {
