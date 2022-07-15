@@ -6,7 +6,7 @@ export const  WheatherProvider = ({children}) => {
     const [data, setData] = useState(false)
     const [city, setCity] = useState('Ankara')
     const apiKey = '0e8b2c4e5a41d2b3b81897c77b9e4d88'
-    const url =  `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=tr`
+    const url =  `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=0e8b2c4e5a41d2b3b81897c77b9e4d88`
 
     const values = {
         data,
@@ -18,7 +18,7 @@ export const  WheatherProvider = ({children}) => {
         fetch(url)
             .then((res)=> res.json())
             .then((data) => setData(data))
-    }, [city])
+    },[city])
     console.log(data)
     console.log(city)
     return(
