@@ -54,22 +54,23 @@ const Calculater = () => {
         border  : '1px solid black',
         padding : '3%',
         width :  '22%',
-        textAlign : 'center'
+        textAlign : 'center',
+        backgroundColor : 'orange'
     }
  
     
     return(
-        <div style={{width : '30%', backgroundColor : 'darkslategray'}}>
-            <h2>Calculater</h2>
+        <div style={{width : '30%', backgroundColor : 'darkslategray', justifyContent : 'center', marginLeft : '35%', borderRadius :'10px'}}>
+            <h2 style={{textAlign : 'center', marginTop :  "2%"}}>Calculater</h2>
             <div>
                 <input
-                    style={{backgroundColor : 'dimgray', color: 'white', padding : '1%', margin : '1%', width : '90%'}}
+                    style={{backgroundColor : 'dimgray', color: 'white', padding : '1%', margin : '1%', width : '90%', textAlign : 'right', fontSize : '24px'}}
                     type="text"
                     value = {`${firstNumbers} ${operator} ${secondNumbers} ${sonuc}`}
                 />
             </div>
             <div style={divStyles} >
-                <button onClick={handleReset} value="C"  style={{ display : 'inline-block', margin: '1%',border  : '1px solid black',padding : '3%',width :  '46%',textAlign : 'center'}}>C</button>
+                <button onClick={handleReset} value="C"  style={{ display : 'inline-block', margin: '1%',border  : '1px solid black',backgroundColor : 'orange',padding : '3%',width :  '46%',textAlign : 'center'}}>C</button>
                 <button onClick={handleOperator}  value="%" style={spanStyles}>%</button>
                 <button onClick={handleOperator} value="/" style={spanStyles}>/</button>
             </div>
@@ -92,7 +93,7 @@ const Calculater = () => {
                 <button onClick={handleOperator} value="+" style={spanStyles}>+</button>
             </div>
             <div style={divStyles}>
-                <button onClick={handleNumbers} value="0" style={{ display : 'inline-block', margin: '1%',border  : '1px solid black',padding : '3%',width :  '46%',textAlign : 'center'}}>0</button>
+                <button onClick={handleNumbers} value="0" style={{ display : 'inline-block', margin: '1%', backgroundColor : 'orange',border  : '1px solid black',padding : '3%',width :  '46%',textAlign : 'center'}}>0</button>
                 <button onClick={handleNumbers} value="." style={spanStyles}>.</button>
                 <button onClick={handleSonuc} value="=" style={spanStyles}>=</button>
             </div>
