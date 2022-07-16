@@ -26,6 +26,7 @@ import ReactMemo from './Components/ReactMemo'
 import UseMemoComponent from './Components/UseMemoComponent'
 import SecondContext from './Components/context/SecondContext'
 import MainComponent from './Components/weather/MainComponent'
+import Calculater from './Components/Calculater'
 
 
 
@@ -529,6 +530,8 @@ const App = () =>{
       <SecondContext></SecondContext>
       <br></br>
       <MainComponent></MainComponent>
+      <br/>
+      <Calculater></Calculater>
     </div>
   )
 }
