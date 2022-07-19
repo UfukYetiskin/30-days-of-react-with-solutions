@@ -27,6 +27,7 @@ import UseMemoComponent from './Components/UseMemoComponent'
 import SecondContext from './Components/context/SecondContext'
 import MainComponent from './Components/weather/MainComponent'
 import Calculater from './Components/Calculater'
+import Station from './Components/station/Station'
 
 
 
@@ -532,6 +533,8 @@ const App = () =>{
       <MainComponent></MainComponent>
       <br/>
       <Calculater></Calculater>
+      <br></br>
+      <Station></Station>
     </div>
   )
 }
