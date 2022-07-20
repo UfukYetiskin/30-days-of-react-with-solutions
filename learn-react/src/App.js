@@ -28,6 +28,7 @@ import SecondContext from './Components/context/SecondContext'
 import MainComponent from './Components/weather/MainComponent'
 import Calculater from './Components/Calculater'
 import Station from './Components/station/Station'
+import LocalizationComponent from './Components/localization/LocalizationComponent'
 
 
 
@@ -535,7 +536,9 @@ const App = () =>{
       <Calculater></Calculater>
       <br></br>
       <Station></Station>
-    </div>
+      <br></br>
+      <LocalizationComponent></LocalizationComponent>
+   </div>
   )
 }
 

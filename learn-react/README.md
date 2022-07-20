@@ -3,6 +3,7 @@
 İlk olarak, React ve ReactDOM'u içe(import) aktarmalıyız. React, JSX'i DOM üzerinde işlemek için JSX ve ReactDOM yazmamıza izin verir. ReactDOM' un bir oluşturma yöntemi vardır. 
 
 ### React'ta JSX elementlerine veri ekleme
+
 ```
 //JSX öğelerine veri ekleme
 const ufuk = "Ufuk Yetişkin"
@@ -1942,3 +1943,55 @@ const UseRef = () => {
 ## ForwardRef
 
 React'ta bir component'e erişmek ya da seçmek istiyorsak forwardRef Hookunu kullanırız.
+
+
+
+## React Localization
+
+React ile geliştirilen mobil uygulamalarda dil desteği ekleyebilmekteyiz. Dil desteği ya da farklı dillerde kullanılabilme özelliği uygulamaları daha efektif yapabilmektedir.
+
+```
+//npm add react-intl ile paketimizi kurduk.
+//kullanacağımız fonkları import ettik. 
+import { IntlProvider, FormattedMessage, FormattedNumber } from "react-intl";
+import React from 'react'
+import {useState} from 'react'
+
+
+
+function LocalizationComponent() {
+
+    const [lang, setLang] = useState('tr-TR')
+    
+    const messages = {
+        'tr-TR'  : {
+           title: "Merhaba Dünya",
+           description : "3 yeni bildiriminiz var."
+        },
+        'en-US' : {
+            title : "Hello World",
+            description : "You have 3 new messages"
+        }
+
+    }
+
+  return (
+    <div style={{border: '2px solid orange', padding :'2%', margin :'0 auto'}}>
+        <h1>This component is includes Localization</h1>
+
+        //IntlProvider kapsayıcı özelliğini taşır.
+        <IntlProvider
+            messages={messages[lang]}
+        > 
+            //FormattedMessage ile dil desteği almak istediğimiz etiket ya da elemanı id ile alırız.
+            <FormattedMessage id="title" /><br/>
+            <FormattedMessage id="description" /> <br></br>
+            <button onClick={() => setLang('tr-TR')}>TR</button>
+            <button onClick={() => setLang('en-US')}>ENG</button>
+        </IntlProvider>
+    </div>
+  )
+}
+
+export default LocalizationComponent
+```
