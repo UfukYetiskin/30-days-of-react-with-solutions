@@ -1,4 +1,5 @@
 import { useState } from "react";
+import EmojiComponent from "./EmojiComponent";
 import TodoProject from "./TodoProject";
 
 const TestedComponent = () => {
@@ -9,6 +10,7 @@ const TestedComponent = () => {
             <span>{count}</span>
             <button onClick={() => setCount(count-1)}>Decrease</button>
             <TodoProject></TodoProject>
+            <EmojiComponent></EmojiComponent>
         </div>
     )
 }
