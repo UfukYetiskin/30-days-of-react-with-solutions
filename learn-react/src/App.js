@@ -31,6 +31,7 @@ import Station from './Components/station/Station'
 import LocalizationComponent from './Components/localization/LocalizationComponent'
 import TestedComponent from './Components/test/TestedComponent'
 import UseReducerHook from './Components/UseReducerHook'
+import UseRefHook from './Components/userefandforward/UseRefHook'
 
 
 
@@ -544,6 +545,8 @@ const App = () =>{
       <TestedComponent></TestedComponent>
       <br/>
       <UseReducerHook/>
+      <br/>
+      <UseRefHook/>
    </div>
   )
 }
