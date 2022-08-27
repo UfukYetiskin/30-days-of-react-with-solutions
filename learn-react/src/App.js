@@ -32,7 +32,8 @@ import LocalizationComponent from './Components/localization/LocalizationCompone
 import TestedComponent from './Components/test/TestedComponent'
 import UseReducerHook from './Components/UseReducerHook'
 import UseRefHook from './Components/userefandforward/UseRefHook'
-
+import ForwardRefHook from './Components/userefandforward/ForwardRefHook'
+import HighOrderComponents from "./Components/highordercomponent/HighOrderComponents"
 
 
 
@@ -547,6 +548,10 @@ const App = () =>{
       <UseReducerHook/>
       <br/>
       <UseRefHook/>
+      <br></br>
+      <ForwardRefHook/>
+      <br></br>
+      <HighOrderComponents/>
    </div>
   )
 }
