@@ -6,13 +6,13 @@ export default function LifeCycle(){
 
 
     useEffect(() => {
-        //Örneğin bir butona basıldığında component render olur ve useEffect çalışır.
+        //Component ilk render edilidği anda console'a bir kere yazdırır.
        console.log('Component render olduğunda çalışır.') 
     })
 
     useEffect(() => {
-        //Bu satırda ilgili component yüklendiği anda çalışır.
-        console.log('component ilk yüklendiğinde çalışır!')
+        //Bu satırda dependets array içerisine tanımlanmış değişken ya da statete bir değişiklik olduğunda console çıktı verir.
+        console.log('Depenteds içerisindeki state değişti.')
         
         //ilgili component öldürüldüğünde çalışır. Örneğin sayfa yenilendiğinde öldürülür.
         return()=>{
